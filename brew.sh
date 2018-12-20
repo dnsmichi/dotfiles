@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # This installs homebrew itself, and also the command line tools in silent mode
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+#/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 
 brew update
@@ -67,7 +67,7 @@ brew install php
 
 sudo cp /etc/apache2/httpd.conf /etc/apache2/httpd.conf.bak
 
-cat >>/etc/apache2/httpd.conf <<EOF
+sudo bash -c 'cat >>/etc/apache2/httpd.conf <<EOF
 LoadModule rewrite_module libexec/apache2/mod_rewrite.so
 LoadModule php7_module /usr/local/opt/php/lib/httpd/modules/libphp7.so
 <FilesMatch \.php$>
@@ -77,8 +77,8 @@ LoadModule php7_module /usr/local/opt/php/lib/httpd/modules/libphp7.so
 <IfModule dir_module>
     DirectoryIndex index.php index.html
 </IfModule>
-EOF
-sudo apachectl start
+EOF'
+sudo apachectl restart
 
 # Ruby
 brew install ruby
@@ -95,8 +95,9 @@ brew cask install apache-directory-studio atom filezilla firefox macvim vlc wire
 
 # Gimp
 brew cask install gimp
-cd /Applications/GIMP.app/Contents/Resources/share/gimp/2.0/scripts/
-wget http://registry.gimp.org/files/arrow.scm
+#mkdir -p "/Applications/GIMP.app/Contents/Resources/share/gimp/2.0/scripts/"
+#cd /Applications/GIMP.app/Contents/Resources/share/gimp/2.0/scripts/
+#wget http://registry.gimp.org/files/arrow.scm
 
 # Vagrant
 brew cask install vagrant
