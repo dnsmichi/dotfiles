@@ -49,7 +49,7 @@ EOF
 # Storage
 ##########################
 # Screenshot location
-mkdir "${HOME}/Pictures/screenshots"
+test -d "${HOME}/Pictures/screenshots" || mkdir -p "${HOME}/Pictures/screenshots"
 defaults write com.apple.screencapture location -string "${HOME}/Pictures/screenshots"
 #killall SystemUIServer
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
