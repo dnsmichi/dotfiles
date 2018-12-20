@@ -1,0 +1,31 @@
+[user]
+	email = michael.friedrich@netways.de
+	name = Michael Friedrich
+	signingkey = D14A1F16
+[alias]
+	l  = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --
+    	alias = config --get-regexp 'alias.*' # list all aliases
+	rms = "!f(){ git rm --cached \"$1\";rm -r \"$1\";git config -f .gitmodules --remove-section \"submodule.$1\";git config -f .git/config --remove-section \"submodule.$1\";git add .gitmodules; }; f"
+
+[color]
+        ui = auto
+[color "branch"]
+        current = blue
+        local = cyan
+        remote = green
+[color "diff"]
+        meta = blue bold
+        frag = magenta bold
+        old = red bold
+        new = green bold
+        whitespace = red reverse
+[color "status"]
+        added = yellow
+        changed = green
+        untracked = cyan
+[core]
+        whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    	#editor = vim
+	excludesfile = /Users/michi/.gitignore_global
+[push]
+	default = simple
