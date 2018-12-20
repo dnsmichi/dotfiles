@@ -71,8 +71,8 @@ sudo chflags nohidden /Volumes
 # iterm2
 ##########################
 
-# Use my light profile
-open "${HOME}/init/light.itermprofile"
+# Store/Load the profile stored here
+defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.dotfiles/iterm2"
 
 # Don’t display the annoying prompt when quitting iTerm
 #defaults write com.googlecode.iterm2 PromptOnQuit -bool false
