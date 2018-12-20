@@ -1,0 +1,75 @@
+# Inspired by https://github.com/mathiasbynens/dotfiles
+
+MBPNAME="mbpmif"
+
+# close any system preference windows first
+osascript -e 'tell application "System Preferences" to quit'
+
+# become root
+sudo -v
+
+# stay root
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+##########################
+# General
+##########################
+sudo scutil --set ComputerName "${MBPNAME}"
+
+dscacheutil -flushcache
+
+# disable beep on boot
+#sudo nvram SystemAudioVolume=" "
+
+##########################
+# Input
+##########################
+
+# Trackpad: enable tap to click for this user and for the login screen
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+# Trackpad: map bottom right corner to right-click
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
+defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+
+
+##########################
+# Storage
+##########################
+# Screenshot location
+mkdir "${HOME}/Pictures/screenshots"
+defaults write com.apple.screencapture location -string "${HOME}/Pictures/screenshots"
+#killall SystemUIServer
+# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+#defaults write com.apple.screencapture type -string "png"
+
+
+##########################
+# Finder
+##########################
+
+# Show the ~/Library folder
+chflags nohidden ~/Library
+
+# Show the /Volumes folder
+sudo chflags nohidden /Volumes
+
+
+##########################
+# iterm2
+##########################
+
+# Don’t display the annoying prompt when quitting iTerm
+#defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+
+
+##########################
+# Time Machine
+##########################
+# Set the size to 1.5 * disk size in order to avoid huge backup reservations in time machine.
+# Example: 250 * 1.5 * 1024 = 384000
+defaults write /Library/Preferences/com.apple.TimeMachine MaxSize -integer 384000
