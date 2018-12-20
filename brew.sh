@@ -11,9 +11,6 @@ BREW_PREFIX=$(brew --prefix)
 
 brew tap caskroom/cask
 brew tap homebrew/services
-brew tap homebrew/fuse
-brew tap homebrew/gui
-brew tap homebrew/completions
 
 # coreutils
 brew install coreutils
