@@ -65,9 +65,9 @@ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mariadb.plist
 # PHP & Apache
 brew install php
 
-sudo cp /etc/apache/httpd.conf /etc/apache/httpd.conf.bak
+sudo cp /etc/apache2/httpd.conf /etc/apache2/httpd.conf.bak
 
-cat >>/etc/apache/httpd.conf <<EOF
+cat >>/etc/apache2/httpd.conf <<EOF
 LoadModule rewrite_module libexec/apache2/mod_rewrite.so
 LoadModule php7_module /usr/local/opt/php/lib/httpd/modules/libphp7.so
 <FilesMatch \.php$>
