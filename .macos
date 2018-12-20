@@ -79,4 +79,4 @@ sudo chflags nohidden /Volumes
 ##########################
 # Set the size to 1.5 * disk size in order to avoid huge backup reservations in time machine.
 # Example: 250 * 1.5 * 1024 = 384000
-defaults write /Library/Preferences/com.apple.TimeMachine MaxSize -integer 384000
+sudo defaults write /Library/Preferences/com.apple.TimeMachine MaxSize -integer 384000
