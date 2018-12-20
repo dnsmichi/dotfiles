@@ -1,0 +1,53 @@
+# COLOR PROMPTS WITH GIT BRANCH
+# =========================================================
+
+# requires git bash completion
+source /usr/local/etc/bash_completion.d/git-prompt.sh
+source /usr/local/etc/bash_completion.d/git-completion.bash
+
+export GIT_PS1_SHOWDIRTYSTATE=1
+#export GIT_PS1_SHOWSTASHSTATE='y'
+#export GIT_PS1_SHOWUNTRACKEDFILES='y'
+#export GIT_PS1_DESCRIBE_STYLE='contains'
+export GIT_PS1_SHOWUPSTREAM='git'
+
+function myPrompt() {
+	local GREEN_BOLD="\[\033[01;32m\]"
+	local RED_BOLD="\[\033[01;31m\]"
+	local BLUE_BOLD="\[\033[01;34m\]"
+	local GREEND="\[\033[02;32m\]"
+	local REDD="\[\033[02;32m\]"
+	local DEFAULT="\[\033[00m\]"
+
+	# \h ... hostname
+	# \w ... workdir
+	# \$? ... RC
+	# \u ... user
+	# \$(formattedGitBranch) ... git branch if available
+
+	local USER_BOLD=$GREEN_BOLD
+	local USERD=$GREEND
+	local USERAT="\u@\h"
+	local USERHASH="\$"
+
+	if [ `/usr/bin/whoami` = 'root' ]
+	then
+		USER_BOLD=$RED_BOLD
+		USERD=$REDD
+		USERAT="\h"
+		USERHASH="#"
+	fi
+
+	PS1="$USER_BOLD$USERAT$DEFAULT $BLUE_BOLD\w$DEFAULT"
+	PS1=$PS1"$DEFAULT$GREEND\$(__git_ps1)$BLUE_BOLD $USERHASH $DEFAULT"
+
+	# window title
+	case "$TERM" in
+		xterm*|rxvt*)
+			PS1="\[\e]0;\h: \w (\u)\a\]$PS1"
+			;;
+	esac
+}
+
+# set git colored prompt based on uid
+myPrompt
