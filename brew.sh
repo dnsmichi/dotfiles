@@ -59,8 +59,6 @@ brew install nagios-plugins
 
 # Database
 brew install mariadb
-ln -sfv /usr/local/opt/mariadb/*.plist ~/Library/LaunchAgents
-launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mariadb.plist
 
 # PHP & Apache
 # Mojave finally kills unsigned PHP modules from its own apache.
@@ -73,7 +71,7 @@ cp /usr/local/etc/httpd/httpd.conf /usr/local/etc/httpd/httpd.conf.orig
 cat >>/usr/local/etc/httpd/httpd.conf <<EOF
 Listen 80
 
-LoadModule rewrite_module lib/httpd/mod_rewrite.so
+LoadModule rewrite_module lib/httpd/modules/mod_rewrite.so
 LoadModule php7_module /usr/local/opt/php/lib/httpd/modules/libphp7.so
 <FilesMatch \.php$>
    SetHandler application/x-httpd-php
