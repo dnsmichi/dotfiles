@@ -63,12 +63,17 @@ ln -sfv /usr/local/opt/mariadb/*.plist ~/Library/LaunchAgents
 launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mariadb.plist
 
 # PHP & Apache
+# Mojave finally kills unsigned PHP modules from its own apache.
+# https://github.com/Homebrew/homebrew-core/issues/32436
+brew install httpd
 brew install php
 
-sudo cp /etc/apache2/httpd.conf /etc/apache2/httpd.conf.bak
+cp /usr/local/etc/httpd/httpd.conf /usr/local/etc/httpd/httpd.conf.orig
 
-sudo bash -c 'cat >>/etc/apache2/httpd.conf <<EOF
-LoadModule rewrite_module libexec/apache2/mod_rewrite.so
+cat >>/usr/local/etc/httpd/httpd.conf <<EOF
+Listen 80
+
+LoadModule rewrite_module lib/httpd/mod_rewrite.so
 LoadModule php7_module /usr/local/opt/php/lib/httpd/modules/libphp7.so
 <FilesMatch \.php$>
    SetHandler application/x-httpd-php
@@ -77,8 +82,9 @@ LoadModule php7_module /usr/local/opt/php/lib/httpd/modules/libphp7.so
 <IfModule dir_module>
     DirectoryIndex index.php index.html
 </IfModule>
-EOF'
-sudo apachectl restart
+EOF
+
+brew services restart httpd
 
 # Ruby
 brew install ruby
