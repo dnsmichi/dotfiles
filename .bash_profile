@@ -1,17 +1,27 @@
 # general
 # =========================================================
 
-# If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
+for file in ~/.{bash_prompt,bash_aliases,bash_functions}; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
 
 HISTCONTROL=ignoreboth
 shopt -s histappend
 HISTSIZE=1000
 HISTFILESIZE=2000
 shopt -s checkwinsize
+
+# some more ls aliases
+alias ls='ls -G'
+alias ll='ls -G -l'
+alias la='ls -G -A'
+#alias l='ls -CF'
+alias du='du -kh'       # Makes a more readable output.
+alias df='df -kTh'
+alias lt='ls -lhtr'
+
+alias duh='du -d 1 -h' # -d 1 is --max-depth=1 on linux
 
 # bash completion
 test -f /usr/local/etc/bash_completion && source /usr/local/etc/bash_completion
@@ -28,25 +38,11 @@ export PATH="$PATH:$HOME/go/bin"
 # hub
 test -f /usr/local/etc/bash_completion.d/hub.bash_completion.sh && source /usr/local/etc/bash_completion.d/hub.bash_completion.sh
 
-# some more ls aliases
-alias ls='ls -G'
-alias ll='ls -G -l'
-alias la='ls -G -A'
-#alias l='ls -CF'
-alias du='du -kh'       # Makes a more readable output.
-alias df='df -kTh'
-alias lt='ls -lhtr'
-
-alias duh='du -d 1 -h' # -d 1 is --max-depth=1 on linux
-
 # SSH
 # =========================================================
 
 # fix ssh -A
 ssh-add $HOME/.ssh/id_rsa > /dev/null 2>&1
-
-# aliases
-test -f $HOME/.bash_aliases && source $HOME/.bash_aliases
 
 # DEV
 # =========================================================
