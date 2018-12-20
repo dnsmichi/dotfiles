@@ -14,7 +14,7 @@ HISTFILESIZE=2000
 shopt -s checkwinsize
 
 # bash completion
-source /usr/local/etc/bash_completion
+test -f /usr/local/etc/bash_completion && source /usr/local/etc/bash_completion
 
 # GitHub tokens
 test -f $HOME/.github_tokens && source $HOME/.github_tokens
@@ -23,10 +23,10 @@ test -f $HOME/.github_tokens && source $HOME/.github_tokens
 export PATH="/usr/local/sbin:$PATH"
 
 # Golang
-export PATH=$PATH:$HOME/go/bin
+export PATH="$PATH:$HOME/go/bin"
 
 # hub
-source /usr/local/etc/bash_completion.d/hub.bash_completion.sh
+test -f /usr/local/etc/bash_completion.d/hub.bash_completion.sh && source /usr/local/etc/bash_completion.d/hub.bash_completion.sh
 
 # some more ls aliases
 alias ls='ls -G'
@@ -56,7 +56,7 @@ export PATH="/opt/ccache:$PATH"
 
 # go
 export GOPATH="$HOME/go"
-export PATH=$PATH:$(go env GOPATH)/bin
+test -f $GOPATH && export PATH=$PATH:$(go env GOPATH)/bin
 
 # lldb (use System's Python path)
 alias lldb="PATH=/usr/bin /usr/bin/lldb"
@@ -76,7 +76,7 @@ alias i2_debug="mkdir -p debug; cd debug; cmake $I2_DEBUG ..; make -j4; sudo mak
 alias i2_release="mkdir -p release; cd release; cmake $I2_RELEASE ..; make -j4; sudo make -j4 install; cd .."
 
 export PATH=/usr/local/icinga2/sbin/:$PATH
-source /usr/local/icinga2/etc/bash_completion.d/icinga2
+test -f /usr/local/icinga2/etc/bash_completion.d/icinga2 && source /usr/local/icinga2/etc/bash_completion.d/icinga2
 
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
