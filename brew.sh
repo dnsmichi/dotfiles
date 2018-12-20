@@ -16,6 +16,7 @@ ln -s "${BREW_PREFIX}/bin/gsha256sum" "${BREW_PREFIX}/bin/sha256sum"
 brew install moreutils
 brew install findutils
 brew install gnu-sed --with-default-names
+brew install gnu-tar gawk gnutls gnu-indent gnu-getopt --with-default-names
 
 brew install bash
 brew install bash-completion2
@@ -27,12 +28,12 @@ fi;
 
 brew install wget --with-iri
 brew install gnupg
+brew install htop-osx pidof
 
 brew install vim --with-override-system-vi
 brew install grep
 brew install openssh
 brew install screen
-brew install php
 brew install gmp
 
 brew install binutils
@@ -47,4 +48,31 @@ brew install rlwrap
 brew install ssh-copy-id
 brew install tree
 
+# Dev
+brew install qcachegrind --with-graphviz
+
+brew install ccache boost cmake bison flex yajl openssl@1.1 mysql-connector-c++
+brew install nagios-plugins
+
+brew install mariadb
+ln -sfv /usr/local/opt/mariadb/*.plist ~/Library/LaunchAgents
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mariadb.plist
+
+brew install php
+
+brew install redis
+brew services start redis
+
+################################
+# Casks
+brew tap caskroom/cask
+
+brew cask install apache-directory-studio atom filezilla firefox macvim vlc wireshark tcpflow xquartz poedit
+
+# Gimp
+brew cask install gimp
+cd /Applications/GIMP.app/Contents/Resources/share/gimp/2.0/scripts/
+wget http://registry.gimp.org/files/arrow.scm
+
+# final cleanup
 brew cleanup
