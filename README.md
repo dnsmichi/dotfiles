@@ -157,33 +157,84 @@ Ensure that Spotlight is disabled in the system preferences.
 
 ## Additional Applications
 
-* Apache Directory Studio
-* Atom
-* Automator
-* Boxer
 * CleanMyMac 3 (license required)
 * Docker (account required)
 * Enpass (account required)
 * FileZilla
-* Firefox
 * GitKraken (account required)
 * Google Chrome
 * HandBrake
-* JDownloader2
 * JetBrains Toolbox (license required)
-* MacVim
 * Microsoft Office (license required)
 * Nextcloud (account required)
 * NTFS for Mac (license required)
 * Parallels Desktop (license required)
 * Paw (license required)
-* Poedit
 * Sourcetree (account required)
 * Spotify (account required)
 * TeamViewer
 * Telegram (account required)
 * Virtualbox
 * Viscosity (license required)
+* Wunderlist (account required)
+
+Homebrew
+
+* Apache Directory Studio
+* Atom
+* Boxer
+* Firefox
+* JDownloader2
+* MacVim
+* Poedit
 * VLC
 * Wireshark
-* Wunderlist (account required)
+
+## Migration <a id="migration"></a>
+
+
+### Keys
+
+Keep a private backup of the following:
+
+```
+cd $HOME
+zip -r private_keys.zip .ssh .gnupg .github_tokens certs .my.cnf
+zip -r jitsi.zip Library/Application\ Support/Jitsi/
+zip -r adium.zip Library/Application\ Support/Adium\ 2.0/
+zip -r viscosity.zip Library/Application\ Support/Viscosity/
+```
+
+And copy them over first.
+
+### Data
+
+* My documents are synced via iCloud (if yours are not, copy them too)
+* Move the development data from `~/coding` to their new location in `~/dev`-
+* Copy `~/Downloads`, `~/Pictures`, `~/go`
+
+Rsync/SSH requires enabled remote login for this purpose.
+
+```
+ssh-copy-id michi@mbpmif.int.netways.de
+
+cd $HOME/coding
+rsync -rv . michi@mbpmif.int.netways.de:/Users/michi/dev/
+
+cd $HOME/Downloads
+rsync -rv . michi@mbpmif.int.netways.de:/Users/michi/Downloads/
+
+cd $HOME/Pictures
+rsync -rv . michi@mbpmif.int.netways.de:/Users/michi/Pictures/
+
+cd $HOME
+rsync -rv go michi@mbpmif.int.netways.de:/Users/michi/
+```
+
+In addition, I do have a Dosbox with my Settlers 2 Gold Edition which needs to be copied too :)
+
+```
+cd $HOME/
+rsync -rv "DOS Games" michi@mbpmif.int.netways.de:/Users/michi/
+```
+
