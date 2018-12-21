@@ -30,7 +30,7 @@ test -f /usr/local/etc/bash_completion && source /usr/local/etc/bash_completion
 test -f $HOME/.github_tokens && source $HOME/.github_tokens
 
 # Homebrew
-export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 
 # Golang
 export PATH="$PATH:$HOME/go/bin"
