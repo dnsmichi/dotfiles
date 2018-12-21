@@ -88,6 +88,11 @@ brew services restart httpd
 brew install ruby
 
 # Python
+brew install python
+brew install python2
+
+pip install --upgrade pip setuptools
+pip3 install --upgrade pip setuptools
 
 # Redis
 brew install redis
