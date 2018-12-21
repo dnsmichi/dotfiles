@@ -14,6 +14,11 @@ function sync() {
 		--exclude "LICENSE" \
 		-avh --no-perms . ~;
 	source ~/.bash_profile;
+
+	for file in .{bashrc,bash_prompt,bash_aliases,bash_functions}; do
+		[ -r "~/$file" ] && [ -f "~/$file" ] && sudo ln -sf "~/$file" "/root/$file";
+	done;
+	unset file;
 }
 
 sync
