@@ -100,7 +100,11 @@ brew services start redis
 
 ################################
 # Casks
-brew cask install apache-directory-studio atom filezilla firefox macvim vlc wireshark tcpflow xquartz poedit
+brew cask install java apache-directory-studio
+brew cask install atom firefox
+brew cask install macvim vlc
+brew cask install wireshark tcpflow xquartz poedit
+brew cask install docker wireshark jitsi
 
 # Gimp
 brew cask install gimp
