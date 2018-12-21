@@ -54,6 +54,14 @@ cd dotfiles
 ./brew.sh
 ```
 
+Depending on local development, you may want to install the tools and configuration
+too:
+
+```
+./icinga2.sh
+./icingaweb2.sh
+```
+
 ## Essentials
 
 ### Tools
