@@ -71,15 +71,15 @@ export I2_RELEASE="-DCMAKE_BUILD_TYPE=RelWithDebInfo -DICINGA2_WITH_TESTS=ON -DI
 alias i2_debug="mkdir -p debug; cd debug; cmake $I2_DEBUG ..; make -j4; sudo make -j4 install; cd .."
 alias i2_release="mkdir -p release; cd release; cmake $I2_RELEASE ..; make -j4; sudo make -j4 install; cd .."
 
-export PATH=/usr/local/icinga2/sbin/:$PATH
-test -f /usr/local/icinga2/etc/bash_completion.d/icinga2 && source /usr/local/icinga2/etc/bash_completion.d/icinga2
+export PATH=/usr/local/icinga/icinga2/sbin/:$PATH
+test -f /usr/local/icinga/icinga2/etc/bash_completion.d/icinga2 && source /usr/local/icinga/icinga2/etc/bash_completion.d/icinga2
 
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 # icingacli
-export PATH=/usr/local/share/icingaweb2/bin:$PATH
+export PATH=/usr/local/icinga/icingaweb2/bin:$PATH
 alias icingacli="ICINGAWEB_CONFIGDIR=/usr/local/icingaweb2/etc icingacli"
 
 # misc
