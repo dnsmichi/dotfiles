@@ -19,26 +19,39 @@ brew install php
 
 cp /usr/local/etc/httpd/httpd.conf /usr/local/etc/httpd/httpd.conf.orig
 
+find /usr/local/etc/httpd -name httpd.conf -exec sed -i "s,DirectoryIndex .*,DirectoryIndex index.php index.html,g" {} \;
+
 cat >>/usr/local/etc/httpd/httpd.conf <<EOF
 Listen 80
 
 LoadModule rewrite_module lib/httpd/modules/mod_rewrite.so
 LoadModule php7_module /usr/local/opt/php/lib/httpd/modules/libphp7.so
+
 <FilesMatch \.php$>
    SetHandler application/x-httpd-php
 </FilesMatch>
- 
-<IfModule dir_module>
-    DirectoryIndex index.php index.html
-</IfModule>
 EOF
 
 brew services restart httpd
 
-echo "date.timezone='Europe/Berlin'" >> /usr/local/etc/php/*/php.ini
+find /usr/local/etc/php -name php.ini -exec sed -i "s,^;date.timezone =.*,date.timezone = 'Europe/Berlin',g" {} \;
 
 brew services start php
 
+git clone https://github.com/icinga/icingaweb2.git /usr/local/icinga/icingaweb2
+cd /usr/local/icinga/icingaweb2
+
+
+mkdir -p /usr/local/etc/httpd/conf.d
+echo "Include /usr/local/etc/httpd/conf.d/*" >> /usr/local/etc/httpd/httpd.conf
+
+./bin/icingacli setup config webserver apache --document-root /usr/local/icinga/icingaweb2/public --config /usr/local/icinga/icingaweb2/etc --enable-fpm --fpm-uri 127.0.0.1:9000 > /usr/local/etc/httpd/conf.d/icingaweb2.conf
+
+brew services restart httpd
+
+# debug help:
+# lsof -i :9000
+# /usr/local/opt/php/sbin/php-fpm -i
 
 # final cleanup
 brew cleanup
