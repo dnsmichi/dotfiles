@@ -29,3 +29,5 @@
 	excludesfile = /Users/michi/.gitignore_global
 [push]
 	default = simple
+[credential]
+	helper = osxkeychain
