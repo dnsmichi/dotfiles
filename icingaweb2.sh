@@ -25,7 +25,8 @@ cat >>/usr/local/etc/httpd/httpd.conf <<EOF
 Listen 80
 
 LoadModule rewrite_module lib/httpd/modules/mod_rewrite.so
-LoadModule php7_module /usr/local/opt/php/lib/httpd/modules/libphp7.so
+LoadModule proxy_module lib/httpd/modules/mod_proxy.so
+LoadModule proxy_fcgi_module lib/httpd/modules/mod_proxy_fcgi.so
 
 <FilesMatch \.php$>
    SetHandler application/x-httpd-php
