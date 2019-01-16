@@ -38,6 +38,10 @@ export PATH="$PATH:$HOME/go/bin"
 # hub
 test -f /usr/local/etc/bash_completion.d/hub.bash_completion.sh && source /usr/local/etc/bash_completion.d/hub.bash_completion.sh
 
+# gnupg
+export "GPG_TTY=$(tty)"
+
+
 # SSH
 # =========================================================
 

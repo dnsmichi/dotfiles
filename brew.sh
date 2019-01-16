@@ -30,7 +30,6 @@ if ! fgrep -q "${BREW_PREFIX}/bin/bash" /etc/shells; then
 fi;
 
 brew install wget --with-iri
-brew install gnupg
 brew install htop-osx pidof
 
 brew install vim --with-override-system-vi
@@ -50,6 +49,23 @@ brew install rename
 brew install rlwrap
 brew install ssh-copy-id
 brew install tree
+
+# GnuPG
+brew install gnupg pinentry
+
+mkdir -p ~/.gnupg
+echo "no-emit-version" >> ~/.gnupg/gpg.conf
+echo "no-tty" >> ~/.gnupg/gpg.conf
+echo "#default-key <key-uid>" >> ~/.gnupg/gpg.conf
+
+cat > ~/.gnupg/gpg-agent.conf <<EOF
+pinentry-program /usr/local/bin/pinentry
+default-cache-ttl 60000
+max-cache-ttl 720000
+EOF
+
+gpg-connect-agent killagent /bye
+gpg-connect-agent /bye
 
 # Ruby
 brew install ruby
