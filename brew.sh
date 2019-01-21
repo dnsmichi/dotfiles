@@ -77,6 +77,9 @@ brew install python2
 pip install --upgrade pip setuptools
 pip3 install --upgrade pip setuptools
 
+# Go
+brew install go
+
 # Redis
 brew install redis
 brew services start redis
