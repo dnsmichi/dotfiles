@@ -91,6 +91,7 @@ brew cask install atom firefox
 brew cask install macvim vlc
 brew cask install wireshark tcpflow xquartz poedit
 brew cask install docker wireshark jitsi
+brew cask install github
 
 # Gimp
 brew cask install gimp
