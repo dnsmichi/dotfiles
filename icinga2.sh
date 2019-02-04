@@ -18,6 +18,8 @@ brew install nagios-plugins
 brew install mariadb
 brew services start mariadb
 
+mkdir -p /usr/local/etc/my.cnf.d
+
 # Redis
 brew install redis
 brew services start redis
@@ -26,6 +28,19 @@ brew services start redis
 brew cleanup
 
 # Bootstrap later
+
+# mysql_secure_connection
+# root:netways
+# vim $HOME/.my.cnf
+
+# [client]
+# user = root
+# password = netways
+
+# mysql -e 'create database icinga;'
+# mysql -e "grant all on icinga.* to 'icinga'@'localhost' identified by 'icinga';"
+# mysql icinga < $HOME/dev/icinga/icinga2/lib/db_ido_mysql/schema/mysql.sql
+
 # icinga2 api setup
 # cd /usr/local/icinga/icinga2/var/lib/icinga2/certs
 # HOST_NAME=mbpmif.int.netways.de
