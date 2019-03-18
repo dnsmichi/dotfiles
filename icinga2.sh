@@ -12,7 +12,7 @@ brew tap homebrew/services
 brew install qcachegrind --with-graphviz
 
 brew install ccache boost cmake bison flex yajl openssl@1.1 mysql-connector-c++
-brew install nagios-plugins
+brew install monitoring-plugins
 
 # Database
 brew install mariadb
