@@ -51,6 +51,9 @@ ssh-add $HOME/.ssh/id_rsa > /dev/null 2>&1
 # DEV
 # =========================================================
 
+# Git
+alias git_prune="git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs git branch -d"
+
 # ccache is managed with symlinks to avoid collision with cgo
 export PATH="/opt/ccache:$PATH"
 
