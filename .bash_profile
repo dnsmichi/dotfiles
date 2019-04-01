@@ -68,7 +68,7 @@ alias lldb="PATH=/usr/bin /usr/bin/lldb"
 alias authors="git log --use-mailmap | grep ^Author: | cut -f2- -d' ' | sort | uniq > AUTHORS"
 
 # coredumps
-ulimit -c unlimited
+#ulimit -c unlimited
 
 export I2_GENERIC="-DCMAKE_INSTALL_PREFIX=/usr/local/icinga/icinga2 -DICINGA2_USER=`id -u -n` -DICINGA2_GROUP=`id -g -n` -DOPENSSL_INCLUDE_DIR=/usr/local/opt/openssl@1.1/include -DOPENSSL_SSL_LIBRARY=/usr/local/opt/openssl@1.1/lib/libssl.dylib -DOPENSSL_CRYPTO_LIBRARY=/usr/local/opt/openssl@1.1/lib/libcrypto.dylib -DICINGA2_PLUGINDIR=/usr/local/sbin -DICINGA2_WITH_PGSQL=OFF"
 
