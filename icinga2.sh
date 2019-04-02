@@ -16,13 +16,19 @@ brew install monitoring-plugins
 
 # Database
 brew install mariadb
-brew services start mariadb
-
 mkdir -p /usr/local/etc/my.cnf.d
+
+brew services start mariadb
 
 # Redis
 brew install redis
 brew services start redis
+
+# CCache
+sudo mkdir /opt/ccache
+
+sudo ln -s `which ccache` /opt/ccache/clang
+sudo ln -s `which ccache` /opt/ccache/clang++
 
 # final cleanup
 brew cleanup
