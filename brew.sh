@@ -41,7 +41,7 @@ brew install gmp
 brew install binutils
 brew install nmap
 brew install socat
-brew install xz
+brew install xz p7zip
 
 brew install git tig hub
 brew install lynx
