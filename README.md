@@ -246,3 +246,30 @@ cd $HOME/
 rsync -rv "DOS Games" michi@mbpmif.int.netways.de:/Users/michi/
 ```
 
+## Services
+
+### SNMP
+
+```
+sudo vim /etc/snmp/snmpd.conf
+
+-com2sec local localhost COMMUNITY
+-com2sec mynetwork NETWORK/24 COMMUNITY
++com2sec local localhost private
++com2sec mynetwork NETWORK/24 public
+
+-rocommunity public default .1.3.6.1.2.1.1.4
++rocommunity public default .1
+
+-#rwcommunity private
++rwcommunity private
+
+sudo launchctl load -w /System/Library/LaunchDaemons/org.net-snmp.snmpd.plist
+```
+
+```
+snmpwalk -c public -v 2c -O fn mbpmif.int.netways.de | grep en7
+.1.3.6.1.2.1.2.2.1.2.8 = STRING: en7
+.1.3.6.1.2.1.31.1.1.1.1.8 = STRING: en7
+```
+
