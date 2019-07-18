@@ -30,7 +30,7 @@ if ! fgrep -q "${BREW_PREFIX}/bin/bash" /etc/shells; then
 fi;
 
 brew install wget --with-iri
-brew install htop-osx pidof
+brew install htop-osx pidof pstree
 
 brew install vim --with-override-system-vi
 brew install grep
