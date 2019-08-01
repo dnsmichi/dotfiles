@@ -50,6 +50,9 @@ brew install rlwrap
 brew install ssh-copy-id
 brew install tree
 
+# REST APIs with JSON
+brew install jq jo
+
 # GnuPG
 brew install gnupg pinentry
 
