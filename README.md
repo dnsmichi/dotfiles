@@ -246,6 +246,42 @@ cd $HOME/
 rsync -rv "DOS Games" michi@mbpmif.int.netways.de:/Users/michi/
 ```
 
+## Troubleshooting
+
+### MySQL/MariaDB Reset Root Password
+
+In case everything was deleted and fucked up.
+
+Start mysql without networking and table grants.
+
+```
+mysql.server start --skip-grant-tables --skip-networking
+
+mysql --protocol=socket
+```
+
+Then change the root password as documented [here](https://dev.mysql.com/doc/refman/8.0/en/resetting-permissions.html).
+
+```
+use mysql
+FLUSH PRIVILEGES;
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'netways';
+
+FLUSH PRIVILEGES;
+
+quit
+```
+
+Stop the `mysql.server` running in background and start MariaDB normally.
+
+```
+ps aux | grep mysql
+kill <PID>
+
+brew services start mariadb 
+```
+
 ## Services
 
 ### SNMP
