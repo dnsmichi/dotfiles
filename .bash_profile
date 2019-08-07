@@ -41,6 +41,8 @@ test -f /usr/local/etc/bash_completion.d/hub.bash_completion.sh && source /usr/l
 # gnupg
 export "GPG_TTY=$(tty)"
 
+# vagrant - too many open files
+ulimit -n 1024
 
 # SSH
 # =========================================================
