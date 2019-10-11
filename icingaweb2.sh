@@ -63,6 +63,7 @@ echo "Use the setup token and navigate to https://localhost/icingaweb2/setup"
 #mysql -e 'create database icingaweb2;'
 #mysql -e "grant all on icingaweb2.* to 'icingaweb2'@'localhost' identified by 'icingaweb2';"
 #mysql icingaweb2 < /usr/local/icinga/icingaweb2/etc/schema/mysql.schema.sql
+#mysql icingaweb2 -e "INSERT INTO icingaweb_user (name, active, password_hash) VALUES ('icingaadmin', 1, '$2y$10$7orMB9H1qUDbOBk9Qg/OWeTgfNKfvdSRgITOzJfsOJQSzvion/x6W');"
 #
 #test -f /usr/local/icinga/icingaweb2/etc/config.ini || cat >/usr/local/icinga/icingaweb2/etc/config.ini <<EOF
 #[global]
