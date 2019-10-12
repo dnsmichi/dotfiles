@@ -90,7 +90,7 @@ brew services start redis
 ################################
 # Casks
 brew cask install java apache-directory-studio
-brew cask install atom firefox
+brew cask install atom visual-studio-code firefox
 brew cask install macvim vlc
 brew cask install wireshark tcpflow xquartz poedit
 brew cask install docker wireshark jitsi
