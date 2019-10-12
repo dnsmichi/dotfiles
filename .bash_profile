@@ -82,8 +82,8 @@ export I2_GENERIC="-DCMAKE_INSTALL_PREFIX=/usr/local/icinga/icinga2 -DICINGA2_US
 export I2_DEBUG="-DCMAKE_BUILD_TYPE=Debug -DICINGA2_UNITY_BUILD=OFF $I2_GENERIC"
 export I2_RELEASE="-DCMAKE_BUILD_TYPE=RelWithDebInfo -DICINGA2_WITH_TESTS=ON -DICINGA2_UNITY_BUILD=ON $I2_GENERIC"
 
-alias i2_debug="mkdir -p debug; cd debug; cmake $I2_DEBUG ..; make -j4; make -j4 install; cd .."
-alias i2_release="mkdir -p release; cd release; cmake $I2_RELEASE ..; make -j4; make -j4 install; cd .."
+alias i2_debug="mkdir -p debug; cd debug; cmake -GNinja $I2_DEBUG ..; cd ..; ninja -C debug install"
+alias i2_release="mkdir -p release; cd release; cmake -GNinja $I2_RELEASE ..; cd ..; ninja -C release install"
 
 export PATH=/usr/local/icinga/icinga2/sbin/:$PATH
 test -f /usr/local/icinga/icinga2/etc/bash_completion.d/icinga2 && source /usr/local/icinga/icinga2/etc/bash_completion.d/icinga2

@@ -70,6 +70,10 @@ EOF
 gpg-connect-agent killagent /bye
 gpg-connect-agent /bye
 
+# Dev
+# Use ninja instead of make
+brew install ninja
+
 # Ruby
 brew install ruby
 
