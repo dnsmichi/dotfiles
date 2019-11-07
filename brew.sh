@@ -43,7 +43,7 @@ brew install nmap
 brew install socat
 brew install xz p7zip
 
-brew install git tig hub
+brew install git git-lfs tig hub
 brew install lynx
 brew install rename
 brew install rlwrap

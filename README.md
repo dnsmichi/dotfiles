@@ -5,6 +5,34 @@ instructions are needed to fully setup a Macbook Pro.
 
 It contains specialities for NETWAYS & Icinga development.
 
+## Upgrades
+
+When Xcode and compilers break, re-install the command line tools.
+
+```
+xcode-select --install
+```
+
+### Catalina
+
+The scripts in here use Bash, and also install Bash from Homebrew.
+If needed, use `chsh -s /bin/bash` to force the current user to use Bash instead of ZSH.
+
+Re-install all Homebrew tools & casks. Especially Git suffers with slow speeds.
+
+```
+brew reinstall $(brew list)
+
+brew cask install --force $(brew cask list)
+```
+
+### MariaDB
+
+```
+mkdir -p /usr/local/etc/my.cnf.d
+brew services restart mariadb
+```
+
 ## Preparations
 
 ### iterm2
@@ -25,6 +53,14 @@ Install it once.
 
 ```
 sudo visudo
+
+michi  ALL=(ALL) NOPASSWD: ALL
+```
+
+or
+
+```
+sudo vim /private/etc/sudoers.d/michi
 
 michi  ALL=(ALL) NOPASSWD: ALL
 ```

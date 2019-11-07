@@ -1,6 +1,10 @@
 # general
 # =========================================================
 
+# macOS Catalina with zsh as default
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# Imports
 for file in ~/.{bash_prompt,bash_aliases,bash_functions}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
@@ -31,6 +35,7 @@ test -f $HOME/.github_tokens && source $HOME/.github_tokens
 
 # Homebrew
 export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
 # Golang
 export PATH="$PATH:$HOME/go/bin"
@@ -94,7 +99,7 @@ export LC_ALL=en_US.UTF-8
 
 # icingacli
 export PATH=/usr/local/icinga/icingaweb2/bin:$PATH
-alias icingacli="ICINGAWEB_CONFIGDIR=/usr/local/icingaweb2/etc icingacli"
+alias icingacli="ICINGAWEB_CONFIGDIR=/usr/local/icinga/icingaweb2/etc icingacli"
 
 # misc
 # =========================================================
