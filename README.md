@@ -26,6 +26,27 @@ brew reinstall $(brew list)
 brew cask install --force $(brew cask list)
 ```
 
+#### Adium on macOS Catalina
+
+Has a scroll to bottom problem, a fix is described [here](https://news.softpedia.com/news/how-to-fix-broken-auto-scrolling-in-adium-on-macos-catalina-527933.shtml).
+
+```
+cd /Applications/Adium.app/Contents/Resources
+vim Template.html
+
+    //Auto-scroll to bottom.  Use nearBottom to determine if a scrollToBottom is desired.
+    //Patched by MiF, 2019-11-18
+    //https://news.softpedia.com/news/how-to-fix-broken-auto-scrolling-in-adium-on-macos-catalina-527933.shtml
+    function nearBottom() {
+      //return ( document.body.scrollTop >= ( document.body.offsetHeight - ( window.innerHeight * 1.2 ) ) );
+      return 1;
+    }
+    function scrollToBottom() {
+      //document.body.scrollTop = document.body.offsetHeight;
+      window.scrollTo(0, document.body.scrollHeight);
+    }
+```
+
 ### MariaDB
 
 ```
