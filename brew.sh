@@ -15,6 +15,7 @@ brew tap homebrew/services
 # coreutils
 brew install coreutils
 ln -s "${BREW_PREFIX}/bin/gsha256sum" "${BREW_PREFIX}/bin/sha256sum"
+ln -s "${BREW_PREFIX}/bin/greadlink" "${BREW_PREFIX}/bin/readlink"
 
 brew install moreutils
 brew install findutils
