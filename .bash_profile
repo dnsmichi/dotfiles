@@ -58,6 +58,9 @@ ssh-add $HOME/.ssh/id_rsa > /dev/null 2>&1
 # DEV
 # =========================================================
 
+# Docker
+alias docker_prune="docker container prune --force --filter until=24h && docker image prune --all --force --filter until=24h"
+
 # Git
 alias git_prune="git branch -vv | grep 'origin/.*: gone]' | awk '{print \$1}' | xargs git branch -d"
 
