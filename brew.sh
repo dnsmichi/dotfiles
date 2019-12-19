@@ -107,6 +107,8 @@ brew cask install gimp
 #cd /Applications/GIMP.app/Contents/Resources/share/gimp/2.0/scripts/
 #wget http://registry.gimp.org/files/arrow.scm
 
+brew cask install inkscape
+
 # Vagrant
 brew cask install vagrant
 vagrant plugin install vagrant-parallels
