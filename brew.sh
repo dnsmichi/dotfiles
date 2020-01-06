@@ -22,6 +22,8 @@ brew install findutils
 brew install gnu-sed --with-default-names
 brew install gnu-tar gawk gnutls gnu-indent gnu-getopt --with-default-names
 
+ln -s "${BREW_PREFIX}/bin/gtar" "${BREW_PREFIX}/bin/tar"
+
 brew install bash
 brew install bash-completion2
 
