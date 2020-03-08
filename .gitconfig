@@ -1,0 +1,5 @@
+[user]
+	name = Michael Friedrich
+	email = mfriedrich@gitlab.com
+[credential]
+	helper = osxkeychain
