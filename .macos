@@ -1,0 +1,30 @@
+#!/bin/zsh
+
+# close any system preference windows first
+osascript -e 'tell application "System Preferences" to quit'
+
+# become root
+sudo -v
+
+# stay root
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+# Non-breaking spaces: https://superuser.com/questions/78245/how-to-disable-the-option-space-key-combination-for-non-breaking-spaces
+mkdir -p ~/Library/KeyBindings
+cat > ~/Library/KeyBindings/DefaultKeyBinding.dict <<EOF
+{
+"~ " = ("insertText:", " ");
+}
+EOF
+
+# Screenshot location
+test -d "${HOME}/Pictures/screenshots" || mkdir -p "${HOME}/Pictures/screenshots"
+defaults write com.apple.screencapture location -string "${HOME}/Pictures/screenshots"
+
+# Show the ~/Library folder
+chflags nohidden ~/Library
+
+# Show the /Volumes folder
+sudo chflags nohidden /Volumes
+
+
