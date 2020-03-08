@@ -1,5 +1,9 @@
 # Macbook Pro for Development
 
+> **Note**
+>
+> **This project is discontinued. Please head over to my [Macbook Pro setup for GitLab](https://gitlab.com/dnsmichi/dotfiles).**
+
 In addition to the files stored in this repository, the following
 instructions are needed to fully setup a Macbook Pro.
 
