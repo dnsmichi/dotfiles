@@ -1,5 +1,8 @@
 [user]
 	name = Michael Friedrich
 	email = mfriedrich@gitlab.com
+        signingkey = D14A1F16
+[alias]
+        l  = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --
 [credential]
 	helper = osxkeychain
