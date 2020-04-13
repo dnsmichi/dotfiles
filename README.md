@@ -127,14 +127,21 @@ These tools are managed without Homebrew on purpose, e.g. for manual updates.
 
 ## Preferences
 
+These are manual settings as they require user awareness.
+
 ### FileVault
 
 Enable Encryption (required for GitLab employees and recommended for everyone).
 See [here](https://support.apple.com/en-us/HT204837) for detailed instructions.
 
-### Firewall
+CLI:
 
-Enable it.
+```
+sudo fdesetup status
+
+sudo fdesetup enable
+```
+
 
 ### Keyboard
 
@@ -175,5 +182,12 @@ Following the [GitLab handbook](https://about.gitlab.com/handbook/tools-and-tips
 * Firefox (in order to reproduce UX bugs)
 * VLC
 * Wireshark
+
+## Additional Hints
+
+More insights can be found in these lists:
+
+- [Setting examples](https://github.com/mathiasbynens/dotfiles/blob/master/.macos)
+- [command overview](https://github.com/herrbischoff/awesome-macos-command-line).
 
 
