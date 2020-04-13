@@ -39,14 +39,6 @@ Initial settings:
      - `Session > Status bar enabled` and `Configure Status Bar`. Add `git state`, `CPU utilization`, `Memory utilization`. Click `Auto-Rainbow`.
 - Mark `white` profile and select `Other Actions > Set as default`.
 
-### Homebrew
-
-Install it once.
-
-```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-
 ### Sudo
 
 Note: I keep this disabled for improved security, though some sessions may require heavy sudo usage.
@@ -63,22 +55,47 @@ Copy the following files in your home directory:
 
 * SSH Keys
 * GPG Keys
-* GitHub/GitLab Tokens
-* SSH Aliases in `.zsh_aliases`
+* GitHub/GitLab Tokens in `.env`
+* Custom settings for OhMyZSH
 
 ```
 cd backup/
-cp -r .ssh .gnupg .github_tokens .gitlab_tokens .zsh_aliases $HOME/
+cp -r .ssh .gnupg .env .oh-my-zsh $HOME/
 ```
+
+> **Note**:
+>
+> The `dotenv` plugin is enabled in OhMyZSH which automatically
+> reads the `.env` tokens from the user's home directory.
 
 ### Dot files
 
 ```
 git clone https://gitlab.com/dnsmichi/dotfiles.git
 cd dotfiles
+```
+
+Sync the files.
+
+```
 ./bootstrap.sh
+```
+
+Apply macOS settings.
+
+```
 ./.macos
+```
+
+Install Homebrew and OhMyZSH.
+
+```
 ./brew_once.sh
+```
+
+Install tools and applications with Homebrew.
+
+```
 ./brew.sh
 ```
 
@@ -91,36 +108,37 @@ Note: `brew.sh` can be re-run later on, ensuring the same state.
 These tools are managed without Homebrew on purpose, e.g. for manual updates.
 
 * Workflows: [Alfred](https://www.alfredapp.com/) including my Powerpack license
+  * [HTTP Status Codes](https://github.com/ilstar/http_status_code)
+  * [DNS: Dig](https://github.com/phallstrom/AlfredDig)
+  * [Colors](https://github.com/zenorocha/alfred-workflows#colors-v202--download)
+  * [Emoji](https://github.com/carlosgaldino/alfred-emoji-workflow)
+  * [Encode/Decode](https://github.com/zenorocha/alfred-workflows#encodedecode-v180--download)
+  * [Gmail](https://github.com/fniephaus/alfred-gmail)
+  * [Gmail filters](https://github.com/inlet/alfred-workflow-gmail-filters)
+  * [Sketch](https://madbitco.github.io/sketchflow/)
+  * [Google Translate](https://github.com/xfslove/alfred-google-translate)
+  * [Python Library](https://gitlab.com/deanishe/alfred-workflow)
+
 
 #### Virtualization
 
 * [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
 
-## System Preferences
+## Preferences
+
+### FileVault
+
+Enable Encryption (required for GitLab employees and recommended for everyone).
+See [here](https://support.apple.com/en-us/HT204837) for detailed instructions.
+
+### Firewall
+
+Enable it.
 
 ### Keyboard
 
-`Keyboard`: Enable tab-tab for everything.
-
-`Shortcuts`: Disable Spotlight.
-
-
-### Trackpad
-
-`Point & Click > Secondary click` and select `Click in bottom right corner`.
-
-### Security & Privacy
-
-- Turn on Filevault and encrypt everything, if not done during the setup
-- Turn on the firewall
-
-### Time Machine
-
-**TODO:** Get a backup drive.
-
-
-## User Preferences
+`Shortcuts`: Disable Spotlight in preparation for enabling Alfred next.
 
 ### Alfred
 
@@ -134,18 +152,6 @@ Ensure that Spotlight is disabled in the system preferences.
 - User home
 - System root
 
-### Mail
-
-`Preferences > General`:
-
-- `New messages sound`: None
-- `Play sounds for other mail actions`: unticked
-
-`Preferences > Viewing`:
-
-- `Show most recent message at the top`: ticked
-
-
 ## Additional Applications
 
 * Google Chrome
@@ -155,6 +161,13 @@ Ensure that Spotlight is disabled in the system preferences.
 * Paw (license required, I own a private license)
 * Spotify (account required)
 * Telegram (account required)
+
+### Handbook
+
+Following the [GitLab handbook](https://about.gitlab.com/handbook/tools-and-tips/):
+
+* [Loom](https://www.loom.com/)
+
 
 ### Homebrew
 

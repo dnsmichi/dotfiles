@@ -38,7 +38,7 @@ if &term=="xterm"
      set t_Sf=[3%dm
 endif
 
-set nofixeol
+set nofixeol " don't fix end-of-line errors
 
 " Don't wake up system with blinking cursor:
 " http://www.linuxpowertop.org/known.php
