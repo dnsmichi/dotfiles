@@ -23,6 +23,9 @@ brew install vim --with-override-system-vi
 # System
 brew install htop-osx pidof pstree grep openssh screen gmp binutils nmap socat rename rlwrap ssh-copy-id tree
 
+# Images
+brew install imagemagick --with-webp
+
 # Archive & Git
 brew install xz p7zip git git-lfs tig hub
 
