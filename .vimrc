@@ -38,6 +38,8 @@ if &term=="xterm"
      set t_Sf=[3%dm
 endif
 
+set nofixeol
+
 " Don't wake up system with blinking cursor:
 " http://www.linuxpowertop.org/known.php
 let &guicursor = &guicursor . ",a:blinkon0"
