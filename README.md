@@ -10,21 +10,6 @@ This repository contains everything to bootstrap my Macbook Pro (16 inch, 2019).
 In addition to the files stored in this repository, the following
 instructions are needed to fully setup a Macbook Pro.
 
-## Upgrades
-
-On major version upgrades from Catalina to future versions, ensure to re-install all Homebrew binaries.
-
-```
-brew reinstall $(brew list)
-
-brew cask install --force $(brew cask list)
-```
-
-When Xcode and compilers break, re-install the command line tools.
-
-```
-xcode-select --install
-```
 
 ## Preparations
 
@@ -38,6 +23,14 @@ Initial settings:
      - `Colors > Color presets > Tango Light`
      - `Session > Status bar enabled` and `Configure Status Bar`. Add `git state`, `CPU utilization`, `Memory utilization`. Click `Auto-Rainbow`.
 - Mark `white` profile and select `Other Actions > Set as default`.
+
+### Git (XCode)
+
+Install it on the command line first, it will ask for permission.
+
+```
+xcode-select --install
+```
 
 ### Sudo
 
@@ -191,3 +184,18 @@ More insights can be found in these lists:
 - [command overview](https://github.com/herrbischoff/awesome-macos-command-line).
 
 
+## Upgrades
+
+On major version upgrades from Catalina to future versions, ensure to re-install all Homebrew binaries.
+
+```
+brew reinstall $(brew list)
+
+brew cask install --force $(brew cask list)
+```
+
+When Xcode and compilers break, re-install the command line tools.
+
+```
+xcode-select --install
+```
