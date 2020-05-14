@@ -12,8 +12,8 @@ ln -s "${BREW_PREFIX}/bin/greadlink" "${BREW_PREFIX}/bin/readlink"
 
 brew install moreutils
 brew install findutils
-brew install gnu-sed --with-default-names
-brew install gnu-tar gawk gnutls gnu-indent gnu-getopt --with-default-names
+brew install gnu-sed
+brew install gnu-tar gawk gnutls gnu-indent gnu-getopt
 
 ln -s "${BREW_PREFIX}/bin/gtar" "${BREW_PREFIX}/bin/tar"
 
@@ -24,7 +24,7 @@ brew install vim --with-override-system-vi
 brew install htop-osx pidof pstree grep openssh screen gmp binutils nmap socat rename rlwrap ssh-copy-id tree
 
 # Images
-brew install imagemagick --with-webp
+brew install imagemagick
 
 # Archive & Git
 brew install xz p7zip git git-lfs tig hub
