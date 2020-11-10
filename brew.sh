@@ -51,7 +51,7 @@ brew services start redis
 # Casks
 brew cask install java
 brew cask install atom visual-studio-code firefox
-brew cask install vlc wireshark gimp inkscape
+brew cask install vlc wireshark gimp inkscape handbrake
 
 # Vagrant
 brew cask install vagrant
