@@ -79,13 +79,13 @@ Install Homebrew and OhMyZSH.
 ./brew_once.sh
 ```
 
-Install tools and applications with Homebrew.
+Install tools and applications with Homebrew bundle.
 
 ```
-./brew.sh
+brew bundle
 ```
 
-Note: `brew.sh` can be re-run later on, ensuring the same state.
+This makes use of the [Brewfile](Brewfile) definitions.
 
 ## Essentials
 
