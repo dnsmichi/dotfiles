@@ -64,6 +64,8 @@ brew "jo"
 
 # Dev
 brew "ruby"
+brew "yarn"
+brew "rbenv"
 brew "python"
 brew "go"
 
