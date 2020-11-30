@@ -1,10 +1,12 @@
 cask_args appdir: "/Applications"
 
 # Tap Homebrew
-tap 'homebrew/cask'
-tap 'homebrew/cask-fonts'
-tap 'homebrew/bundle'
-tap 'homebrew/services'
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+tap "homebrew/services"
 
 cask "java"
 cask "visual-studio-code"
@@ -13,8 +15,10 @@ cask "vlc"
 cask "wireshark"
 cask "gimp"
 cask "inkscape"
+cask "jitsi-meet"
 cask "handbrake"
 cask "vagrant"
+cask "spotify"
 
 # System
 brew "mas"
@@ -22,6 +26,7 @@ brew "curl"
 brew "wget"
 brew "git"
 brew "vim"
+brew "openssl"
 brew "coreutils"
 brew "moreutils"
 brew "findutils"
@@ -34,7 +39,7 @@ brew "gnutls"
 brew "gnu-indent"
 brew "gnu-getopt"
 brew "tree"
-brew "htop-osx"
+brew "htop"
 brew "pidof"
 brew "pstree"
 brew "grep"
@@ -46,9 +51,13 @@ brew "gmp"
 brew "nmap"
 brew "socat"
 brew "rlwrap"
+brew "dnstracer"
 
-# Images
+# Images, Audio, Video
 brew "imagemagick"
+brew "gifsicle"
+brew "gifify"
+brew "ffmpeg"
 
 # Archive & Git
 brew "xz"
@@ -57,6 +66,9 @@ brew "git"
 brew "git-lfs"
 brew "tig"
 brew "hub"
+
+# Extract rpm file content with rpm2cpio *.rpm | cpio -ivd
+brew "rpm2cpio"
 
 # JSON
 brew "jq"
@@ -68,6 +80,12 @@ brew "yarn"
 brew "rbenv"
 brew "python"
 brew "go"
+brew "cmake"
+brew "openjdk"
+brew "kind"
+
+# GitLab Pages
+brew "hugo"
 
 # App Store
 mas "1Password 7", id: 1333542190
