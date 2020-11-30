@@ -1,15 +1,8 @@
 # Macbook Pro dotfiles and setup at GitLab
 
-This repository contains everything to bootstrap my Macbook Pro (16 inch, 2019).
+This repository contains everything to bootstrap my Macbook Pro (16 inch, 2019). This setup is explained in-depth in [dotfiles - Document and automate your Macbook setup](https://about.gitlab.com/blog/2020/04/17/dotfiles-document-and-automate-your-macbook-setup/).
 
-> **Note**: The old version is located [here](https://github.com/dnsmichi/dotfiles).
->
-> The new version focuses on using macOS Catalina defaults such as ZSH.
-> Development environments are not necessarily installed locally but in Docker or in the cloud.
-
-In addition to the files stored in this repository, the following
-instructions are needed to fully setup a Macbook Pro.
-
+In addition to the files stored in this repository, the following instructions are needed to fully setup a Macbook Pro.
 
 ## Preparations
 
@@ -112,11 +105,11 @@ These tools are managed without Homebrew on purpose, e.g. for manual updates.
   * [Google Translate](https://github.com/xfslove/alfred-google-translate)
   * [Python Library](https://gitlab.com/deanishe/alfred-workflow)
 
+### Virtualization and Containers
 
-#### Virtualization
+I only use Docker locally, required VMs run in Hetzner Cloud (private), GCP or AWS. Docker for Mac provides the `docker-compose` binary required to run demo environments. 
 
-* [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
-
+VirtualBox needs work with Kernel modules. I highly recommend to get a [Parallels license](https://www.parallels.com/de/products/desktop/buy/) instead. 
 
 ## Preferences
 
@@ -124,7 +117,7 @@ These are manual settings as they require user awareness.
 
 ### FileVault
 
-Enable Encryption (required for GitLab employees and recommended for everyone).
+Enable Encryption ([required for GitLab team members](https://about.gitlab.com/handbook/business-ops/team-member-enablement/onboarding-access-requests/#full-disk-encryption) and recommended for everyone).
 See [here](https://support.apple.com/en-us/HT204837) for detailed instructions.
 
 CLI:
@@ -171,7 +164,6 @@ Following the [GitLab handbook](https://about.gitlab.com/handbook/tools-and-tips
 
 ### Homebrew
 
-* Atom
 * Firefox (in order to reproduce UX bugs)
 * VLC
 * Wireshark
@@ -186,16 +178,19 @@ More insights can be found in these lists:
 
 ## Upgrades
 
-On major version upgrades from Catalina to future versions, ensure to re-install all Homebrew binaries.
+On major version upgrades, binaries might be incompatible or need a local rebuild. 
+You can enforce a reinstall by running the two commands below, the second command
+only reinstalls all application casks.
 
 ```
 brew reinstall $(brew list)
 
-brew cask install --force $(brew cask list)
+brew reinstall $(brew list --cask)
 ```
 
 When Xcode and compilers break, re-install the command line tools.
 
 ```
-xcode-select --install
+sudo rm -rf /Library/Developer/CommandLineTools
+sudo xcode-select --install
 ```

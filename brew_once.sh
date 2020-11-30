@@ -8,7 +8,6 @@ brew upgrade
 
 BREW_PREFIX=$(brew --prefix)
 
-brew tap caskroom/cask-cask
 brew tap homebrew/services
 
 brew install curl wget git

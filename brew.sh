@@ -17,8 +17,8 @@ brew install gnu-tar gawk gnutls gnu-indent gnu-getopt
 
 ln -s "${BREW_PREFIX}/bin/gtar" "${BREW_PREFIX}/bin/tar"
 
-brew install wget --with-iri
-brew install vim --with-override-system-vi
+brew install wget
+brew install vim
 
 # System
 brew install htop-osx pidof pstree grep openssh screen gmp binutils nmap socat rename rlwrap ssh-copy-id tree
@@ -50,7 +50,7 @@ brew services start redis
 ################################
 # Casks
 brew cask install java
-brew cask install atom visual-studio-code firefox
+brew cask install visual-studio-code firefox
 brew cask install vlc wireshark gimp inkscape handbrake
 
 # Vagrant
