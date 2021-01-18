@@ -83,6 +83,7 @@ brew "go"
 brew "cmake"
 brew "openjdk"
 brew "kind"
+brew "awscli"
 
 # GitLab Pages
 brew "hugo"
