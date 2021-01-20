@@ -52,6 +52,7 @@ brew "nmap"
 brew "socat"
 brew "rlwrap"
 brew "dnstracer"
+brew "sslscan"
 
 # Images, Audio, Video
 brew "imagemagick"
