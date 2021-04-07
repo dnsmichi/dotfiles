@@ -21,6 +21,7 @@ cask "vagrant"
 cask "spotify"
 
 # System
+brew "zsh-completions"
 brew "mas"
 brew "curl"
 brew "wget"
