@@ -38,14 +38,15 @@ if &term=="xterm"
      set t_Sf=[3%dm
 endif
 
-set nofixeol " don't fix end-of-line errors
+" don't fix end-of-line errors
+set nofixeol
 
 " Don't wake up system with blinking cursor:
 " http://www.linuxpowertop.org/known.php
 let &guicursor = &guicursor . ",a:blinkon0"
 
-"set background=dark
-set background=light
+set background=dark
+"set background=light
 
 set showcmd             " Show (partial) command in status line.
 set showmatch           " Show matching brackets.
