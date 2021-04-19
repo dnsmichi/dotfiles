@@ -55,6 +55,10 @@ brew "rlwrap"
 brew "dnstracer"
 brew "sslscan"
 
+# Ops
+brew "ansible"
+brew "hcloud"
+
 # Images, Audio, Video
 brew "imagemagick"
 brew "gifsicle"
