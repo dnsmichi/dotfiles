@@ -8,6 +8,7 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 
+cask "obs"
 cask "java"
 cask "visual-studio-code"
 cask "firefox"
