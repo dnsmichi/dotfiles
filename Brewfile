@@ -57,8 +57,11 @@ brew "dnstracer"
 brew "sslscan"
 
 # Ops
+brew "kind"
+brew "awscli"
 brew "ansible"
 brew "hcloud"
+brew "google-cloud-sdk"
 
 # Images, Audio, Video
 brew "imagemagick"
@@ -86,11 +89,10 @@ brew "ruby"
 brew "yarn"
 brew "rbenv"
 brew "python"
+brew "pyenv"
 brew "go"
 brew "cmake"
 brew "openjdk"
-brew "kind"
-brew "awscli"
 
 # GitLab Pages
 brew "hugo"
