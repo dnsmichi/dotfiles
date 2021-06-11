@@ -55,6 +55,7 @@ brew "socat"
 brew "rlwrap"
 brew "dnstracer"
 brew "sslscan"
+brew "watch"
 
 # Ops
 brew "kind"
