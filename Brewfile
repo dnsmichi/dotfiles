@@ -63,6 +63,7 @@ brew "awscli"
 brew "ansible"
 brew "hcloud"
 brew "google-cloud-sdk"
+brew "jsonnet-bundler"
 
 # Images, Audio, Video
 brew "imagemagick"
