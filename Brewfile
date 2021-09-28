@@ -65,6 +65,7 @@ brew "hcloud"
 brew "google-cloud-sdk"
 brew "jsonnet"
 brew "jsonnet-bundler"
+brew "tfenv"
 
 # Images, Audio, Video
 brew "imagemagick"
