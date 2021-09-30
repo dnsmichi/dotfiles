@@ -7,6 +7,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "civo/tools"
 
 cask "obs"
 cask "java"
@@ -66,6 +67,7 @@ brew "google-cloud-sdk"
 brew "jsonnet"
 brew "jsonnet-bundler"
 brew "tfenv"
+brew "civo"
 
 # Images, Audio, Video
 brew "imagemagick"
