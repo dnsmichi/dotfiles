@@ -91,19 +91,12 @@ This makes use of the [Brewfile](Brewfile) definitions.
 
 ### Tools
 
-These tools are managed without Homebrew on purpose, e.g. for manual updates.
+#### Raycast Extensions
 
-* Workflows: [Alfred](https://www.alfredapp.com/) including my Powerpack license
-  * [HTTP Status Codes](https://github.com/ilstar/http_status_code)
-  * [DNS: Dig](https://github.com/phallstrom/AlfredDig)
-  * [Colors](https://github.com/zenorocha/alfred-workflows#colors-v202--download)
-  * [Emoji](https://github.com/carlosgaldino/alfred-emoji-workflow)
-  * [Encode/Decode](https://github.com/zenorocha/alfred-workflows#encodedecode-v180--download)
-  * [Gmail](https://github.com/fniephaus/alfred-gmail)
-  * [Gmail filters](https://github.com/inlet/alfred-workflow-gmail-filters)
-  * [Sketch](https://madbitco.github.io/sketchflow/)
-  * [Google Translate](https://github.com/xfslove/alfred-google-translate)
-  * [Python Library](https://gitlab.com/deanishe/alfred-workflow)
+- [Emoji search](https://www.raycast.com/FezVrasta/emoji) for [fast emoji access](https://about.gitlab.com/handbook/marketing/community-relations/developer-evangelism/social-media/#fast-emojis-workflows)
+- [GitLab](https://www.raycast.com/tonka3000/gitlab)
+- [Weather](https://www.raycast.com/tonka3000/weather)
+- [Speedtest](https://www.raycast.com/tonka3000/speedtest)
 
 ### Virtualization and Containers
 
@@ -131,11 +124,11 @@ sudo fdesetup enable
 
 ### Keyboard
 
-`Shortcuts`: Disable Spotlight in preparation for enabling Alfred next.
+`Shortcuts`: Disable Spotlight in preparation for enabling Raycast as default shortcut using `cmd + space`.
 
-### Alfred
+### Raycast
 
-Start Alfred from the Applications folder, and change the hotkey to `Cmd+Space`.
+Start Raycast from the Applications folder, and change the hotkey to `Cmd+Space`.
 Ensure that Spotlight is disabled in the system preferences.
 
 ### Finder
