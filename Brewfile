@@ -21,6 +21,7 @@ cask "jitsi-meet"
 cask "handbrake"
 cask "vagrant"
 cask "spotify"
+cask "raycast"
 
 # System
 brew "zsh-completions"
@@ -99,6 +100,7 @@ brew "pyenv"
 brew "go"
 brew "cmake"
 brew "openjdk"
+brew "rust"
 
 # GitLab Pages
 brew "hugo"
