@@ -8,6 +8,7 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "civo/tools"
+tap "anchore/grype"
 
 cask "obs"
 cask "java"
@@ -22,6 +23,11 @@ cask "handbrake"
 cask "vagrant"
 cask "spotify"
 cask "raycast"
+
+# System monitoring, trials
+cask "macs-fan-control"
+cask "istats-menu"
+cask "turbo-boost-switcher"
 
 # System
 brew "zsh-completions"
@@ -69,6 +75,10 @@ brew "jsonnet"
 brew "jsonnet-bundler"
 brew "tfenv"
 brew "civo"
+brew "grype"
+brew "docker-compose"
+brew "lima"
+brew "podman"
 
 # Images, Audio, Video
 brew "imagemagick"
