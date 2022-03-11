@@ -1,3 +1,4 @@
+
 # GNU utils path overrides as default CLI tools
 if type brew &>/dev/null; then
   HOMEBREW_PREFIX=$(brew --prefix)
