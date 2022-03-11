@@ -31,6 +31,7 @@ cask "turbo-boost-switcher"
 
 # System
 brew "zsh-completions"
+brew "zsh-syntax-highlighting"
 brew "mas"
 brew "curl"
 brew "wget"
