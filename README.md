@@ -86,6 +86,8 @@ Install Homebrew and OhMyZSH.
 ./brew_once.sh
 ```
 
+### Install tools and apps
+
 Install tools and applications with Homebrew bundle.
 
 ```
@@ -94,7 +96,22 @@ brew bundle
 
 This makes use of the [Brewfile](Brewfile) definitions.
 
+[mas](https://github.com/mas-cli/mas) is used to install apps from the app store, and is itself installed with Homebrew first in the [Brewfile](Brewfile).
+
+```
+$ cat Brewfile
+
+brew "mas"
+
+...
+
+mas "1Password 7", id: 1333542190
+```
+
+
 ## Essentials
+
+These tools are managed outside of Homebrew, and require additional work and documentation.
 
 ### Tools
 
@@ -107,9 +124,11 @@ This makes use of the [Brewfile](Brewfile) definitions.
 
 ### Virtualization and Containers
 
-I only use Docker locally, required VMs run in Hetzner Cloud (private), GCP or AWS. Docker for Mac provides the `docker-compose` binary required to run demo environments. 
+I mostly use Docker and alternatives locally, required VMs run in Hetzner Cloud (private), GCP or AWS. `docker-compose` is installed separately. 
 
-VirtualBox needs work with Kernel modules. I highly recommend to get a [Parallels license](https://www.parallels.com/de/products/desktop/buy/) instead. 
+In 2022, I decided to switch to [Rancher Desktop](https://rancherdesktop.io/), and evaluate podman, nerdctl, etc. in the future. More tips can be found in the [GitLab handbook](https://about.gitlab.com/handbook/tools-and-tips/mac/#docker-desktop).
+
+VirtualBox needs work with Kernel modules; I keep it installed as there are sometimes Vagrant demo setups to try. 
 
 ## Preferences
 
