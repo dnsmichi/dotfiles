@@ -1,6 +1,6 @@
 # Macbook Pro dotfiles and setup at GitLab
 
-This repository contains everything to bootstrap my Macbook Pro (16 inch, 2019). This setup is explained in-depth in [dotfiles - Document and automate your Macbook setup](https://about.gitlab.com/blog/2020/04/17/dotfiles-document-and-automate-your-macbook-setup/).
+This repository contains everything to bootstrap my Macbook Pro (16 inch, 2019). This setup is explained in-depth in [dotfiles - Document and automate your Macbook setup](https://about.gitlab.com/blog/2020/04/17/dotfiles-document-and-automate-your-macbook-setup/). The current ZSH theme is [Powerlevel10k, detailed in this blog post](https://dnsmichi.at/2022/03/11/new-zsh-theme-on-macos-powerlevel10k/).
 
 In addition to the files stored in this repository, the following instructions are needed to fully setup a Macbook Pro.
 
