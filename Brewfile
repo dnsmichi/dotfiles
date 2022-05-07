@@ -110,6 +110,7 @@ brew "python"
 brew "pyenv"
 brew "go"
 brew "cmake"
+brew "boost"
 brew "openjdk"
 brew "rust"
 
