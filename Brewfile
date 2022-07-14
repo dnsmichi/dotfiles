@@ -23,6 +23,7 @@ cask "handbrake"
 cask "vagrant"
 cask "spotify"
 cask "raycast"
+cask "vnc-viewer"
 
 # System monitoring, trials
 cask "macs-fan-control"
@@ -105,7 +106,7 @@ brew "jo"
 # Dev
 brew "ruby"
 brew "yarn"
-brew "rbenv"
+#brew "rbenv"
 brew "python"
 brew "pyenv"
 brew "go"
@@ -113,6 +114,7 @@ brew "cmake"
 brew "boost"
 brew "openjdk"
 brew "rust"
+brew "asdf"
 
 # GitLab Pages
 brew "hugo"
