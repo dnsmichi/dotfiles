@@ -4,6 +4,7 @@
         signingkey = D14A1F16
 [alias]
         l  = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --
+	pushu = push -u origin HEAD
 [credential]
 	helper = osxkeychain
 [init]
@@ -15,3 +16,5 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[push]
+	autoSetupRemote = true

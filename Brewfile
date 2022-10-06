@@ -66,6 +66,7 @@ brew "rlwrap"
 brew "dnstracer"
 brew "sslscan"
 brew "watch"
+brew "viddy"
 
 # Ops
 brew "kind"
