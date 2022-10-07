@@ -121,7 +121,8 @@ brew "asdf"
 brew "hugo"
 
 # App Store
-mas "1Password 7", id: 1333542190
+# 1Password 8 is available via https://1password.com/product/mac/
+#mas "1Password 7", id: 1333542190
 mas "Slack", id: 803453959
 mas "Telegram", id: 747648890
 mas "uBlock", id: 1385985095

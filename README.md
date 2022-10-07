@@ -104,14 +104,15 @@ $ cat Brewfile
 brew "mas"
 
 ...
-
-mas "1Password 7", id: 1333542190
+mas "Slack", id: 803453959
 ```
 
 
 ## Essentials
 
 These tools are managed outside of Homebrew, and require additional work and documentation.
+
+- [1Password 8](https://1password.com/product/mac/)
 
 ### Tools
 
