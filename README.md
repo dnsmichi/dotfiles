@@ -119,9 +119,6 @@ These tools are managed outside of Homebrew, and require additional work and doc
 #### Raycast Extensions
 
 - [Emoji search](https://www.raycast.com/FezVrasta/emoji) for [fast emoji access](https://about.gitlab.com/handbook/marketing/community-relations/developer-evangelism/social-media/#fast-emojis-workflows)
-- [GitLab](https://www.raycast.com/tonka3000/gitlab)
-- [Weather](https://www.raycast.com/tonka3000/weather)
-- [Speedtest](https://www.raycast.com/tonka3000/speedtest)
 
 ### Virtualization and Containers
 
@@ -168,10 +165,8 @@ Ensure that Spotlight is disabled in the system preferences.
 ## Additional Applications
 
 * Google Chrome
-* Docker (account required)
 * JetBrains Toolbox (license required)
 * NTFS for Mac (license required, I own a private license)
-* Paw (license required, I own a private license)
 * Spotify (account required)
 * Telegram (account required)
 
