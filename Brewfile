@@ -24,6 +24,7 @@ cask "vagrant"
 cask "spotify"
 cask "raycast"
 cask "vnc-viewer"
+cask "dbeaver-community"
 
 # System monitoring, trials
 cask "macs-fan-control"
@@ -67,6 +68,7 @@ brew "dnstracer"
 brew "sslscan"
 brew "watch"
 brew "viddy"
+brew "ripgrep"
 
 # Ops
 brew "kind"
