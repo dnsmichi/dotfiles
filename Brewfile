@@ -69,6 +69,7 @@ brew "sslscan"
 brew "watch"
 brew "viddy"
 brew "ripgrep"
+brew "xq"
 
 # Ops
 brew "kind"
