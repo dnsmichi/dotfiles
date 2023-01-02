@@ -25,6 +25,7 @@ cask "spotify"
 cask "raycast"
 cask "vnc-viewer"
 cask "dbeaver-community"
+cask "grammarly-desktop"
 
 # System monitoring, trials
 cask "macs-fan-control"
@@ -70,6 +71,7 @@ brew "watch"
 brew "viddy"
 brew "ripgrep"
 brew "xq"
+brew "dnsx"
 
 # Ops
 brew "kind"
