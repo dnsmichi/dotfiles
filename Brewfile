@@ -73,6 +73,7 @@ brew "viddy"
 brew "ripgrep"
 brew "xq"
 brew "dnsx"
+brew "fd" # find alternative 
 
 # Ops
 brew "kind"
