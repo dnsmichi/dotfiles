@@ -10,6 +10,7 @@ tap "homebrew/services"
 tap "civo/tools"
 tap "anchore/grype"
 
+cask "sloth"
 cask "obs"
 cask "java"
 cask "visual-studio-code"
@@ -75,6 +76,7 @@ brew "dnsx"
 
 # Ops
 brew "kind"
+brew "minikube"
 brew "awscli"
 brew "ansible"
 brew "hcloud"
