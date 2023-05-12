@@ -74,6 +74,7 @@ brew "ripgrep"
 brew "xq"
 brew "dnsx"
 brew "fd" # find alternative 
+brew "broot"
 
 # Ops
 brew "kind"
@@ -90,6 +91,7 @@ brew "grype"
 brew "docker-compose"
 brew "lima"
 brew "podman"
+brew "crane"
 
 # Images, Audio, Video
 brew "imagemagick"
@@ -124,6 +126,11 @@ brew "boost"
 brew "openjdk"
 brew "rust"
 brew "asdf"
+
+# git-sim
+brew "py3cairo"
+brew "pango"
+brew "scipy"
 
 # GitLab Pages
 brew "hugo"
