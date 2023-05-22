@@ -27,6 +27,7 @@ cask "raycast"
 cask "vnc-viewer"
 cask "dbeaver-community"
 cask "grammarly-desktop"
+cask "altair-graphql-client"
 
 # System monitoring, trials
 cask "macs-fan-control"
