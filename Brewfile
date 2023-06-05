@@ -26,13 +26,8 @@ cask "spotify"
 cask "raycast"
 cask "vnc-viewer"
 cask "dbeaver-community"
-cask "grammarly-desktop"
+#cask "grammarly-desktop"
 cask "altair-graphql-client"
-
-# System monitoring, trials
-cask "macs-fan-control"
-cask "istats-menu"
-cask "turbo-boost-switcher"
 
 # System
 brew "zsh-completions"
@@ -139,6 +134,6 @@ brew "hugo"
 # App Store
 # 1Password 8 is available via https://1password.com/product/mac/
 #mas "1Password 7", id: 1333542190
-mas "Slack", id: 803453959
-mas "Telegram", id: 747648890
-mas "uBlock", id: 1385985095
+#mas "Slack", id: 803453959
+#mas "Telegram", id: 747648890
+#mas "uBlock", id: 1385985095

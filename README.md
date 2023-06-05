@@ -22,7 +22,7 @@ Initial settings:
 
 Download the font files for `https://github.com/romkatv/powerlevel10k#manual-font-installation` from [fonts/](fonts/) and double-click to open them all to follow "Install Font".
 
-Navigate to the iterm2 `Preferences > Profiles > Text > Font` and search for `https://github.com/romkatv/powerlevel10k#manual-font-installation` to select the font. Save and restart iTerm2.
+Navigate to the iterm2 `Preferences > Profiles > Text > Font` and search for `Meslo` to select the font. Save and restart iTerm2.
 
 ### Git (XCode)
 
@@ -137,14 +137,6 @@ These are manual settings as they require user awareness.
 Enable Encryption ([required for GitLab team members](https://about.gitlab.com/handbook/business-ops/team-member-enablement/onboarding-access-requests/#full-disk-encryption) and recommended for everyone).
 See [here](https://support.apple.com/en-us/HT204837) for detailed instructions.
 
-CLI:
-
-```
-sudo fdesetup status
-
-sudo fdesetup enable
-```
-
 
 ### Keyboard
 
@@ -157,10 +149,10 @@ Ensure that Spotlight is disabled in the system preferences.
 
 ### Finder
 
-`Preferences > Sidebar` and add
+Open Finder and navigate into `Settings > Sidebar` to add
 
-- User home
-- System root
+- User home (user name)
+- System root (Macbook name)
 
 ## Additional Applications
 
@@ -208,4 +200,16 @@ When Xcode and compilers break, re-install the command line tools.
 ```
 sudo rm -rf /Library/Developer/CommandLineTools
 sudo xcode-select --install
+```
+
+### Git xcrun errors on macOS Ventura upgrades
+
+```
+xcrun: error: invalid active developer path
+```
+
+You need to explicity agree to the terms of services for the developer tools.
+
+```
+xcode-select --install
 ```
