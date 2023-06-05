@@ -22,3 +22,5 @@
 	format = ssh
 [commit]
 	gpgsign = true
+[gpg "ssh"]
+	allowedSignersFile = /Users/mfriedrich/.ssh/allowed_signers

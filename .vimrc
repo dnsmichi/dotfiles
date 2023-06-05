@@ -1,5 +1,5 @@
 " pathogen
-"execute pathogen#infect()
+execute pathogen#infect()
 
 if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
    set fileencodings=ucs-bom,utf-8,latin1
@@ -65,7 +65,7 @@ set paste
 set ruler
 set title
 
-set spell spelllang=en_us
+"set spell spelllang=en_us
 
 " Don't mark URL-like things as spelling errors
 syn match UrlNoSpell '\w\+:\/\/[^[:space:]]\+' contains=@NoSpell
