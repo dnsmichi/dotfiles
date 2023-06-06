@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+#print settings with 'defaults read'
+
 # close any system preference windows first
 osascript -e 'tell application "System Preferences" to quit'
 
@@ -22,27 +24,36 @@ sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
 ####################################
 # Trackpad, keyboard
 
+## macOS Ventura
+defaults write "Apple Global Domain" ContextMenuGesture -int 1
+
 # Trackpad: enable tap to click for this user and for the login screen
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
-defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -int 1
+## macOS Ventura
+defaults write com.apple.AppleMultitouchTrackpad Clicking -int 1
 
 # Trackpad: map bottom right corner to right-click
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.trackpadCornerClickBehavior -int 1
-defaults -currentHost write NSGlobalDomain com.apple.trackpad.enableSecondaryClick -bool true
+## macOS Ventura
+defaults write com.apple.AppleMultitouchTrackpad TrackpadCornerSecondaryClick -int 2
+
+# macOS Ventura specific
+# Disable this setting so that the right click with bottom right corner works
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -int 0
+## macOS Ventura
+defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -int 0
+
 
 # use keyboard navigation to move focus between controls (tab-tab for everything)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
 # Non-breaking spaces: https://superuser.com/questions/78245/how-to-disable-the-option-space-key-combination-for-non-breaking-spaces
-mkdir -p ~/Library/KeyBindings
-cat > ~/Library/KeyBindings/DefaultKeyBinding.dict <<EOF
-{
-"~ " = ("insertText:", " ");
-}
-EOF
+#mkdir -p ~/Library/KeyBindings
+#cat > ~/Library/KeyBindings/DefaultKeyBinding.dict <<EOF
+#{
+#"~ " = ("insertText:", " ");
+#}
+#EOF
 
 
 ####################################
@@ -60,6 +71,9 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 test -d "${HOME}/Pictures/screenshots" || mkdir -p "${HOME}/Pictures/screenshots"
 defaults write com.apple.screencapture location -string "${HOME}/Pictures/screenshots"
 
+# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+defaults write com.apple.screencapture type -string "png"
+
 # Show the ~/Library folder
 chflags nohidden ~/Library
 
@@ -71,3 +85,6 @@ sudo chflags nohidden /Volumes
 
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
+
+
+echo "Applied settings. System reboot required""
