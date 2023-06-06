@@ -55,6 +55,9 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 #}
 #EOF
 
+####################################
+## Sound
+defaults write "Apple Global Domain" com.apple.sound.uiaudio.enabled -int 0
 
 ####################################
 # Screen
