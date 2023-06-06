@@ -124,10 +124,25 @@ mas "Slack", id: 803453959
 These tools are managed outside of Homebrew, and require additional work and documentation.
 
 - [1Password 8](https://1password.com/product/mac/)
+= [Zoom](https://zoom.us/download) (note the special download location for Apple M1 Silicon)
 - Java 18+ Open Source
 - Grammarly Desktop
 
 ### Tools
+
+#### Chrome
+
+For Macbook refreshments, enable the Profile sync functionality and mirror bookmarks, history, auto-completion, etc. This is essential for efficiency.
+
+Extensions:
+
+- [Okta](https://chrome.google.com/webstore/detail/okta-browser-plugin/glnpjglilkicbckjpbgcfkogebgllemb)
+- [Zoom](https://chrome.google.com/webstore/detail/zoom-chrome-extension/kgjfgplpablkjnlkjmjdecgdpfankdle/related?hl=en)
+- [1Password](https://chrome.google.com/webstore/detail/1password-%E2%80%93-password-mana/aeblfdkhhhdcdjpifhhbdiojplfjncoa)
+- [Google Docs Offline](https://chrome.google.com/webstore/detail/google-docs-offline/ghbmnnjooekpmoecnnnilnnbdlolhkhi)
+- [uBlock Origin](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm)
+- [Buffer](https://chrome.google.com/webstore/detail/buffer/noojglkidnpfjbincgijbaiedldjfbhh) (social media queue)
+- [Window Resizer](https://chrome.google.com/webstore/detail/window-resizer/kkelicaakdanhinjdeammmilcgefonfh) (virtual screensharing that requires specific resolutions)
 
 #### Raycast Extensions
 
