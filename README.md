@@ -143,17 +143,29 @@ Open the extensions and record keyboard shortcut commands. I use the emoji searc
 
 ### Virtualization and Containers
 
-I mostly use Docker and alternatives locally, required VMs run in Hetzner Cloud (private), GCP or AWS. `docker-compose` is installed separately. 
+CLI Tools:
+
+1. [Rancher Desktop](https://rancherdesktop.io/) (provides local Kubernetes, and `docker` compatible CLI) - **manual download**
+1. `docker-compose`, `vagrant`, `lima`, `podman` via [Brewfile](Brewfile)
+
+Cloud:
+
+CLI tools managed with Homebrew in [Brewfile](Brewfile): Google Cloud, AWS, Hetzner Cloud, Civo Cloud.
+
+Kubernetes clusters are managed in GKE, GitLab community group.
 
 In 2022, I decided to switch to [Rancher Desktop](https://rancherdesktop.io/), and evaluate podman, nerdctl, etc. in the future. More tips can be found in the [GitLab handbook](https://about.gitlab.com/handbook/tools-and-tips/mac/#docker-desktop).
 
-Vagrant and VirtualBox are installed for local Linux VM demos and workshops. Vagrant on Apple M1 Silicon needs Rosetta 2 being installed.
+Vagrant and Lima are installed for local Linux VM demos and workshops. Vagrant on Apple M1 Silicon needs Rosetta 2 being installed.
 
 ```
 $ sudo softwareupdate --install-rosetta --agree-to-license
 ```
 
-VirtualBox requires the developer preview for Apple Silicon M1. This cannot be managed with Homebrew. [Download and install it](https://www.virtualbox.org/wiki/Downloads), it may contain bugs.
+I prefer [lima](https://lima-vm.io/) for Linux VM management, for example in https://gitlab.com/gitlab-de/workshops/observability/learn-ebpf-2023 
+
+**Note**: VirtualBox requires the developer preview for Apple Silicon M1. This cannot be managed with Homebrew. [Download and install it](https://www.virtualbox.org/wiki/Downloads), it may contain bugs and is far from production ready: https://forums.virtualbox.org/viewtopic.php?f=8&t=107344 2023-06-06 status: Cannot boot Ubuntu 23.04 via Vagrant. 
+
 
 ## Settings
 
