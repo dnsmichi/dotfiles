@@ -12,6 +12,7 @@ tap "anchore/grype"
 
 cask "firefox"
 cask "raycast"
+cask "todoist"
 cask "obs"
 cask "vlc"
 cask "handbrake"
