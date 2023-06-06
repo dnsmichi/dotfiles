@@ -146,7 +146,7 @@ Extensions:
 
 #### Raycast Extensions
 
-- [Emoji search](https://www.raycast.com/FezVrasta/emoji) for [fast emoji access](https://about.gitlab.com/handbook/marketing/community-relations/developer-evangelism/social-media/#fast-emojis-workflows)
+Open the extensions and record keyboard shortcut commands. I use the emoji search very extensively, and have recorded cmd + ` for faster access.
 
 ### Virtualization and Containers
 
@@ -160,9 +160,9 @@ Vagrant and VirtualBox are installed for local Linux VM demos and workshops. Vag
 $ sudo softwareupdate --install-rosetta --agree-to-license
 ```
 
-VirtualBox requires the developer preview for Apple Silicon M1. This cannot be managed with Homebrew. [Download and install it](https://www.virtualbox.org/wiki/Downloads).
+VirtualBox requires the developer preview for Apple Silicon M1. This cannot be managed with Homebrew. [Download and install it](https://www.virtualbox.org/wiki/Downloads), it may contain bugs.
 
-## Preferences
+## Settings
 
 These are manual settings as they require user awareness.
 
@@ -174,11 +174,11 @@ See [here](https://support.apple.com/en-us/HT204837) for detailed instructions.
 
 ### Keyboard
 
-`Shortcuts`: Disable Spotlight in preparation for enabling Raycast as default shortcut using `cmd + space`.
+`Settings > Keyboard > Setup Keyboard Shortcuts`: Disable all Spotlight options in preparation for enabling Raycast as default shortcut using `cmd + space`.
 
 ### Raycast
 
-Start Raycast from the Applications folder, and change the hotkey to `Cmd+Space`.
+Start Raycast from the Applications folder in Finder, and change the hotkey to `Cmd+Space`.
 Ensure that Spotlight is disabled in the system preferences.
 
 ### Finder
@@ -198,12 +198,12 @@ Open Finder and navigate into `Settings > Sidebar` to add
 
 ### Handbook
 
-Following the [GitLab handbook](https://about.gitlab.com/handbook/tools-and-tips/):
-
-* [Loom](https://www.loom.com/)
+Following the [GitLab tools and tipshandbook](https://handbook.gitlab.com/handbook/tools-and-tips/).
 
 
 ### Homebrew
+
+Managed as casks in [Brewfile](Brewfile).
 
 * Firefox (in order to reproduce UX bugs)
 * VLC
@@ -214,8 +214,8 @@ Following the [GitLab handbook](https://about.gitlab.com/handbook/tools-and-tips
 More insights can be found in these lists:
 
 - [Setting examples](https://github.com/mathiasbynens/dotfiles/blob/master/.macos)
+- [macos Ventura settings](https://github.com/gretzky/dotfiles/blob/main/macos/.macos)
 - [command overview](https://github.com/herrbischoff/awesome-macos-command-line).
-
 
 ## Upgrades
 
@@ -247,3 +247,59 @@ You need to explicity agree to the terms of services for the developer tools.
 ```
 xcode-select --install
 ```
+
+### Settings do not work after upgrades
+
+The settings in [.macos](.macos) use macOS internal APIs on the command line. Sometimes the configuration settings change, for example with the Trackpad on macOs Ventura.
+
+To debug and capture which settings are in effect, create a new Git repository somewhere, and persist the system settings output.
+
+```
+mkdir $HOME/dev/work/system-settings
+cd $HOME/dev/work/system-settings
+git init
+
+defaults read > settings.txt
+
+git add settings.txt
+git commit -av -m "Initial settings"
+```
+
+Then navigate into the Systems settings GUI, change parameters, export the system settings into the same file, and analyze the Git diff to figure out the correct parameter names and values.
+
+```
+defaults read > settings.txt
+
+git diff
+```
+
+Example with Trackpad and right-click:
+
+```diff
+     "com.apple.AppleMultitouchTrackpad" =     {
+         ActuateDetents = 1;
+-        Clicking = 0;
++        Clicking = 1;
+         DragLock = 0;
+         Dragging = 0;
+         FirstClickThreshold = 1;
+         ForceSuppressed = 0;
+         SecondClickThreshold = 1;
+-        TrackpadCornerSecondaryClick = 0;
++        TrackpadCornerSecondaryClick = 2;
+         TrackpadFiveFingerPinchGesture = 2;
+         TrackpadFourFingerHorizSwipeGesture = 2;
+         TrackpadFourFingerPinchGesture = 2;
+@@ -463,7 +464,7 @@
+         TrackpadHorizScroll = 1;
+         TrackpadMomentumScroll = 1;
+         TrackpadPinch = 1;
+-        TrackpadRightClick = 1;
++        TrackpadRightClick = 0;
+         TrackpadRotate = 1;
+         TrackpadScroll = 1;
+         TrackpadThreeFingerDrag = 0;
+```
+
+Requiring the current settings to be changed to https://gitlab.com/dnsmichi/dotfiles/-/commit/f16809989ba2d65fc73e1274356b6f2c6cfde1db in June 2023.
+
