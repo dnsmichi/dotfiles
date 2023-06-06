@@ -60,6 +60,16 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 defaults write "Apple Global Domain" com.apple.sound.uiaudio.enabled -int 0
 
 ####################################
+## Menu widgets
+
+## Clock with seconds
+defaults write "Apple Global Domain" com.apple.menuextra.clock.Show24Hour -int 0
+defaults write "Apple Global Domain" com.apple.menuextra.clock.ShowAMPM -int 1
+defaults write "Apple Global Domain" com.apple.menuextra.clock.ShowSeconds -int 1
+
+
+
+####################################
 # Screen
 
 # Require password immediately after sleep or screen saver begins
