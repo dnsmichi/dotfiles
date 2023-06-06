@@ -20,19 +20,10 @@ Install iterm2 manually from the [website](https://www.iterm2.com/), drag it int
 1. At the bottom, click on `Other Actions` and select `Import JSON profiles`. Import the downloaded `Dark.json` file.
 1. Mark `dark` profile and select `Other Actions > Set as default`.
 
-Documentation for initial settings:
+Powerlevel10k fonts for Oh-My-ZSH terminal:
 
-1. Create a new profile in `Settings > Profile` named `Dark`
-     - `Colors > Color presets > Dark background`
-     - `Session > Status bar enabled` and `Configure Status Bar`. Add `git state`, `CPU utilization`, `Memory utilization`. Click `Auto-Rainbow`.
-1. Mark `dark` profile and select `Other Actions > Set as default`.
-1. Export the Dark profile as JSON and upload into the [iterm2](iterm2/) directory. 
-
-#### Fonts for ZSH Powerline10k
-
-Download the font files for `https://github.com/romkatv/powerlevel10k#manual-font-installation` from [fonts/](fonts/) and double-click to open them all to follow "Install Font".
-
-Navigate to **iterm2** `Settings > Profiles > Text > Font` and search for `Meslo` to select the font. Save and restart iTerm2.
+1. Download the font files from https://github.com/romkatv/powerlevel10k#manual-font-installation (backup in [fonts/](fonts/)). 
+1. Double-click to open them all to follow "Install Font".
 
 ### Git (XCode)
 
@@ -214,7 +205,28 @@ Managed as casks in [Brewfile](Brewfile).
 * VLC
 * Wireshark
 
+
 ## Additional Hints
+
+### iterm2
+
+Documentation for initial settings:
+
+1. Create a new profile in `Settings > Profile` named `Dark`
+     - `Colors > Color presets > Dark background`
+     - `Session > Status bar enabled` and `Configure Status Bar`. Add `git state`, `CPU utilization`, `Memory utilization`. Click `Auto-Rainbow`.
+1. Mark `dark` profile and select `Other Actions > Set as default`.
+1. Export the Dark profile as JSON and upload into the [iterm2](iterm2/) directory. 
+
+#### Font config for ZSH Powerline10k
+
+> **Note**: This is persisted in the iterm2 profile already.
+
+
+Navigate to **iterm2** `Settings > Profiles > Text > Font` and search for `Meslo` to select the font. Save and restart iTerm2.
+
+
+### Other projects
 
 More insights can be found in these lists:
 
@@ -223,6 +235,21 @@ More insights can be found in these lists:
 - [command overview](https://github.com/herrbischoff/awesome-macos-command-line).
 
 ## Upgrades
+
+
+### Homebrew 
+
+### Oh-my-ZSH and Themes
+
+```
+cd ~/.oh-my-zsh
+git pull
+
+cd ~/.oh-my-zsh/custom/themes/powerlevel10k
+git pull
+```
+
+### Troubleshooting
 
 On major version upgrades, binaries might be incompatible or need a local rebuild. 
 You can enforce a reinstall by running the two commands below, the second command
