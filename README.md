@@ -184,6 +184,14 @@ Open Finder and navigate into `Settings > Sidebar` to add
 - User home (user name)
 - System root (Macbook name)
 
+### Zoom
+
+https://handbook.gitlab.com/handbook/tools-and-tips/zoom/
+
+`Settings > General`: Untick `Ask me to confirm when I leave a metting`
+`Settings > Audio`: Mute my mic when joining
+`Settings > Keyboard Shortcuts`: Mute/Unmute my audio: `cmd 1`.
+
 ## Additional Applications
 
 * Google Chrome
