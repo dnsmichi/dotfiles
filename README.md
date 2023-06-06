@@ -171,10 +171,15 @@ These are manual settings as they require user awareness.
 Enable Encryption ([required for GitLab team members with Jamf](https://about.gitlab.com/handbook/business-technology/end-user-services/onboarding-access-requests/endpoint-management/jamf/#why-jamf).
 See [here](https://support.apple.com/en-us/HT204837) for detailed instructions.
 
+### 1Password
+
+1Password8 overrides the screenshot shortcut `cmd+shift+4+space` by default. Replace it with something else, or clear it in `Settings > General > Keyboard Shortcuts`. 
 
 ### Keyboard
 
-`Settings > Keyboard > Setup Keyboard Shortcuts`: Disable all Spotlight options in preparation for enabling Raycast as default shortcut using `cmd + space`.
+`Settings > Keyboard > Keyboard Shortcuts`:
+
+1. Disable all Spotlight options in preparation for enabling Raycast as default shortcut using `cmd + space`.
 
 ### Raycast
 
