@@ -27,6 +27,7 @@ cask "dbeaver-community"
 cask "altair-graphql-client"
 cask "spotify"
 cask "jitsi-meet"
+cask "discord"
 # Use manual self-service install
 #cask "grammarly-desktop"
 #cask "openjdk" 
