@@ -43,6 +43,8 @@ mfriedrich  ALL=(ALL) NOPASSWD: ALL
 
 ### Backup
 
+Use Google drive and Chrome profile sync to migrate backup data.
+
 Copy the following private secret files in your home directory:
 
 * SSH Keys
