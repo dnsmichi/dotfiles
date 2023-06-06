@@ -22,11 +22,11 @@ Install iterm2 manually from the [website](https://www.iterm2.com/), drag it int
 
 Documentation for initial settings:
 
-- Create a new profile in `Settings > Profile` named `white`
-     - `Colors > Color presets > Tango Light`
+1. Create a new profile in `Settings > Profile` named `Dark`
+     - `Colors > Color presets > Dark background`
      - `Session > Status bar enabled` and `Configure Status Bar`. Add `git state`, `CPU utilization`, `Memory utilization`. Click `Auto-Rainbow`.
-- Repeat the settings for the `Dark` profile
-- Mark `dark` profile and select `Other Actions > Set as default`.
+1. Mark `dark` profile and select `Other Actions > Set as default`.
+1. Export the Dark profile as JSON and upload into the [iterm2](iterm2/) directory. 
 
 #### Fonts for ZSH Powerline10k
 
