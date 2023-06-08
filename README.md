@@ -357,3 +357,10 @@ Example with Trackpad and right-click:
 
 Requiring the current settings to be changed to https://gitlab.com/dnsmichi/dotfiles/-/commit/f16809989ba2d65fc73e1274356b6f2c6cfde1db in June 2023.
 
+### Touch ID does not work
+
+The magic keyboard with Touch ID does not work after the Macbook went to sleep.
+
+- https://www.reddit.com/r/mac/comments/13hd4aa/magic_keyboard_with_touch_id_no_working_after/
+- https://www.reddit.com/r/macmini/comments/12cw4mf/touch_id_issues_on_mac_mini_m2/ 
+- https://support.apple.com/en-us/HT212225#:~:text=For%20Magic%20Keyboard%20with%20Touch,Restart%20your%20Mac 
