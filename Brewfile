@@ -28,8 +28,8 @@ cask "altair-graphql-client"
 cask "spotify"
 cask "jitsi-meet"
 cask "discord"
+cask "grammarly-desktop"
 # Use manual self-service install
-#cask "grammarly-desktop"
 #cask "openjdk" 
 
 # System
@@ -76,20 +76,25 @@ brew "fd" # find alternative
 brew "broot"
 
 # Ops
-brew "kind"
-brew "minikube"
+## cloud
 brew "awscli"
-brew "ansible"
+brew "eksctl"
+brew "azure-cli"
 brew "hcloud"
-brew "jsonnet"
-brew "jsonnet-bundler"
-brew "tfenv"
 brew "civo"
-brew "grype"
+## containers
 brew "docker-compose"
 brew "lima"
 brew "podman"
+brew "kind"
+brew "minikube"
 brew "crane"
+## iac 
+brew "ansible"
+brew "grype"
+brew "jsonnet"
+brew "jsonnet-bundler"
+brew "tfenv"
 
 # Images, Audio, Video
 brew "imagemagick"

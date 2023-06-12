@@ -180,6 +180,16 @@ See [here](https://support.apple.com/en-us/HT204837) for detailed instructions.
 
 1Password8 overrides the screenshot shortcut `cmd+shift+4+space` by default. Replace it with something else, or clear it in `Settings > General > Keyboard Shortcuts`. 
 
+#### AWS CLI auth with 1Password CLI and Touch ID
+
+Follow https://developer.1password.com/docs/cli/shell-plugins/aws/ to
+
+1. Install the 1Password CLI
+2. Connect 1Password CLI with the 1Password app
+3. Run `op signin` and `op plugin init aws`
+
+The required ZSH environment is sourced via [.oh-my-zsh/custom/1password.zsh](.oh-my-zsh/custom/1password.zsh). 
+
 ### Keyboard
 
 `Settings > Keyboard > Keyboard Shortcuts`:
