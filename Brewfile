@@ -89,12 +89,14 @@ brew "podman"
 brew "kind"
 brew "minikube"
 brew "crane"
+brew "krew"
 ## iac 
 brew "ansible"
 brew "grype"
 brew "jsonnet"
 brew "jsonnet-bundler"
 brew "tfenv"
+brew "tetra"
 
 # Images, Audio, Video
 brew "imagemagick"
