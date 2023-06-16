@@ -123,6 +123,18 @@ These tools are managed outside of Homebrew, and require additional work and doc
 
 ### Tools
 
+#### asdf
+
+[asdf](https://asdf-vm.com/) is installed with [Homebrew](Brewfile) and helps manage different programming languages and environments.
+
+NodeJS:
+```
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf list all nodejs
+asdf install nodejs 20.3.0
+asdf local nodejs 20.3.0
+```
+
 #### Chrome
 
 For Macbook refreshments, enable the Profile sync functionality and mirror bookmarks, history, auto-completion, etc. This is essential for efficiency.
