@@ -25,6 +25,16 @@ Powerlevel10k fonts for Oh-My-ZSH terminal:
 1. Download the font files from https://github.com/romkatv/powerlevel10k#manual-font-installation (backup in [fonts/](fonts/)). 
 1. Double-click to open them all to follow "Install Font".
 
+#### Security app permissions for iTerm2
+
+Navigate into `Settings > Security and Privacy > App Management` and allow iTerm2 to modify apps. Otherwise you will see this warning on macOS Ventura 13.4.1. 
+
+```
+Warning: Your terminal does not have App Management permissions, so Homebrew will delete and reinstall the app.
+This may result in some configurations (like notification settings or location in the Dock/Launchpad) being lost.
+To fix this, go to Settings > Security and Privacy > App Management and turn on the switch for your terminal.
+```
+
 ### Git (XCode)
 
 Install it on the command line first, it will ask for permission.
