@@ -133,6 +133,20 @@ These tools are managed outside of Homebrew, and require additional work and doc
 
 ### Tools
 
+#### VS Code
+
+Run the following script to install VS Code extensions:
+
+```
+./vscode-extensions-install.sh
+```
+
+You can regenerate the list of extensions using the following command:
+
+```
+code --list-extensions | xargs -L 1 echo code --install-extension > vscode-extensions-install.sh
+```
+
 #### asdf
 
 [asdf](https://asdf-vm.com/) is installed with [Homebrew](Brewfile) and helps manage different programming languages and environments.
@@ -144,6 +158,7 @@ asdf list all nodejs
 asdf install nodejs 20.3.0
 asdf local nodejs 20.3.0
 ```
+
 
 #### Chrome
 
@@ -287,6 +302,42 @@ More insights can be found in these lists:
 - [Setting examples](https://github.com/mathiasbynens/dotfiles/blob/master/.macos)
 - [macos Ventura settings](https://github.com/gretzky/dotfiles/blob/main/macos/.macos)
 - [command overview](https://github.com/herrbischoff/awesome-macos-command-line).
+
+## Development
+
+### GitLab Development Kit (GDK)
+
+Follow the [one-line installation](https://gitlab.com/gitlab-org/gitlab-development-kit/-/tree/main/doc?ref_type=heads#one-line-installation) and use asdf (requirement).
+
+### GitLab Docs
+
+The CI/CD pipelines for GitLab docs use [linting](https://docs.gitlab.com/ee/development/documentation/testing.html#install-linters) which can be installed locally to test problems faster.
+
+```
+yarn global add markdownlint-cli2
+
+asdf plugin add vale && asdf install vale
+```
+
+The [VS Code editor integration](https://docs.gitlab.com/ee/development/documentation/testing.html#configure-editors) is managed through [vscode-extensions-install.sh](vscode-extensions-install.sh).
+
+
+### GitLab CLI
+
+Install Golang to setup the [development environment](https://gitlab.com/gitlab-org/cli/-/blob/main/CONTRIBUTING.md). Export the variables `GITLAB_TOKEN` and `GITLAB_TEST_HOST` to run all integration tests.
+
+```
+export GITLAB_TOKEN=xxx
+# GitLab CLI dev tests
+# https://gitlab.com/dnsmichi/test
+export GITLAB_TEST_HOST=https://gitlab.com
+```
+
+```shell
+make
+make test
+```
+
 
 ## Upgrades
 
