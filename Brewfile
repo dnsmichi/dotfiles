@@ -113,6 +113,7 @@ brew "git"
 brew "git-lfs"
 brew "tig"
 brew "hub"
+brew "glab"
 
 # Extract rpm file content with rpm2cpio *.rpm | cpio -ivd
 brew "rpm2cpio"
