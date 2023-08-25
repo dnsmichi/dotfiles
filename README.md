@@ -347,6 +347,13 @@ make
 make test
 ```
 
+## DevSecOps
+
+Anything that runs in the infrastructure and needs to be automated.
+
+### Linux VM Upgrades via Ansible
+
+See [ansible/](ansible/) for details.
 
 ## Upgrades
 
