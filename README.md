@@ -315,11 +315,20 @@ The CI/CD pipelines for GitLab docs use [linting](https://docs.gitlab.com/ee/dev
 
 ```
 yarn global add markdownlint-cli2
+yarn global add markdownlint-cli
 
 asdf plugin add vale && asdf install vale
 ```
 
 The [VS Code editor integration](https://docs.gitlab.com/ee/development/documentation/testing.html#configure-editors) is managed through [vscode-extensions-install.sh](vscode-extensions-install.sh).
+
+```shell
+cd ~/dev/work/gitlab-org/gitlab
+
+yarn install 
+
+./scripts/lint-doc.sh
+```
 
 
 ### GitLab CLI
