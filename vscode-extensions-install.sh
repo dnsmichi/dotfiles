@@ -13,6 +13,7 @@ code --install-extension ms-vscode.cmake-tools
 code --install-extension ms-vscode.cpptools
 code --install-extension ms-vscode.cpptools-extension-pack
 code --install-extension ms-vscode.cpptools-themes
+code --install-extension ms-vscode.makefile-tools
 code --install-extension redhat.java
 code --install-extension twxs.cmake
 code --install-extension VisualStudioExptTeam.intellicode-api-usage-examples

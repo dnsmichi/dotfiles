@@ -1,0 +1,11 @@
+{
+    "workbench.startupEditor": "none",
+    "go.toolsManagement.autoUpdate": true,
+    "gitlab.debug": true,
+    "editor.wordWrap": "on",
+    "gitlab.aiAssistedCodeSuggestions.enabled": true,
+    "git.confirmSync": false,
+    "files.autoSave": "afterDelay",
+    "terminal.integrated.fontFamily": "meslolgs nf",
+    "window.zoomLevel": 1
+}

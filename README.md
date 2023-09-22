@@ -135,6 +135,31 @@ These tools are managed outside of Homebrew, and require additional work and doc
 
 #### VS Code
 
+Configuration: [vscode/settings.json](vscode/settings.json) (cmd shift p, search for `settings json`).
+
+Initial setup:
+
+```shell
+cp vscode/settings.json ~/Library/Application\ Support/Code/User/
+```
+
+Notable changes from the default configuration:
+
+1. Auto-save enabled: `"files.autoSave": "afterDelay",`
+1. Word-wrap enabled: `"editor.wordWrap": "on",`
+1. Change font family to `meslolgs nf` to [print ZSH icons in the VS Code terminal](https://stackoverflow.com/questions/73528388/vscode-terminal-not-showing-icons-on-terminal-on-zsh): `"terminal.integrated.fontFamily": "meslolgs nf",`
+1. GitLab Duo Code Suggestions enabled: `"gitlab.aiAssistedCodeSuggestions.enabled": true,`
+1. GitLab Workflow extension debug enabled: `"gitlab.debug": true,`
+
+
+Sync:
+
+```shell
+cp ~/Library/Application\ Support/Code/User/settings.json vscode/ 
+```
+
+##### VS Code Extensions
+
 Run the following script to install VS Code extensions:
 
 ```
