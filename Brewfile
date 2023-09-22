@@ -92,6 +92,7 @@ brew "minikube"
 brew "crane"
 brew "krew"
 brew "kubeshark"
+brew "dive"
 ## iac 
 brew "ansible"
 brew "grype"
@@ -113,6 +114,7 @@ brew "git"
 brew "git-lfs"
 brew "tig"
 brew "hub"
+brew "gh"
 brew "glab"
 
 # Extract rpm file content with rpm2cpio *.rpm | cpio -ivd
