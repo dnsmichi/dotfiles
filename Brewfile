@@ -11,7 +11,7 @@ tap "fluxcd/flux"
 tap "kubeshark/kubeshark"
 
 cask "firefox"
-cask "raycast"
+#cask "raycast"
 cask "todoist"
 cask "obs"
 cask "vlc"

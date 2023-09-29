@@ -128,6 +128,7 @@ These tools are managed outside of Homebrew, and require additional work and doc
 
 - [1Password 8](https://1password.com/product/mac/)
 = [Zoom](https://zoom.us/download) (note the special download location for Apple M1 Silicon)
+- [Raycast](https://www.raycast.com/) has automated updates enabled.
 - Java 18+ Open Source
 - Grammarly Desktop
 
