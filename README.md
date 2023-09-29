@@ -386,6 +386,10 @@ See [ansible/](ansible/) for details.
 
 ### Homebrew 
 
+```shell
+brew upgrade
+```
+
 ### Oh-my-ZSH and Themes
 
 ```
