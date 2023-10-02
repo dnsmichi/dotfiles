@@ -18,7 +18,7 @@ cask "vlc"
 cask "handbrake"
 cask "gimp"
 cask "inkscape"
-cask "visual-studio-code"
+#cask "visual-studio-code"
 cask "vagrant" # requires rosetta 2 on M1, and VirtualBox dev preview, see README.md
 cask "wireshark"
 cask "vnc-viewer"
