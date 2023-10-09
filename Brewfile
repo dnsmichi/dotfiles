@@ -123,6 +123,7 @@ brew "rpm2cpio"
 # JSON
 brew "jq"
 brew "jo"
+brew "jless"
 
 # Dev
 brew "ruby"
