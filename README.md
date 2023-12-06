@@ -126,12 +126,15 @@ mas "Slack", id: 803453959
 
 These tools are managed outside of Homebrew, and require additional work and documentation.
 
+- [Google Chrome](https://www.google.com/chrome/) - [tips handbook](https://handbook.gitlab.com/handbook/tools-and-tips/#google-chrome)
 - [1Password 8](https://1password.com/product/mac/)
-= [Zoom](https://zoom.us/download) (note the special download location for Apple M1 Silicon)
+- [Zoom](https://zoom.us/download) (note the special download location for Apple M1 Silicon)
 - [Raycast](https://www.raycast.com/) has automated updates enabled.
 - [VS Code](https://code.visualstudio.com/download) has automated updates enabled (extensions require newer versions).
+- [Rectangle Pro](https://rectangleapp.com/) for window management 
 - Java 18+ Open Source
-- Grammarly Desktop
+- Grammarly Desktop (team license)
+- Adobe Creative Cloud (team license)
 
 ### Tools
 
