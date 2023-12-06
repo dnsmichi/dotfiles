@@ -2,7 +2,7 @@
 
 cd ${0:a:h}
 
-git pull origin master
+git pull origin main
 
 function sync() {
 	rsync --exclude ".git/" \

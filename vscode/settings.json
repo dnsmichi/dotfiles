@@ -4,6 +4,7 @@
     "gitlab.debug": true,
     "editor.wordWrap": "on",
     "gitlab.aiAssistedCodeSuggestions.enabled": true,
+    "gitlab.featureFlags.languageServer": false,
     "git.confirmSync": false,
     "files.autoSave": "afterDelay",
     "terminal.integrated.fontFamily": "meslolgs nf",
