@@ -7,6 +7,7 @@ code --install-extension EditorConfig.EditorConfig
 code --install-extension esbenp.prettier-vscode
 code --install-extension GitLab.gitlab-workflow
 code --install-extension golang.go
+code --install-extension hashicorp.terraform
 code --install-extension ms-python.python
 code --install-extension ms-python.vscode-pylance
 code --install-extension ms-vscode.cmake-tools
@@ -14,7 +15,9 @@ code --install-extension ms-vscode.cpptools
 code --install-extension ms-vscode.cpptools-extension-pack
 code --install-extension ms-vscode.cpptools-themes
 code --install-extension ms-vscode.makefile-tools
+code --install-extension redhat.ansible
 code --install-extension redhat.java
+code --install-extension redhat.vscode-yaml
 code --install-extension twxs.cmake
 code --install-extension VisualStudioExptTeam.intellicode-api-usage-examples
 code --install-extension VisualStudioExptTeam.vscodeintellicode
