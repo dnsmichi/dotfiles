@@ -98,7 +98,8 @@ brew "ansible"
 brew "grype"
 brew "jsonnet"
 brew "jsonnet-bundler"
-brew "tfenv"
+brew "terraform"
+brew "opentofu"
 brew "tetra"
 
 # Images, Audio, Video
