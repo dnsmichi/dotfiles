@@ -1,0 +1,32 @@
+---
+- name: Base Server Setup
+  hosts: all
+  become: true
+  become_method: ansible.builtin.sudo
+  roles:
+  - role: geerlingguy.docker
+  - role: hifis.unattended_upgrades
+    unattended_origins_patterns:
+    - 'origin=Ubuntu,archive=${distro_codename}-security'
+    - 'o=Ubuntu,a=${distro_codename}'
+    - 'o=Ubuntu,a=${distro_codename}-updates'
+    - 'o=Ubuntu,a=${distro_codename}-proposed-updates'
+    unattended_package_blacklist: [cowsay, vim]
+
+  vars:
+    packages:
+      - git
+      - vim
+      - wget
+      - curl
+      - htop
+      - tree
+  tasks:
+    - name: Ensure a list of packages installed
+      ansible.builtin.apt:
+        name: "{{ packages }}"
+        state: present
+
+    - name: All done!
+      ansible.builtin.debug:
+        msg: Packages have been successfully installed

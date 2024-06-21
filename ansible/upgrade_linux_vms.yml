@@ -1,5 +1,5 @@
 ---
-- hosts: servers
+- hosts: all
   become: true
   become_user: root
   tasks:
@@ -11,7 +11,7 @@
 
     - name: Check if a reboot is needed on all servers
       register: reboot_required_file
-      stat: path=/var/run/reboot-required get_md5=no
+      stat: path=/var/run/reboot-required get_checksum=no
 
     - name: Reboot the box if kernel updated
       reboot:
