@@ -136,8 +136,11 @@ brew "go"
 brew "cmake"
 brew "boost"
 brew "openjdk"
+brew "gradle"
 brew "rust"
 brew "asdf"
+brew "scala"
+brew "sbt"
 
 # git-sim
 brew "py3cairo"
@@ -146,6 +149,7 @@ brew "scipy"
 
 # GitLab Pages
 brew "hugo"
+brew lychee
 
 # App Store
 # 1Password 8 is available via https://1password.com/product/mac/
