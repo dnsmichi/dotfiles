@@ -141,6 +141,8 @@ brew "rust"
 brew "asdf"
 brew "scala"
 brew "sbt"
+brew "dotnet"
+brew "dotnet-sdk"
 
 # git-sim
 brew "py3cairo"
