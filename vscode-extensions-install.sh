@@ -1,3 +1,4 @@
+code --install-extension bierner.markdown-mermaid
 code --install-extension budparr.language-hugo-vscode
 code --install-extension chrischinchilla.vale-vscode
 code --install-extension connor4312.esbuild-problem-matchers
@@ -24,6 +25,7 @@ code --install-extension pdconsec.vscode-print
 code --install-extension redhat.ansible
 code --install-extension redhat.java
 code --install-extension redhat.vscode-yaml
+code --install-extension shd101wyy.markdown-preview-enhanced
 code --install-extension twxs.cmake
 code --install-extension visualstudioexptteam.intellicode-api-usage-examples
 code --install-extension visualstudioexptteam.vscodeintellicode
