@@ -1,5 +1,7 @@
 # Ansible Playbooks for maintenance
 
+_Note:_ The Embedded DevSecOps environment Ansible playbooks are located in https://gitlab.com/gitlab-da/use-cases/embedded/embedded-devsecops/environments/dnsmichi-embedded-devsecops-environment
+
 ## Requirements
 
 1. Install Ansible (managed via Homebrew)
@@ -15,7 +17,7 @@ ansible-galaxy install -r requirements.yml
 
 ### Base packages
 
-```
+```shell
 ansible-playbook -i inventory.ini default-config.yml 
 ```
 
@@ -25,19 +27,18 @@ The playbook will run apt update and upgrade, and also reboot the servers when a
 
 Run the playbook
 
-```
+```shell
 ansible-playbook -i inventory.ini upgrade_linux_vms.yml
 ```
 
 Add more hosts
 
-```
+```shell
 vim hosts
 ```
 
 ## Ansible inventory
 
-- [ebpf-chaos.dev](https://gitlab.com/gitlab-de/use-cases/observability/ebpf/ebpf-chaos)
 - [michi.fyi](https://gitlab.com/dnsmichi/michi.fyi)
 
 ## Thanks

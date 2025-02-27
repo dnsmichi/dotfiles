@@ -385,6 +385,10 @@ Anything that runs in the infrastructure and needs to be automated.
 
 See [ansible/](ansible/) for details.
 
+### Embedded DevSecOps with Ansible
+
+_Note:_ The Embedded DevSecOps environment Ansible playbooks are located in https://gitlab.com/gitlab-da/use-cases/embedded/embedded-devsecops/environments/dnsmichi-embedded-devsecops-environment
+
 ## Upgrades
 
 
