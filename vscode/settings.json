@@ -1,12 +1,43 @@
 {
     "workbench.startupEditor": "none",
     "go.toolsManagement.autoUpdate": true,
-    "gitlab.debug": true,
     "editor.wordWrap": "on",
-    "gitlab.aiAssistedCodeSuggestions.enabled": true,
-    "gitlab.featureFlags.languageServer": false,
+    "gitlab.featureFlags.languageServer": true,
     "git.confirmSync": false,
     "files.autoSave": "afterDelay",
     "terminal.integrated.fontFamily": "meslolgs nf",
-    "window.zoomLevel": 1
+    "git.enableSmartCommit": true,
+    "window.zoomLevel": 1,
+    "gitlab.ls.debug": true,
+    "gitlab.duoCodeSuggestions.preferredAccount": "dnsmichi",
+    "gitlab.duoCodeSuggestions.additionalLanguages": [
+        "powershell",
+        "yaml",
+        "ansible",
+        "cobol",
+        "abap",
+        "perl",
+        "dockerfile",
+        "markdown",
+        "vb",
+        "json"
+    ],
+    "gitlab.duoWorkflow.useDocker": false,
+
+    "gitlab.featureFlags.languageServerWebviews": false,
+    "workbench.settings.applyToAllProfiles": [
+        "gitlab.duoChat.enabled"
+    ],
+    "chat.commandCenter.enabled": false,
+    "print.folder.fileNames": true,
+    "print.folder.include": [],
+    "print.folder.exclude": [
+        "{bin,obj,out}",
+        "node_modules",
+        "data",
+        "**/*.{bin,exe,dll,hex,pdb,pdf,pfx,png,jpg,gif,bmp,suo,design}"
+    ],
+    "print.folder.maxLines": 1200,
+    "print.folder.maxFiles": 30,
+    "print.folder.includeFileList": false
 }

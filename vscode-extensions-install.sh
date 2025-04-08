@@ -26,7 +26,6 @@ code --install-extension redhat.ansible
 code --install-extension redhat.java
 code --install-extension redhat.vscode-yaml
 code --install-extension shd101wyy.markdown-preview-enhanced
-code --install-extension twxs.cmake
 code --install-extension visualstudioexptteam.intellicode-api-usage-examples
 code --install-extension visualstudioexptteam.vscodeintellicode
 code --install-extension vscjava.vscode-gradle
