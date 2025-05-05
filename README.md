@@ -170,6 +170,14 @@ You can regenerate the list of extensions using the following command:
 code --list-extensions | xargs -L 1 echo code --install-extension > vscode-extensions-install.sh
 ```
 
+#### neovim
+
+In 2025, I decided to migrate from vim to neovim, which brings support for lua scripts, and Language Server Protocol (LSP) integrations, such as AI-powered [GitLab Duo for neovim](https://docs.gitlab.com/editor_extensions/neovim/).
+
+The [neovim](https://neovim.io/) installation is managed in [Brewfile](Brewfile).
+
+I did not import my minimal [.vimrc](.vimrc) configuration, but instead used [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim) as a base for my own configuration: https://gitlab.com/dnsmichi/kickstart.nvim
+
 ### Tools
 
 Managed as casks in [Brewfile](Brewfile).

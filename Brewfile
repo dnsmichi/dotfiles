@@ -52,6 +52,7 @@ brew "watch"
 ### Editors
 
 brew "vim"
+brew "neovim"
 
 ## Shell
 brew "zsh-completions"
