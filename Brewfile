@@ -14,7 +14,6 @@ cask "obs"
 cask "vlc"
 cask "handbrake"
 cask "gimp"
-cask "vagrant" # requires rosetta 2 on M1, and VirtualBox dev preview, see README.md
 cask "wireshark"
 cask "vnc-viewer"
 cask "google-cloud-sdk"
