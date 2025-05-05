@@ -6,20 +6,14 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/services"
 tap "civo/tools"
-tap "anchore/grype"
-tap "fluxcd/flux"
+tap "fluxcd/tap"
 tap "kubeshark/kubeshark"
 
 cask "firefox"
-#cask "raycast"
-cask "todoist"
 cask "obs"
 cask "vlc"
 cask "handbrake"
 cask "gimp"
-cask "inkscape"
-#cask "visual-studio-code"
-cask "vagrant" # requires rosetta 2 on M1, and VirtualBox dev preview, see README.md
 cask "wireshark"
 cask "vnc-viewer"
 cask "google-cloud-sdk"
@@ -29,22 +23,44 @@ cask "spotify"
 cask "jitsi-meet"
 cask "discord"
 cask "grammarly-desktop"
+
+cask "powershell"
+cask "dotnet-sdk"
+
 # Use manual self-service install
-#cask "openjdk" 
+#cask "openjdk"
+# Use manual install since apps provide their own updater incompatible with Homebrew
+#cask "raycast"
+#cask "visual-studio-code"
 
 # System
-brew "zsh-completions"
-brew "zsh-syntax-highlighting"
-brew "mas"
+
+## Essentials
 brew "curl"
 brew "wget"
 brew "git"
-brew "vim"
+brew "tree"
+brew "htop"
+brew "pidof"
+brew "pstree"
 brew "openssl"
+brew "rsync"
+brew "ssh-copy-id"
+brew "screen"
+brew "watch"
+
+### Editors
+
+brew "vim"
+
+## Shell
+brew "zsh-completions"
+brew "zsh-syntax-highlighting"
 brew "coreutils"
 brew "moreutils"
 brew "findutils"
 brew "binutils"
+brew "grep"
 brew "rename"
 brew "gnu-sed"
 brew "gnu-tar"
@@ -52,36 +68,31 @@ brew "gawk"
 brew "gnutls"
 brew "gnu-indent"
 brew "gnu-getopt"
-brew "tree"
-brew "htop"
-brew "pidof"
-brew "pstree"
-brew "grep"
-brew "rsync"
-brew "ssh-copy-id"
-brew "screen"
 brew "gmp"
-brew "nmap"
-brew "socat"
 brew "rlwrap"
-brew "dnstracer"
-brew "sslscan"
-brew "watch"
 brew "viddy"
 brew "ripgrep"
 brew "xq"
-brew "dnsx"
-brew "fd" # find alternative 
+brew "fd" # find alternative
 brew "broot"
 
 # Ops
-## cloud
+
+## Network & DNS
+brew "nmap"
+brew "socat"
+brew "dnstracer"
+brew "dnsx"
+brew "sslscan"
+
+## Cloud CLI
 brew "awscli"
 brew "eksctl"
 brew "azure-cli"
 brew "hcloud"
 brew "civo"
-## containers
+
+## Containers
 brew "docker-compose"
 brew "lima"
 brew "colima"
@@ -92,13 +103,16 @@ brew "crane"
 brew "krew"
 brew "kubeshark"
 brew "dive"
-## iac 
+brew "k8sgpt"
+
+## IaC
 brew "ansible"
+brew "ansible-lint"
 brew "grype"
 brew "jsonnet"
 brew "jsonnet-bundler"
-brew "terraform"
 brew "opentofu"
+brew "tfenv"
 brew "tetra"
 
 # Images, Audio, Video
@@ -107,7 +121,9 @@ brew "gifsicle"
 brew "gifify"
 brew "ffmpeg"
 
-# Archive & Git
+# Dev
+
+## Archive & Git
 brew "xz"
 brew "p7zip"
 brew "git"
@@ -116,45 +132,56 @@ brew "tig"
 brew "hub"
 brew "gh"
 brew "glab"
-
 # Extract rpm file content with rpm2cpio *.rpm | cpio -ivd
 brew "rpm2cpio"
 
-# JSON
+## JSON
 brew "jq"
 brew "jo"
 brew "jless"
 
-# Dev
-brew "ruby"
+## Languages
+# Note: Ruby/NodeJS are often managed locally with asdf.
+brew "asdf"
+brew "mise"
+
 brew "yarn"
+brew "ruby"
 #brew "rbenv"
 brew "python"
 brew "pyenv"
 brew "go"
-brew "cmake"
-brew "boost"
-brew "openjdk"
-brew "gradle"
+brew "llvm"
 brew "rust"
-brew "asdf"
+brew "gradle"
 brew "scala"
 brew "sbt"
 brew "dotnet"
-brew "dotnet-sdk"
+brew "lua"
+brew "sqlite"
 
-# git-sim
+brew "cppcheck"
+brew "cmake"
+brew "boost"
+brew "ninja"
+
+# Use cases
+
+## Embedded
+
+brew "arduino-cli"
+brew "arm-none-eabi-binutils"
+brew "arm-none-eabi-gcc"
+brew "tree-sitter"
+
+## git-sim
 brew "py3cairo"
 brew "pango"
 brew "scipy"
 
-# GitLab Pages
+## GitLab Pages
 brew "hugo"
-brew lychee
+brew "lychee"
+brew "mkdocs"
 
-# App Store
-# 1Password 8 is available via https://1password.com/product/mac/
-#mas "1Password 7", id: 1333542190
-#mas "Slack", id: 803453959
-#mas "Telegram", id: 747648890
-#mas "uBlock", id: 1385985095
+
