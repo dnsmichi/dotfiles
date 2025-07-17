@@ -4,11 +4,13 @@ code --install-extension chrischinchilla.vale-vscode
 code --install-extension connor4312.esbuild-problem-matchers
 code --install-extension davidanson.vscode-markdownlint
 code --install-extension dbaeumer.vscode-eslint
+code --install-extension docker.docker
 code --install-extension editorconfig.editorconfig
 code --install-extension esbenp.prettier-vscode
 code --install-extension gitlab.gitlab-workflow
 code --install-extension golang.go
 code --install-extension hashicorp.terraform
+code --install-extension ms-azuretools.vscode-containers
 code --install-extension ms-azuretools.vscode-docker
 code --install-extension ms-python.debugpy
 code --install-extension ms-python.python

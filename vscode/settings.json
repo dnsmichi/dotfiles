@@ -22,13 +22,14 @@
         "vb",
         "json"
     ],
+    "gitlab.duoAgenticChat.enabled": true,
+    "gitlab.featureFlags.agenticTabs": true,
     "gitlab.duoWorkflow.useDocker": false,
-
-    "gitlab.featureFlags.languageServerWebviews": false,
+    "gitlab.featureFlags.agenticDuoChat": true,
+    "gitlab.duo.workflow.executor": "node",
     "workbench.settings.applyToAllProfiles": [
         "gitlab.duoChat.enabled"
     ],
-    "chat.commandCenter.enabled": false,
     "print.folder.fileNames": true,
     "print.folder.include": [],
     "print.folder.exclude": [
@@ -39,5 +40,18 @@
     ],
     "print.folder.maxLines": 1200,
     "print.folder.maxFiles": 30,
-    "print.folder.includeFileList": false
+    "print.folder.includeFileList": false,
+    "files.trimTrailingWhitespace": true,
+    "terminal.external.osxExec": "Iterm2.app",
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.fontSize": 14,
+    "explorer.confirmDelete": false,
+    "gitlab.debug": true,
+    "workbench.editor.empty.hint": "hidden",
+    "chat.agent.enabled": false,
+    "chat.extensionTools.enabled": false,
+    "chat.mcp.enabled": false,
+    "telemetry.feedback.enabled": false,
+    "chat.commandCenter.enabled": false,
+    "chat.edits2.enabled": false,
 }

@@ -120,8 +120,9 @@ These tools are managed outside of Homebrew, and require additional work and doc
 - Java 18+ Open Source
 - Grammarly Desktop (approved license)
 - Adobe Creative Cloud (team license)
-* Google Chrome
-* Spotify (account required)
+- [Screen Studio](https://screen.studio/download) (approved license)
+- Google Chrome
+- Spotify (account required)
 
 ### IDEs
 
