@@ -51,6 +51,17 @@ sudo vim /private/etc/sudoers.d/mfriedrich
 mfriedrich  ALL=(ALL) NOPASSWD: ALL
 ```
 
+### Security
+
+From the [development guidelines](https://docs.gitlab.com/development/secure_coding_guidelines/#handling-credentials): The [Gitleaks Git hook](https://gitlab.com/gitlab-com/gl-security/security-research/gitleaks-endpoint-installer) is recommended for preventing credentials from being committed.
+
+```
+git clone https://gitlab.com/gitlab-com/gl-security/security-research/gitleaks-endpoint-installer.git "$HOME/.gitlab-gitleaks"
+cd "$HOME/.gitlab-gitleaks"
+./install_gitleaks.sh
+./setup_hook.sh
+```
+
 ### Backup
 
 Use Google drive and Chrome profile sync to migrate backup data.
@@ -121,7 +132,6 @@ These tools are managed outside of Homebrew, and require additional work and doc
 - Grammarly Desktop (approved license)
 - Adobe Creative Cloud (team license)
 - [Screen Studio](https://screen.studio/download) (approved license)
-- Google Chrome
 - Spotify (account required)
 
 ### IDEs
