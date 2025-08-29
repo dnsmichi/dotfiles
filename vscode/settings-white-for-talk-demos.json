@@ -1,7 +1,6 @@
 {
-    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.colorTheme": "Default Light Modern",
 
-    // Efficiency
     "workbench.startupEditor": "none",
     "editor.wordWrap": "on",
     "git.confirmSync": false,
