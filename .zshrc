@@ -117,10 +117,20 @@ source $ZSH/oh-my-zsh.sh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Check if not in VS Code terminal before loading Powerlevel10k
+# 2025-09-15 Workaround for Agentic Chat https://gitlab.com/gitlab-org/gitlab-vscode-extension/-/issues/2070
+if [[ "$TERM_PROGRAM" != "vscode" ]]; then
+  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+fi
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+# Created by `pipx` on 2024-05-31 17:18:04
+export PATH="$PATH:/Users/mfriedrich/.local/bin"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/mfriedrich/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+# Added by GDK bootstrap
+#eval "$(/opt/homebrew/bin/mise activate zsh)"
