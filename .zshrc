@@ -85,7 +85,7 @@ DISABLE_AUTO_UPDATE="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git dotenv)
 
-# Check if not in VS Code terminal before loading Powerlevel10k
+# Check if not in VS Code terminal before loading Oh-My-ZSH
 # 2025-09-15 Workaround for Agentic Chat https://gitlab.com/gitlab-org/gitlab-vscode-extension/-/issues/2070
 if [[ "$TERM_PROGRAM" != "vscode" ]]; then
   source $ZSH/oh-my-zsh.sh
