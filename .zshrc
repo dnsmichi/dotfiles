@@ -85,12 +85,6 @@ DISABLE_AUTO_UPDATE="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git dotenv)
 
-# Check if not in VS Code terminal before loading Oh-My-ZSH
-# 2025-09-15 Workaround for Agentic Chat https://gitlab.com/gitlab-org/gitlab-vscode-extension/-/issues/2070
-if [[ "$TERM_PROGRAM" != "vscode" ]]; then
-  source $ZSH/oh-my-zsh.sh
-fi
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -117,16 +111,27 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Syntax highlighting
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# Check if not in VS Code terminal before loading Powerlevel10k
-# 2025-09-15 Workaround for Agentic Chat https://gitlab.com/gitlab-org/gitlab-vscode-extension/-/issues/2070
-if [[ "$TERM_PROGRAM" != "vscode" ]]; then
-  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-fi
 
+#######################################################
+# Decide whether to load a full terminal environment,
+# or keep it minimal for Agentic AI in IDEs
+if [[ "$TERM_PROGRAM" == "vscode" || "$TERMINAL_EMULATOR" == "JetBrains-JediTerm" ]]; then
+  echo "IDE agentic environment detected, not loading full shell integrations"
+else
+  # Oh My ZSH
+  source $ZSH/oh-my-zsh.sh
+  # Theme: Powerlevel10k
+  [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+  # Syntax highlighting
+  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+# 2025-09-15 Workaround to detect IDEs until a new env variable is exposed
+# Docs: https://gitlab.com/gitlab-org/gitlab-vscode-extension/-/issues/2070
+# Variable: https://gitlab.com/gitlab-org/gitlab-vscode-extension/-/issues/2116
+
+#######################################################
+# Environment will always be loaded in any environment
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # Created by `pipx` on 2024-05-31 17:18:04
