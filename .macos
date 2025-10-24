@@ -87,6 +87,9 @@ defaults write com.apple.screencapture location -string "${HOME}/Pictures/screen
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "png"
 
+# macOS 26 creates shadow with black background. Unusable for talk slides, disable it.
+defaults write com.apple.screencapture disable-shadow -bool true
+
 # Show the ~/Library folder
 chflags nohidden ~/Library
 
@@ -99,5 +102,7 @@ sudo chflags nohidden /Volumes
 # Don’t display the annoying prompt when quitting iTerm
 defaults write com.googlecode.iterm2 PromptOnQuit -bool false
 
+# For screenshots, let it restart
+killall SystemUIServer
 
 echo "Applied settings. System reboot required""
