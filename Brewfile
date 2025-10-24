@@ -2,10 +2,7 @@ cask_args appdir: "/Applications"
 
 # Tap Homebrew
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
-tap "homebrew/cask-versions"
 tap "homebrew/services"
-tap "civo/tools"
 tap "fluxcd/tap"
 tap "kubeshark/kubeshark"
 
@@ -17,8 +14,6 @@ cask "gimp"
 cask "wireshark"
 cask "vnc-viewer"
 cask "google-cloud-sdk"
-cask "dbeaver-community"
-cask "altair-graphql-client"
 cask "spotify"
 cask "jitsi-meet"
 cask "discord"
@@ -108,7 +103,6 @@ brew "k8sgpt"
 ## IaC
 brew "ansible"
 brew "ansible-lint"
-brew "grype"
 brew "jsonnet"
 brew "jsonnet-bundler"
 brew "opentofu"
@@ -141,8 +135,7 @@ brew "jo"
 brew "jless"
 
 ## Languages
-# Note: Ruby/NodeJS are often managed locally with asdf.
-brew "asdf"
+# Note: Ruby/NodeJS are often managed locally with mise.
 brew "mise"
 
 brew "yarn"
@@ -159,6 +152,7 @@ brew "sbt"
 brew "dotnet"
 brew "lua"
 brew "sqlite"
+brew "gnucobol"
 
 brew "cppcheck"
 brew "cmake"

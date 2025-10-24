@@ -120,7 +120,7 @@ if [[ "$TERM_PROGRAM" == "vscode" || "$TERMINAL_EMULATOR" == "JetBrains-JediTerm
   echo "IDE agentic environment detected, not loading full shell integrations"
 else
   # Oh My ZSH
-  source $ZSH/oh-my-zsh.sh
+  [[ -n "$ZSH" && -f "$ZSH/oh-my-zsh.sh" ]] && source $ZSH/oh-my-zsh.sh
   # Theme: Powerlevel10k
   [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
   # Syntax highlighting
@@ -132,7 +132,6 @@ fi
 
 #######################################################
 # Environment will always be loaded in any environment
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # Created by `pipx` on 2024-05-31 17:18:04
 export PATH="$PATH:/Users/mfriedrich/.local/bin"
@@ -142,4 +141,4 @@ export PATH="/Users/mfriedrich/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 # Added by GDK bootstrap
-#eval "$(/opt/homebrew/bin/mise activate zsh)"
+eval "$(/opt/homebrew/bin/mise activate zsh)"

@@ -190,21 +190,37 @@ Managed as casks in [Brewfile](Brewfile).
 - Wireshark
 - etc.
 
-#### asdf
+#### mise
 
-[asdf](https://asdf-vm.com/) is installed with [Homebrew](Brewfile) and helps manage different programming languages and environments.
+[mise](https://github.com/jdx/mise) is installed with [Homebrew](Brewfile) and helps manage different programming languages and environments.
 
-NodeJS:
+- [GitLab Development Environment](https://gitlab.com/gitlab-org/gitlab-development-kit/-/blob/main/doc/howto/mise.md)
+- GitLab Editor Extensions: [gitlab-lsp](https://gitlab.com/gitlab-org/editor-extensions/gitlab-lsp/-/blob/main/.tool-versions?ref_type=heads)
+- [GitLab handbook - docsy theme](https://gitlab.com/gitlab-com/content-sites/docsy-gitlab/-/blob/main/.tool-versions?ref_type=heads)
+
+
+Global install:
+
+```shell
+mise use --global node@22 go@1
 ```
-asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-asdf list all nodejs
-asdf install nodejs 20.3.0
-asdf local nodejs 20.3.0
+
+Local install:
+
+```shell
+mise use node@22
 ```
 
-> Note:
->
-> The GitLab Development Kit uses [mise](https://gitlab.com/gitlab-org/gitlab-development-kit/-/blob/main/doc/howto/mise.md) since 2025-04. Aiming to migrate all my projects in the future.
+This step creates the `.tool-versions` in the repository which needs to be added to Git.
+
+If `.tool-versions` exists in the Git repo, you can run the following to setup all dependencies:
+
+```
+mise install
+```
+
+Troubleshooting: [GDK guide](https://gitlab.com/gitlab-org/gitlab-development-kit/-/blob/main/doc/troubleshooting/mise.md).
+
 
 #### Chrome
 
@@ -335,7 +351,7 @@ The CI/CD pipelines for GitLab docs use [linting](https://docs.gitlab.com/ee/dev
 yarn global add markdownlint-cli2
 yarn global add markdownlint-cli
 
-asdf plugin add vale && asdf install vale
+mise plugin add vale && mise install vale
 ```
 
 The [VS Code editor integration](https://docs.gitlab.com/ee/development/documentation/testing.html#configure-editors) is managed through [vscode-extensions-install.sh](vscode-extensions-install.sh).
