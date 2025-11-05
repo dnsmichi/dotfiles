@@ -22,8 +22,6 @@ cask "grammarly-desktop"
 cask "powershell"
 cask "dotnet-sdk"
 
-# Use manual self-service install
-#cask "openjdk"
 # Use manual install since apps provide their own updater incompatible with Homebrew
 #cask "raycast"
 #cask "visual-studio-code"
@@ -153,6 +151,9 @@ brew "dotnet"
 brew "lua"
 brew "sqlite"
 brew "gnucobol"
+
+# Explicitely 21
+brew "openjdk@21"
 
 brew "cppcheck"
 brew "cmake"
