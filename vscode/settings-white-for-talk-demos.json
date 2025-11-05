@@ -1,6 +1,8 @@
 {
     "workbench.colorTheme": "Default Light Modern",
 
+    // Efficiency
+    "workbench.editor.empty.hint": "hidden",
     "workbench.startupEditor": "none",
     "editor.wordWrap": "on",
     "git.confirmSync": false,
@@ -12,6 +14,7 @@
     "terminal.integrated.defaultProfile.osx": "zsh",
     "terminal.integrated.fontSize": 14,
     "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
 
     // GitLab Workflow extension
     "gitlab.debug": true,
@@ -21,7 +24,7 @@
         "ansible",
         "cobol",
         "abap",
-        "perl",
+	"perl",
         "dockerfile",
         "markdown",
         "vb",
@@ -29,11 +32,11 @@
     ],
 
     // Disable IDE chat
-    "workbench.editor.empty.hint": "hidden",
-    "chat.agent.enabled": false,
-    "chat.extensionTools.enabled": false,
-    "chat.mcp.enabled": false,
-    "telemetry.feedback.enabled": false,
+    "chat.disableAIFeatures": true,
     "chat.commandCenter.enabled": false,
+    "chat.mcp.access": "none",
+    "chat.agent.enabled": false,
     "chat.edits2.enabled": false,
+    "chat.extensionTools.enabled": false,
+    "telemetry.feedback.enabled": false,
 }
