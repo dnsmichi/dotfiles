@@ -1,13 +1,14 @@
 # Macbook Pro dotfiles and setup at GitLab
 
-This repository contains everything to bootstrap my Macbook Pro.
+Everything to bootstrap my Macbook Pro at work, including automation for
+software packages (Homebrew) and configuration settings.
 
 - Current: Macbook Pro 14 inch, M1 Max, 32 GB RAM, 2021 M1 Silicon architecture.
 - The previous setup for the 16 inch, 2019 model can be found [at this commit](https://gitlab.com/dnsmichi/dotfiles/-/tree/4bd8993aad5e798fff3e67365f81407bb65e5b87). The setup is explained in-depth in [dotfiles - Document and automate your Macbook setup](https://about.gitlab.com/blog/2020/04/17/dotfiles-document-and-automate-your-macbook-setup/).
 
 The current ZSH theme is [Powerlevel10k, detailed in this blog post](https://dnsmichi.at/2022/03/11/new-zsh-theme-on-macos-powerlevel10k/).
 
-In addition to the files stored in this repository, the following instructions are needed to fully setup a Macbook Pro.
+Follow the instructions below to fully setup a Macbook Pro.
 
 ## Preparations
 
@@ -128,16 +129,14 @@ These tools are managed outside of Homebrew, and require additional work and doc
 - [Raycast](https://www.raycast.com/) has automated updates enabled.
 - [VS Code](https://code.visualstudio.com/download) has automated updates enabled (extensions require newer versions).
 - [Rectangle Pro](https://rectangleapp.com/) for window management
-- Java 18+ Open Source
 - Grammarly Desktop (approved license)
 - Adobe Creative Cloud (team license)
 - [Screen Studio](https://screen.studio/download) (approved license)
-- Spotify (account required)
 
 ### IDEs
 
 - JetBrains IDE Toolbox ([license required](https://handbook.gitlab.com/handbook/tools-and-tips/editors-and-ides/jetbrains-ides/licenses/) for IntelliJ IDEA, PyCharm, GoLand, RubyMine, CLion, RustRover, Rider, DataGrip, etc.).
-- [Arduino IDE](https://www.arduino.cc/en/software/): IDE for developing and provisioning Arduino hardware. The CLI is installed via [Breewfile](Brewfile).
+- [Arduino IDE](https://www.arduino.cc/en/software/): IDE for developing and provisioning Arduino hardware. The CLI is installed via [Brewfile](Brewfile).
 - [Tonny](https://thonny.org/): IDE for the Tufty 2040 badge and other microcontroller projects.
 
 #### VS Code
@@ -341,7 +340,7 @@ More insights can be found in these lists, thanks to them for their inspiration 
 
 Follow the [one-line installation](https://gitlab.com/gitlab-org/gitlab-development-kit/-/tree/main/doc?ref_type=heads#one-line-installation) and use [mise](https://gitlab.com/gitlab-org/gitlab-development-kit/-/blob/main/doc/howto/mise.md) (requirement since 2025-04).
 
-Alternatively, use [GDK-in-a-box](https://docs.gitlab.com/development/contributing/first_contribution/configure-dev-env-gdk-in-a-box/) with a UTM provided local VM.
+Alternatively, use [GDK-in-a-box](https://docs.gitlab.com/development/contributing/first_contribution/configure-dev-env-gdk-in-a-box/) with Docker containers.
 
 ### GitLab Docs
 

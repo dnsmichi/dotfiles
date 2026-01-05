@@ -14,8 +14,6 @@ cask "gimp"
 cask "wireshark"
 cask "vnc-viewer"
 cask "google-cloud-sdk"
-cask "spotify"
-cask "jitsi-meet"
 cask "discord"
 cask "grammarly-desktop"
 
@@ -161,6 +159,10 @@ brew "boost"
 brew "ninja"
 
 # Use cases
+
+## AI
+brew "kiro-cli"
+brew "codex"
 
 ## Embedded
 
