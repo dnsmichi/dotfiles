@@ -6,7 +6,7 @@ software packages (Homebrew) and configuration settings.
 - Current: Macbook Pro 14 inch, M1 Max, 32 GB RAM, 2021 M1 Silicon architecture.
 - The previous setup for the 16 inch, 2019 model can be found [at this commit](https://gitlab.com/dnsmichi/dotfiles/-/tree/4bd8993aad5e798fff3e67365f81407bb65e5b87). The setup is explained in-depth in [dotfiles - Document and automate your Macbook setup](https://about.gitlab.com/blog/2020/04/17/dotfiles-document-and-automate-your-macbook-setup/).
 
-The current ZSH theme is [Powerlevel10k, detailed in this blog post](https://dnsmichi.at/2022/03/11/new-zsh-theme-on-macos-powerlevel10k/).
+The current ZSH theme is Powerlevel10k, detailed in [this blog post](https://dnsmichi.at/2022/03/11/new-zsh-theme-on-macos-powerlevel10k/).
 
 Follow the instructions below to fully setup a Macbook Pro.
 
@@ -30,7 +30,7 @@ Powerlevel10k fonts for Oh-My-ZSH terminal:
 
 Navigate into `Settings > Security and Privacy > App Management` and allow iTerm2 to modify apps. Otherwise you will see this warning on macOS Ventura 13.4.1.
 
-```
+```markdown
 Warning: Your terminal does not have App Management permissions, so Homebrew will delete and reinstall the app.
 This may result in some configurations (like notification settings or location in the Dock/Launchpad) being lost.
 To fix this, go to Settings > Security and Privacy > App Management and turn on the switch for your terminal.
@@ -40,13 +40,13 @@ To fix this, go to Settings > Security and Privacy > App Management and turn on 
 
 Install it on the command line first, it will ask for permission.
 
-```
+```shell
 xcode-select --install
 ```
 
 ### Sudo
 
-```
+```shell
 sudo vim /private/etc/sudoers.d/mfriedrich
 
 mfriedrich  ALL=(ALL) NOPASSWD: ALL
@@ -56,7 +56,7 @@ mfriedrich  ALL=(ALL) NOPASSWD: ALL
 
 From the [development guidelines](https://docs.gitlab.com/development/secure_coding_guidelines/#handling-credentials): The [Gitleaks Git hook](https://gitlab.com/gitlab-com/gl-security/security-research/gitleaks-endpoint-installer) is recommended for preventing credentials from being committed.
 
-```
+```shell
 git clone https://gitlab.com/gitlab-com/gl-security/security-research/gitleaks-endpoint-installer.git "$HOME/.gitlab-gitleaks"
 cd "$HOME/.gitlab-gitleaks"
 ./install_gitleaks.sh
@@ -72,7 +72,7 @@ Copy the following private secret files in your home directory:
 * SSH and GPG Keys in `.ssh/` and `.gnupg/`
 * Settings in `.env`, `.zshrc/`, `.oh-my-zsh/`
 
-```
+```shell
 cd backup/
 cp -r .ssh .gnupg .env .zshrc .oh-my-zsh $HOME/
 ```
@@ -86,26 +86,26 @@ cp -r .ssh .gnupg .env .zshrc .oh-my-zsh $HOME/
 
 These steps contain all the remaining setup steps: Homebrew, macOS system settings, applications.
 
-```
+```shell
 git clone https://gitlab.com/dnsmichi/dotfiles.git
 cd dotfiles
 ```
 
 Sync the files into the home directory.
 
-```
+```shell
 ./bootstrap.sh
 ```
 
 Apply macOS settings. Review the [.macos](.macos) file before applying.
 
-```
+```shell
 ./.macos
 ```
 
 Install Homebrew and OhMyZSH.
 
-```
+```shell
 ./brew_once.sh
 ```
 
@@ -113,7 +113,7 @@ Install Homebrew and OhMyZSH.
 
 Install tools and applications with Homebrew bundle.
 
-```
+```shell
 brew bundle
 ```
 
@@ -129,7 +129,6 @@ These tools are managed outside of Homebrew, and require additional work and doc
 - [Raycast](https://www.raycast.com/) has automated updates enabled.
 - [VS Code](https://code.visualstudio.com/download) has automated updates enabled (extensions require newer versions).
 - [Rectangle Pro](https://rectangleapp.com/) for window management
-- Grammarly Desktop (approved license)
 - Adobe Creative Cloud (team license)
 - [Screen Studio](https://screen.studio/download) (approved license)
 
@@ -156,27 +155,31 @@ Notable changes from the default configuration:
 1. Auto-save enabled: `"files.autoSave": "afterDelay",`
 1. Word-wrap enabled: `"editor.wordWrap": "on",`
 1. Change font family to `meslolgs nf` to [print ZSH icons in the VS Code terminal](https://stackoverflow.com/questions/73528388/vscode-terminal-not-showing-icons-on-terminal-on-zsh): `"terminal.integrated.fontFamily": "meslolgs nf",`
-1. GitLab Duo Code Suggestions enabled: `"gitlab.aiAssistedCodeSuggestions.enabled": true,`
 1. GitLab Workflow extension debug enabled: `"gitlab.debug": true,`
 
+Sync Light Theme:
 
-Sync:
+1. Switch to the profile `light`
+1. `cmd shift p` > search for `settings json`.
+1. Copy to [vscode/vscode/settings-white-for-talk-demos.json](vscode/settings-white-for-talk-demos.json)
 
-```shell
-cp ~/Library/Application\ Support/Code/User/settings.json vscode/
-```
+Sync Dark Theme:
+
+1. Switch to the profile `default (dark)`
+1. `cmd shift p` > search for `settings json`.
+1. Copy to [vscode/vscode/settings.json](vscode/settings.json)
 
 ##### VS Code Extensions
 
 Run the following script to install VS Code extensions:
 
-```
+```shell
 ./vscode-extensions-install.sh
 ```
 
 You can regenerate the list of extensions using the following command:
 
-```
+```shell
 code --list-extensions | xargs -L 1 echo code --install-extension > vscode-extensions-install.sh
 ```
 
@@ -197,7 +200,6 @@ Managed as casks in [Brewfile](Brewfile).
 - GitLab Editor Extensions: [gitlab-lsp](https://gitlab.com/gitlab-org/editor-extensions/gitlab-lsp/-/blob/main/.tool-versions?ref_type=heads)
 - [GitLab handbook - docsy theme](https://gitlab.com/gitlab-com/content-sites/docsy-gitlab/-/blob/main/.tool-versions?ref_type=heads)
 
-
 Global install:
 
 ```shell
@@ -214,12 +216,11 @@ This step creates the `.tool-versions` in the repository which needs to be added
 
 If `.tool-versions` exists in the Git repo, you can run the following to setup all dependencies:
 
-```
+```shell
 mise install
 ```
 
 Troubleshooting: [GDK guide](https://gitlab.com/gitlab-org/gitlab-development-kit/-/blob/main/doc/troubleshooting/mise.md).
-
 
 #### Chrome
 
@@ -254,10 +255,6 @@ Kubernetes clusters in the cloud can be managed using the [GitLab Developer Rela
 For local container runtimes, I'm using [Rancher Desktop](https://rancherdesktop.io/), after [evaluating other tools in 2022](https://dnsmichi.at/2022/03/15/docker-desktop-alternatives-macos-podman-nerdctl-rancher-desktop/). More tips can be found in the [GitLab handbook](https://about.gitlab.com/handbook/tools-and-tips/mac/#docker-desktop).
 
 [Lima](https://lima-vm.io/) and [Colima](https://github.com/abiosoft/colima) are installed for local Linux VM demos and workshops, via [Brewfile](Brewfile).
-
-> **Note**
->
-> There's also VirtualBox for virtualization, but it lacked Apple Silicon M1 (ARM) support for many years, recently added in [7.1](https://www.virtualbox.org/wiki/Changelog-7.1). I never bothered using it together with Vagrant, mostly due to the success of containers together with Colima, cloud providers and IaC provisioners (Ansible, OpenTofu).
 
 ## Settings
 
@@ -309,7 +306,7 @@ https://handbook.gitlab.com/handbook/tools-and-tips/zoom/
 
 ## Additional Hints
 
-### iterm2
+### iterm2 settings
 
 Documentation for initial settings:
 
@@ -363,7 +360,6 @@ yarn install
 ./scripts/lint-doc.sh
 ```
 
-
 ### GitLab CLI
 
 Install Golang to setup the [development environment](https://gitlab.com/gitlab-org/cli/-/blob/main/CONTRIBUTING.md). Export the variables `GITLAB_TOKEN` and `GITLAB_TEST_HOST` to run all integration tests.
@@ -379,6 +375,10 @@ export GITLAB_TEST_HOST=https://gitlab.com
 make
 make test
 ```
+
+#### GitLab Duo CLI
+
+To interact with Duo Agent Platform: [GitLab Duo CLI in the Dev Advocacy Handbook](https://handbook.gitlab.com/handbook/marketing/developer-relations/developer-advocacy/dev-environments/#gitlab-duo-cli)
 
 ## DevSecOps
 
@@ -403,7 +403,7 @@ brew upgrade
 
 ### Oh-my-ZSH and Themes
 
-```
+```shell
 cd ~/.oh-my-zsh
 git pull
 
@@ -417,7 +417,7 @@ On major version upgrades, binaries might be incompatible or need a local rebuil
 You can enforce a reinstall by running the two commands below, the second command
 only reinstalls all application casks.
 
-```
+```shell
 brew reinstall $(brew list)
 
 brew reinstall $(brew list --cask)
@@ -425,20 +425,20 @@ brew reinstall $(brew list --cask)
 
 When Xcode and compilers break, re-install the command line tools.
 
-```
+```shell
 sudo rm -rf /Library/Developer/CommandLineTools
 sudo xcode-select --install
 ```
 
 ### Git xcrun errors on macOS Ventura upgrades
 
-```
+```shell
 xcrun: error: invalid active developer path
 ```
 
 You need to explicity agree to the terms of services for the developer tools.
 
-```
+```shell
 xcode-select --install
 ```
 
@@ -448,7 +448,7 @@ The settings in [.macos](.macos) use macOS internal APIs on the command line. So
 
 To debug and capture which settings are in effect, create a new Git repository somewhere, and persist the system settings output.
 
-```
+```shell
 mkdir $HOME/dev/work/system-settings
 cd $HOME/dev/work/system-settings
 git init
@@ -461,7 +461,7 @@ git commit -av -m "Initial settings"
 
 Then navigate into the Systems settings GUI, change parameters, export the system settings into the same file, and analyze the Git diff to figure out the correct parameter names and values.
 
-```
+```shell
 defaults read > settings.txt
 
 git diff
@@ -499,7 +499,7 @@ Requiring the current settings to be changed to https://gitlab.com/dnsmichi/dotf
 
 ### Touch ID does not work
 
-The magic keyboard with Touch ID does not work after the Macbook went to sleep.
+The magic keyboard with Touch ID may not work after the Macbook went to sleep.
 
 - https://www.reddit.com/r/mac/comments/13hd4aa/magic_keyboard_with_touch_id_no_working_after/
 - https://www.reddit.com/r/macmini/comments/12cw4mf/touch_id_issues_on_mac_mini_m2/
