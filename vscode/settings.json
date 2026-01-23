@@ -4,19 +4,27 @@
     // Efficiency
     "workbench.editor.empty.hint": "hidden",
     "workbench.startupEditor": "none",
+
     "editor.wordWrap": "on",
-    "git.confirmSync": false,
+    "editor.trimAutoWhitespace": true,
+
     "files.autoSave": "afterDelay",
-    "terminal.integrated.fontFamily": "meslolgs nf",
-    "git.enableSmartCommit": true,
-    "window.zoomLevel": 1,
     "files.trimTrailingWhitespace": true,
+
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+
+    "window.zoomLevel": 1,
+
+    "terminal.integrated.fontFamily": "meslolgs nf",
     "terminal.integrated.defaultProfile.osx": "zsh",
     "terminal.integrated.fontSize": 14,
+
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
 
     // GitLab Workflow extension
+    "gitlab.duoAgentPlatform.defaultNamespace": "gitlab-da",
     "gitlab.debug": true,
     "gitlab.duoCodeSuggestions.additionalLanguages": [
         "powershell",
@@ -24,19 +32,18 @@
         "ansible",
         "cobol",
         "abap",
-        "perl",
         "dockerfile",
         "markdown",
         "vb",
         "json"
     ],
 
-    // Disable IDE chat
-    "chat.disableAIFeatures": true,
+    // Disable built-in things
+    "telemetry.feedback.enabled": false,
     "chat.commandCenter.enabled": false,
     "chat.mcp.access": "none",
     "chat.agent.enabled": false,
     "chat.edits2.enabled": false,
     "chat.extensionTools.enabled": false,
-    "telemetry.feedback.enabled": false,
+    "chat.disableAIFeatures": true,
 }
