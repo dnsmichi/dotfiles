@@ -124,16 +124,17 @@ This makes use of the [Brewfile](Brewfile) definitions.
 These tools are managed outside of Homebrew, and require additional work and documentation.
 
 - [Google Chrome](https://www.google.com/chrome/) - [tips handbook](https://handbook.gitlab.com/handbook/tools-and-tips/#google-chrome)
-- [1Password 8](https://1password.com/product/mac/)
-- [Zoom](https://zoom.us/download) (note the special download location for Apple M1 Silicon)
+- [1Password](https://1password.com/product/mac/)
+- [Zoom](https://zoom.us/download)
+- [Claude Desktop](https://claude.com/download) - [handbook](https://handbook.gitlab.com/handbook/tools-and-tips/ai/claude/#applications-and-cli)
+- [Glean](https://app.glean.com/settings/install) - [handbook](https://handbook.gitlab.com/handbook/business-technology/enterprise-applications/guides/glean-guide/)
 - [Raycast](https://www.raycast.com/) has automated updates enabled.
-- [VS Code](https://code.visualstudio.com/download) has automated updates enabled (extensions require newer versions).
-- [Rectangle Pro](https://rectangleapp.com/) for window management
-- Adobe Creative Cloud (team license)
-- [Screen Studio](https://screen.studio/download) (approved license)
+- [Adobe Creative Cloud](https://www.adobe.com/creativecloud.html) (Premiere Pro, etc.) - enterprise license
+- [Screen Studio](https://screen.studio/download) (approved license) - [handbook](https://handbook.gitlab.com/handbook/marketing/developer-relations/developer-advocacy/content/#recording-with-screen-studio)
 
 ### IDEs
 
+- [VS Code](https://code.visualstudio.com/download) has automated updates enabled (extensions require newer versions).
 - JetBrains IDE Toolbox ([license required](https://handbook.gitlab.com/handbook/tools-and-tips/editors-and-ides/jetbrains-ides/licenses/) for IntelliJ IDEA, PyCharm, GoLand, RubyMine, CLion, RustRover, Rider, DataGrip, etc.).
 - [Arduino IDE](https://www.arduino.cc/en/software/): IDE for developing and provisioning Arduino hardware. The CLI is installed via [Brewfile](Brewfile).
 - [Tonny](https://thonny.org/): IDE for the Tufty 2040 badge and other microcontroller projects.
