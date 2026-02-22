@@ -2,6 +2,10 @@
 	name = Michael Friedrich
 	email = mfriedrich@gitlab.com
 	signingkey = /Users/mfriedrich/.ssh/id_ed25519_mfriedrich
+
+[includeIf "gitdir:~/dev/private/"]
+    path = ~/.gitconfig-private
+
 [alias]
         l  = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --
 	pushu = push -u origin HEAD
@@ -24,3 +28,7 @@
 	gpgsign = true
 [gpg "ssh"]
 	allowedSignersFile = /Users/mfriedrich/.ssh/allowed_signers
+[safe]
+	directory = /Users/mfriedrich/dev/work/handbook/handbook
+[core]
+#	hooksPath = /Users/mfriedrich/.gitlab-gitleaks/hooks
