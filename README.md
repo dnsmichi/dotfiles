@@ -12,6 +12,7 @@ Follow the instructions below to fully setup a Macbook Pro.
 
 ## Preparations
 
+
 ### iterm2
 
 Install iterm2 manually from the [website](https://www.iterm2.com/), drag it into the Applications folder, start it and add it to the deck.
@@ -307,6 +308,18 @@ https://handbook.gitlab.com/handbook/tools-and-tips/zoom/
 
 ## Additional Hints
 
+### DNS troubleshooting
+
+If DNS causes problems on macOS:
+
+```shell
+sudo dscacheutil -flushcache
+sudo killall -HUP mDNSResponder
+sudo killall -9 mDNSResponder
+```
+
+or shorter, use the [flush_dns.sh](flush_dns.sh) script.
+
 ### iterm2 settings
 
 Documentation for initial settings:
@@ -392,6 +405,8 @@ See [ansible/](ansible/) for details.
 ### Embedded DevSecOps with Ansible
 
 _Note:_ The Embedded DevSecOps environment Ansible playbooks are located in https://gitlab.com/gitlab-da/use-cases/embedded/embedded-devsecops/environments/dnsmichi-embedded-devsecops-environment
+
+
 
 ## Upgrades
 
