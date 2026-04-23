@@ -120,6 +120,14 @@ brew bundle
 
 This makes use of the [Brewfile](Brewfile) definitions.
 
+### Disable telemetry
+
+Some tools use telemetry by default and require opt-out instead of opt-in. Run the script to disable.
+
+```shell
+./privacy.sh
+```
+
 ## Essentials
 
 These tools are managed outside of Homebrew, and require additional work and documentation.
