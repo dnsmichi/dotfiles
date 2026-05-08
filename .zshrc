@@ -116,22 +116,25 @@ plugins=(git dotenv)
 #######################################################
 # Decide whether to load a full terminal environment,
 # or keep it minimal for Agentic AI in IDEs
-if [[ "$TERM_PROGRAM" == "vscode" || "$TERMINAL_EMULATOR" == "JetBrains-JediTerm" ]]; then
-  echo "IDE agentic environment detected, not loading full shell integrations"
-else
+#if [[ "$TERM_PROGRAM" == "vscode" || "$TERMINAL_EMULATOR" == "JetBrains-JediTerm" ]]; then
+#  echo "IDE agentic environment detected, not loading full shell integrations"
+#else
   # Oh My ZSH
   [[ -n "$ZSH" && -f "$ZSH/oh-my-zsh.sh" ]] && source $ZSH/oh-my-zsh.sh
   # Theme: Powerlevel10k
   [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
   # Syntax highlighting
   source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
+#fi
 # 2025-09-15 Workaround to detect IDEs until a new env variable is exposed
 # Docs: https://gitlab.com/gitlab-org/gitlab-vscode-extension/-/issues/2070
 # Variable: https://gitlab.com/gitlab-org/gitlab-vscode-extension/-/issues/2116
 
 #######################################################
 # Environment will always be loaded in any environment
+
+# rustup
+source ~/.cargo/env
 
 # Created by `pipx` on 2024-05-31 17:18:04
 export PATH="$PATH:/Users/mfriedrich/.local/bin"

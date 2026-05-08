@@ -232,6 +232,16 @@ mise install
 
 Troubleshooting: [GDK guide](https://gitlab.com/gitlab-org/gitlab-development-kit/-/blob/main/doc/troubleshooting/mise.md).
 
+#### Rust
+
+Homebrew's Rust is not the same as `rustup` and can run into problems. [Brewfile](Brewfile) therefore installs `rustup` only, with these steps:
+
+```shell
+rustup-init -y
+
+source ~/.cargo/env && rustup component add rustfmt clippy
+```
+
 #### Chrome
 
 For Macbook refreshments, enable the Profile sync functionality and mirror bookmarks, history, auto-completion, etc. This is essential for efficiency.

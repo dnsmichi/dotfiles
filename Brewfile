@@ -141,7 +141,6 @@ brew "python"
 brew "pyenv"
 brew "go"
 brew "llvm"
-brew "rust"
 brew "gradle"
 brew "scala"
 brew "sbt"
@@ -149,6 +148,9 @@ brew "dotnet"
 brew "lua"
 brew "sqlite"
 brew "gnucobol"
+
+# Use rustup instead of Homebrew's rust formula
+brew "rustup"
 
 # Explicitely 21
 brew "openjdk@21"
