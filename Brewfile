@@ -72,6 +72,7 @@ brew "broot"
 ## Network & DNS
 brew "nmap"
 brew "socat"
+brew "websocat"
 brew "dnstracer"
 brew "dnsx"
 brew "sslscan"
