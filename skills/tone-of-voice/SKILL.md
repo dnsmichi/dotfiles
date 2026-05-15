@@ -52,12 +52,20 @@ Michael writes the way he talks: direct, honest, occasionally self-deprecating. 
 ## Format by content type
 
 ### Blog posts
-- Open with a concrete situation or a problem, not a definition
-- Use `##` subheadings sparingly — only when the reader genuinely needs to navigate
-- Code blocks for all commands; annotate non-obvious flags inline as comments
-- Screenshot or diagram where prose would take three paragraphs
-- Close: invitation to try it, ask a question, or continue the conversation
-- Tone: "we'll learn together" not "in this tutorial we'll cover"
+- Open with a concrete situation, tension, or problem, not a definition
+- For GitLab blog tutorials, follow the pacing of the published Claude Code post: strong opening hook, clear roadmap, practical step-by-step sections, concise closing principle
+- Use "we" instead of "I" in blog posts, even if other writing defaults use first person singular
+- Prefer longer, smoother, easier-to-read sentences over very short choppy phrasing
+- Keep paragraphs flowing naturally, with enough detail to feel polished without sounding overworked
+- Use `##` subheadings sparingly, only when the reader genuinely needs to navigate
+- Code blocks for all commands; annotate non-obvious flags inline as comments when useful
+- Add a screenshot or diagram where prose would otherwise take too long to explain
+- Keep the tone practical, direct, and collaborative: we are learning together, not lecturing
+- Avoid internal framing, planning language, stakeholder comparisons, or meta commentary about how the story was designed
+- Close with an invitation, a takeaway, or a forward-looking thought, not a dry summary
+
+Blog-specific override:
+When writing blog posts for Michael Friedrich, prioritize GitLab blog tutorial readability and flow over the default short-sentence rhythm. The result should still sound like Michael, but it should read like polished publishable tutorial prose.
 
 ### Talk abstracts / CFP submissions
 - First sentence names the tension or stakes, not the topic
