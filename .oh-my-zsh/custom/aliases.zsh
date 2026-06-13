@@ -7,4 +7,7 @@ alias genpw='LC_ALL=C tr -dc "[:alnum:]" < /dev/urandom | head -c 20 | pbcopy'
 # Convert HEIC to JPG
 alias heic2jpg="find . -type f -iname '*.heic' -exec sh -c 'mogrify -format jpg \"{}\"' \;"
 
+# Duo CLI in glab
+alias duo="glab duo cli"
+
 #alias docker=podman

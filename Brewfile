@@ -123,7 +123,10 @@ brew "git-filter-repo"
 brew "tig"
 brew "hub"
 brew "gh"
+
+# GitLab CLI + GitLab Duo CLI in one
 brew "glab"
+
 # Extract rpm file content with rpm2cpio *.rpm | cpio -ivd
 brew "rpm2cpio"
 

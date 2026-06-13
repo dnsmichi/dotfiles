@@ -394,23 +394,13 @@ yarn install
 
 ### GitLab CLI
 
-Install Golang to setup the [development environment](https://gitlab.com/gitlab-org/cli/-/blob/main/CONTRIBUTING.md). Export the variables `GITLAB_TOKEN` and `GITLAB_TEST_HOST` to run all integration tests.
-
-```
-export GITLAB_TOKEN=xxx
-# GitLab CLI dev tests
-# https://gitlab.com/dnsmichi/test
-export GITLAB_TEST_HOST=https://gitlab.com
-```
-
-```shell
-make
-make test
-```
+Installed `glab` with [Homebrew](Brewfile).
 
 #### GitLab Duo CLI
 
-To interact with Duo Agent Platform: [GitLab Duo CLI in the Dev Advocacy Handbook](https://handbook.gitlab.com/handbook/marketing/developer-relations/developer-advocacy/dev-environments/#gitlab-duo-cli)
+To interact with Duo Agent Platform: Installed via glab CLI, ZSH alias set to `duo=glab duo cli`.
+
+- [GitLab Duo CLI in the Dev Advocacy Handbook](https://handbook.gitlab.com/handbook/marketing/developer-relations/developer-advocacy/dev-environments/#gitlab-duo-cli)
 
 ## DevSecOps
 
