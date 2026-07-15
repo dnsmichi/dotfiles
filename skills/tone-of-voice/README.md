@@ -49,6 +49,27 @@ claude
 /skills
 ```
 
+### Codex
+
+```shell
+cd ~/dev/work
+git clone https://gitlab.com/dnsmichi/dotfiles.git && cd dotfiles
+
+ln -s `pwd`/skills/tone-of-voice ~/.agents/skills/tone-of-voice
+
+mkdir -p ~/.agents/skills/
+
+ls -lah ~/.claude/skills/
+```
+
+Then open Codex:
+
+```shell
+codex
+
+/skills
+```
+
 ### GitLab Duo Agent Platform
 
 _Scope: Write blog posts, code and project documentation, work item creation/comments, etc.._

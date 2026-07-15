@@ -128,6 +128,29 @@ Some tools use telemetry by default and require opt-out instead of opt-in. Run t
 ./privacy.sh
 ```
 
+## AI
+
+### GitLab Duo Agent Platform
+
+Provisioned access as team member, and Developer Advocate in [gitlab.com/gitlab-da](gitlab.com/gitlab-da).
+
+#### GitLab Duo CLI
+
+Installed via `glab` CLI in the [Brewfile](Brewfile). [ZSH alias](.oh-my-zsh/custom/aliases.zsh) set to `duo=glab duo cli`.
+
+1. [GitLab Duo CLI in the Dev Advocacy Handbook](https://handbook.gitlab.com/handbook/marketing/developer-relations/developer-advocacy/dev-environments/#gitlab-duo-cli)
+1. Add the Agentic Skills from [skills/](skills/), see README for instructions.
+
+### Claude Code
+
+1. Follow the [Developer Advocacy handbook](https://handbook.gitlab.com/handbook/marketing/developer-relations/developer-advocacy/dev-environments/#claude-code)
+1. Add the Agentic Skills from [skills/](skills/), see README for instructions.
+
+### Codex
+
+1. Follow the [Developer Advocacy handbook](https://handbook.gitlab.com/handbook/marketing/developer-relations/developer-advocacy/dev-environments/#codex)
+1. Add the Agentic Skills from [skills/](skills/), see README for instructions.
+
 ## Essentials
 
 These tools are managed outside of Homebrew, and require additional work and documentation.
@@ -392,16 +415,6 @@ yarn install
 ./scripts/lint-doc.sh
 ```
 
-### GitLab CLI
-
-Installed `glab` with [Homebrew](Brewfile).
-
-#### GitLab Duo CLI
-
-To interact with Duo Agent Platform: Installed via glab CLI, ZSH alias set to `duo=glab duo cli`.
-
-- [GitLab Duo CLI in the Dev Advocacy Handbook](https://handbook.gitlab.com/handbook/marketing/developer-relations/developer-advocacy/dev-environments/#gitlab-duo-cli)
-
 ## DevSecOps
 
 Anything that runs in the infrastructure and needs to be automated.
@@ -413,7 +426,6 @@ See [ansible/](ansible/) for details.
 ### Embedded DevSecOps with Ansible
 
 _Note:_ The Embedded DevSecOps environment Ansible playbooks are located in https://gitlab.com/gitlab-da/use-cases/embedded/embedded-devsecops/environments/dnsmichi-embedded-devsecops-environment
-
 
 
 ## Upgrades
