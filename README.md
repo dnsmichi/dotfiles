@@ -168,7 +168,6 @@ These tools are managed outside of Homebrew, and require additional work and doc
 
 - [VS Code](https://code.visualstudio.com/download) has automated updates enabled (extensions require newer versions).
 - JetBrains IDE Toolbox ([license required](https://handbook.gitlab.com/handbook/tools-and-tips/editors-and-ides/jetbrains-ides/licenses/) for IntelliJ IDEA, PyCharm, GoLand, RubyMine, CLion, RustRover, Rider, DataGrip, etc.).
-- [Arduino IDE](https://www.arduino.cc/en/software/): IDE for developing and provisioning Arduino hardware. The CLI is installed via [Brewfile](Brewfile).
 - [Tonny](https://thonny.org/): IDE for the Tufty 2040 badge and other microcontroller projects.
 
 #### VS Code

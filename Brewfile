@@ -1,21 +1,12 @@
+# Apps
 cask_args appdir: "/Applications"
-
-# Tap Homebrew
-tap "homebrew/bundle"
-tap "homebrew/services"
-tap "fluxcd/tap"
-tap "kubeshark/kubeshark"
 
 cask "firefox"
 cask "obs"
 cask "vlc"
 cask "handbrake"
-cask "gimp"
-cask "wireshark"
-cask "vnc-viewer"
 cask "google-cloud-sdk"
 cask "discord"
-cask "grammarly-desktop"
 
 cask "powershell"
 cask "dotnet-sdk"
@@ -82,7 +73,6 @@ brew "awscli"
 brew "eksctl"
 brew "azure-cli"
 brew "hcloud"
-brew "civo"
 
 ## Containers
 brew "docker-compose"
@@ -93,9 +83,7 @@ brew "kind"
 brew "minikube"
 brew "crane"
 brew "krew"
-brew "kubeshark"
 brew "dive"
-brew "k8sgpt"
 
 ## IaC
 brew "ansible"
