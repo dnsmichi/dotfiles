@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "theme": "auto",
+  "autoUpdatesChannel": "stable",
+  "crossSessionInbound": "hold",
+  "permissions": {
+    "defaultMode": "default",
+    "disableBypassPermissionsMode": "disable",
+    "allow": [
+      "Bash(ls *)",
+      "Bash(pwd *)",
+      "Bash(echo *)",
+      "Bash(whoami *)",
+      "Bash(cat *)",
+      "Bash(head *)",
+      "Bash(tail *)",
+      "Bash(grep *)",
+      "Bash(rg *)",
+      "Bash(sed -n *)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git show *)",
+      "Bash(git branch *)",
+      "Bash(glab issue list *)",
+      "Bash(glab mr list *)",
+      "Bash(glab repo view *)",
+      "Bash(glab api GET *)",
+      "Bash(node -v *)",
+      "Bash(npm -v *)",
+      "Bash(python --version *)",
+      "Bash(gcc *)",
+      "Bash(g++ *)",
+      "Bash(clang *)",
+      "Bash(make *)",
+      "Bash(cargo build *)",
+      "Bash(cargo check *)",
+      "Bash(cargo test *)",
+      "Bash(npm run build *)",
+      "Bash(npm run dev *)"
+    ],
+    "ask": [
+      "Bash(sed -i *)",
+      "Bash(sed -i* *)",
+      "Bash(sed --in-place *)",
+      "Bash(awk *)",
+      "Bash(patch *)",
+      "Bash(find *)",
+      "Bash(xargs *)",
+      "Bash(bash *)",
+      "Bash(sh *)",
+      "Bash(zsh *)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(lynx *)",
+      "Bash(npm install *)",
+      "Bash(pip install *)",
+      "Bash(cargo install *)",
+      "Bash(mise install *)",
+      "Bash(git push *)",
+      "Bash(git reset *)",
+      "Bash(git rebase *)",
+      "Bash(git commit *)",
+      "Bash(glab mr create *)",
+      "Bash(glab issue create *)",
+      "Bash(glab api POST *)",
+      "Bash(glab api DELETE *)"
+    ]
+  },
+  "sandbox": {
+    "enabled": true,
+    "failIfUnavailable": true,
+    "autoAllowBashIfSandboxed": false,
+    "allowUnsandboxedCommands": false,
+    "network": {
+      "allowedDomains": [
+        "gitlab.com"
+      ]
+    }
+  }
+}

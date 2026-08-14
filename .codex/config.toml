@@ -1,0 +1,128 @@
+#################################################
+## Global
+
+# Recursively trusts everything inside these two folders
+trusted_workspaces = [
+    "/Users/mfriedrich/dev/devrel/",
+    "/Users/mfriedrich/dev/work/"
+]
+
+# Sets the agent's tone to be concise, direct, and focused on functional code over explanations
+personality = "pragmatic"
+
+# Set fallback approval to on-request for any undefined categories
+approval_policy = "on-request"
+
+# Enable custom workspace settings
+sandbox_mode = "workspace-write"
+default_permissions = "workspace_custom"
+
+#################################################
+## Workspaces
+
+[permissions.workspace_custom]
+description = "Custom workspace sandbox allowing targeted external network access."
+extends = ":workspace"
+
+[permissions.workspace_custom.network]
+enabled = true
+# Provide an array of the explicit hostnames your agent needs
+allowed_domains = [
+    "gitlab.com"
+]
+
+#################################################
+## Sandbox
+
+[sandbox_workspace_write]
+# Wipe the inherited environment clean except for development utilities
+shell_environment_policy = "whitelist"
+allowed_environment_variables = [
+    "PATH", "LANG", "USER", "HOME",
+    "GITLAB_TOKEN", "GIT_AUTHOR_NAME", "GIT_AUTHOR_EMAIL"
+]
+
+#################################################
+## TUI
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4
+"gpt-5.6-sol" = 4
+
+#################################################
+## Features
+
+[features]
+"rmcp_client" = true
+
+#################################################
+## Approvals
+
+[approval_rules]
+# Automatically allow informational commands without prompting
+allow_unprompted = [
+    # Navigation & Inspection
+    "ls*", "pwd*", "echo*", "whoami*",
+    "cat*", "head*", "tail*", "grep*",
+
+    # Explicitly matches "sed -n" followed by line number print requests (p)
+    # Allows: sed -n '10,50p' main.py
+    "sed -n*",
+
+    # Read-Only Version Control
+    "git status*", "git diff*", "git log*", "git show*", "git branch*",
+    "glab issue list*", "glab mr list*", "glab repo view*", "glab api GET*",
+
+    # Runtimes & Health Checking
+    "node -v*", "npm -v*", "python --version*", "cargo check*",
+
+    # C/C++ Compilers and Structural Engine Builders
+    "gcc*", "g++*", "clang*", "make*",
+
+    # Explicit Safe Language Compilation Scripts
+    "cargo build*", "cargo check*", "cargo test*",
+    "npm run build*", "npm run dev*",
+]
+
+# Explicitly intercept modifying actions to force a user prompt
+require_approval = [
+    # Code Modification (Keep sed/awk guarded)
+    "sed*", "awk*", "patch*",
+
+    # Execution & Find Chains
+    "find*", "xargs*", "bash*", "sh*", "zsh*",
+
+    # Intercepts the agent if it tries to manually crawl a website
+    "curl*", "wget*", "lynx*",
+
+    # Project Package Mutation
+    "npm install*", "pip install*", "cargo install*", "mise install*",
+
+    # Destructive Git / Web API Actions
+    "git push*", "git reset*", "git rebase*", "git commit*",
+    "glab mr create*", "glab issue create*", "glab api POST*", "glab api DELETE*",
+]
+
+
+#################################################
+## MCP
+
+[mcp_servers.GitLab]
+url = "https://gitlab.com/api/v4/mcp"
+
+[mcp_servers.GitLab.tools.create_merge_request]
+approval_mode = "approve"
+
+[mcp_servers.GitLab.tools.link_work_items]
+approval_mode = "approve"
+
+[projects."/Users/mfriedrich/dev/devrel/demo-environments/tanuki-iot-platform"]
+trust_level = "trusted"
+
+[projects."/Users/mfriedrich/dev/devrel"]
+trust_level = "trusted"
+
+[projects."/Users/mfriedrich"]
+trust_level = "trusted"
+
+
