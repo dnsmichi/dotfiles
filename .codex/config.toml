@@ -54,6 +54,7 @@ allowed_environment_variables = [
 
 [features]
 "rmcp_client" = true
+memories = true
 
 #################################################
 ## Approvals
@@ -103,10 +104,6 @@ require_approval = [
     "glab mr create*", "glab issue create*", "glab api POST*", "glab api DELETE*",
 ]
 
-
-#################################################
-## MCP
-
 [mcp_servers.GitLab]
 url = "https://gitlab.com/api/v4/mcp"
 
@@ -116,6 +113,12 @@ approval_mode = "approve"
 [mcp_servers.GitLab.tools.link_work_items]
 approval_mode = "approve"
 
+[mcp_servers.gdk]
+url = "http://gdk.local:3000/api/v4/mcp"
+
+[mcp_servers.gdk-orbit]
+url = "http://gdk.local:3000/api/v4/orbit/mcp"
+
 [projects."/Users/mfriedrich/dev/devrel/demo-environments/tanuki-iot-platform"]
 trust_level = "trusted"
 
@@ -123,6 +126,9 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [projects."/Users/mfriedrich"]
+trust_level = "trusted"
+
+[projects."/Users/mfriedrich/dev/work/handbook"]
 trust_level = "trusted"
 
 
