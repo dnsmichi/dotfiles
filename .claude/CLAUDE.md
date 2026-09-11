@@ -6,6 +6,7 @@
 - Inspect existing project conventions before changing code.
 - Preserve unrelated user changes in a dirty worktree.
 - Prefer `rg` and `rg --files` for searching.
+- Prefer `cut`/`rg` over `awk` for plain field extraction; use `awk` only when you need a condition or a computed field.
 - Ask before destructive actions, dependency installation, publishing, or remote mutations.
 - Verify changes with the smallest relevant build, test, lint, or type-check command.
 - Do not commit or push unless explicitly requested.
