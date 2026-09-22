@@ -298,6 +298,38 @@ yarn install
 
 ## Troubleshooting
 
+### Zsh warns about insecure completion directories
+
+When opening Ghostty, Zsh may prompt:
+
+```text
+zsh compinit: insecure directories, run compaudit for list.
+Ignore insecure directories and continue [y] or abort compinit [n]?
+```
+
+Run the following to identify the affected directories:
+
+```shell
+autoload -Uz compaudit
+compaudit
+```
+
+On this workstation, `/opt/homebrew/share` was owned by the current user but
+group-writable. Check its permissions and remove group write access:
+
+```shell
+ls -ld /opt/homebrew/share
+chmod g-w /opt/homebrew/share
+```
+
+Run `compaudit` again; no output means the check passed. Open a new Ghostty
+tab to confirm completion initializes without prompting. This fix needs no
+`sudo`, recursive permission changes, or completion-cache deletion.
+
+If the audit lists different paths, inspect their ownership and permissions
+before changing them. Keep the normal `compinit` security checks enabled.
+See [Homebrew's Zsh completion guidance](https://docs.brew.sh/Shell-Completion#zsh).
+
 ### DNS troubleshooting
 
 If DNS causes problems on macOS:
