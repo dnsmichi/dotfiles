@@ -1,0 +1,28 @@
+# Follow the macOS appearance setting. The matching Gruvbox themes also supply
+# appropriate cursor and selection colors for each background.
+theme = dark:Gruvbox Dark Hard,light:Gruvbox Light Hard
+
+# Keep roughly iTerm-like history without allocating it until it is used.
+# This limit is per terminal surface and is measured in bytes.
+scrollback-limit = 50000000
+scrollbar = system
+
+# Give the terminal content room to breathe while retaining a compact layout.
+window-padding-x = 8
+window-padding-y = 6
+window-padding-balance = true
+
+# Use a visible block in editors such as Vim. Shell integration may still use
+# a bar at the prompt; Vim controls its own shape while editing. Leave the
+# cursor colors to the active theme so dark and light modes stay readable.
+cursor-style = block
+cursor-style-blink = false
+
+# Explicitly enable Ghostty's Zsh features, including prompt marking, working
+# directory inheritance, and compatible remote-session handling.
+shell-integration = zsh
+shell-integration-features = cursor,sudo,title,ssh-env,ssh-terminfo
+
+# JetBrains Mono's Nerd Font variant supplies Starship's optional icon glyphs.
+font-family = "JetBrainsMono Nerd Font Mono"
+font-size = 16

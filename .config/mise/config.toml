@@ -1,2 +1,10 @@
+[settings]
+auto_update = true
+
 [tools]
-node = "latest"
+dotnet = "latest"
+go = "latest"
+node = "lts"
+python = "latest"
+ruby = "latest"
+rust = "stable"

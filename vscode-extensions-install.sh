@@ -1,41 +1,80 @@
-code --install-extension bierner.markdown-mermaid
-code --install-extension budparr.language-hugo-vscode
-code --install-extension chrischinchilla.vale-vscode
-code --install-extension connor4312.esbuild-problem-matchers
-code --install-extension davidanson.vscode-markdownlint
-code --install-extension dbaeumer.vscode-eslint
-code --install-extension docker.docker
-code --install-extension editorconfig.editorconfig
-code --install-extension esbenp.prettier-vscode
-code --install-extension gitlab.gitlab-workflow
-code --install-extension golang.go
-code --install-extension hashicorp.terraform
-code --install-extension ms-azuretools.vscode-containers
-code --install-extension ms-azuretools.vscode-docker
-code --install-extension ms-python.debugpy
-code --install-extension ms-python.python
-code --install-extension ms-python.vscode-pylance
-code --install-extension ms-python.vscode-python-envs
-code --install-extension ms-vscode-remote.remote-ssh
-code --install-extension ms-vscode-remote.remote-ssh-edit
-code --install-extension ms-vscode.cmake-tools
-code --install-extension ms-vscode.cpptools
-code --install-extension ms-vscode.cpptools-extension-pack
-code --install-extension ms-vscode.cpptools-themes
-code --install-extension ms-vscode.makefile-tools
-code --install-extension ms-vscode.remote-explorer
-code --install-extension pdconsec.vscode-print
-code --install-extension redhat.ansible
-code --install-extension redhat.java
-code --install-extension redhat.vscode-yaml
-code --install-extension shd101wyy.markdown-preview-enhanced
-code --install-extension visualstudioexptteam.intellicode-api-usage-examples
-code --install-extension visualstudioexptteam.vscodeintellicode
-code --install-extension vscjava.vscode-gradle
-code --install-extension vscjava.vscode-java-debug
-code --install-extension vscjava.vscode-java-dependency
-code --install-extension vscjava.vscode-java-pack
-code --install-extension vscjava.vscode-java-test
-code --install-extension vscjava.vscode-maven
-code --install-extension vue.volar
-code --install-extension znck.grammarly
+#!/usr/bin/env bash
+# Install and maintain the personal VS Code extension inventory.
+# Safe to rerun: `code --install-extension` leaves installed extensions in place.
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
+INVENTORY_FILE="${SCRIPT_DIR}/vscode/extensions.txt"
+
+require_code() {
+  command -v code >/dev/null 2>&1 || {
+    printf 'Error: VS Code CLI (code) is not available. Enable it from VS Code:\n' >&2
+    printf "  Command Palette → Shell Command: Install 'code' command in PATH\n" >&2
+    exit 1
+  }
+}
+
+read_inventory() {
+  [[ -f "${INVENTORY_FILE}" ]] || {
+    printf 'Error: extension inventory not found: %s\n' "${INVENTORY_FILE}" >&2
+    exit 1
+  }
+
+  sed -e 's/[[:space:]]*#.*$//' -e '/^[[:space:]]*$/d' "${INVENTORY_FILE}"
+}
+
+discover_extensions() {
+  code --list-extensions | sort -fu
+}
+
+update_inventory() {
+  local temporary_file
+  temporary_file="$(mktemp)"
+  trap 'rm -f "${temporary_file}"' EXIT
+
+  {
+    printf '%s\n' '# Personal VS Code extension inventory.'
+    printf '%s\n' '# Generated from extensions installed by the VS Code CLI.'
+    discover_extensions
+  } >"${temporary_file}"
+
+  mv "${temporary_file}" "${INVENTORY_FILE}"
+  trap - EXIT
+  printf 'Updated %s\n' "${INVENTORY_FILE}"
+}
+
+install_inventory() {
+  local extension
+  while IFS= read -r extension; do
+    printf 'Installing %s\n' "${extension}"
+    code --install-extension "${extension}"
+  done < <(read_inventory)
+}
+
+main() {
+  if [[ "${1:-install}" == "--help" || "${1:-install}" == "-h" ]]; then
+    printf 'Usage: %s [install|--discover|--update-inventory]\n' "${0##*/}"
+    return
+  fi
+
+  require_code
+
+  case "${1:-install}" in
+    install)
+      install_inventory
+      ;;
+    --discover)
+      discover_extensions
+      ;;
+    --update-inventory)
+      update_inventory
+      ;;
+    *)
+      printf 'Unknown option: %s\n' "$1" >&2
+      exit 2
+      ;;
+  esac
+}
+
+main "$@"

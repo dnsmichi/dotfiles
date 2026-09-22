@@ -1,179 +1,99 @@
-# Apps
-cask_args appdir: "/Applications"
+# Personal workstation command-line tools.
+# Add a package only after a concrete project or workflow needs it.
+# Ghostty is installed and updated directly from ghostty.org.
 
-cask "firefox"
-cask "obs"
-cask "vlc"
-cask "handbrake"
-cask "google-cloud-sdk"
-cask "discord"
+# Launcher
+tap "abue-ammar/tinycast", trusted: true
+cask "abue-ammar/tinycast/tinycast", trusted: true
 
-cask "powershell"
-cask "dotnet-sdk"
-
-# Use manual install since apps provide their own updater incompatible with Homebrew
-#cask "raycast"
-#cask "visual-studio-code"
-
-# System
-
-## Essentials
-brew "curl"
-brew "wget"
+# Version control and GitLab
 brew "git"
-brew "tree"
-brew "htop"
-brew "pidof"
-brew "pstree"
-brew "openssl"
-brew "rsync"
-brew "ssh-copy-id"
-brew "screen"
-brew "watch"
+brew "git-lfs"
+brew "git-filter-repo"
+brew "glab"
+brew "gh"
 
-### Editors
-
-brew "vim"
-
-## Shell
+# Shell and terminal workflow
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"
-brew "coreutils"
-brew "moreutils"
-brew "findutils"
-brew "binutils"
-brew "grep"
-brew "rename"
-brew "gnu-sed"
-brew "gnu-tar"
-brew "gawk"
-brew "gnutls"
-brew "gnu-indent"
-brew "gnu-getopt"
-brew "gmp"
-brew "rlwrap"
-brew "viddy"
+brew "starship"
+brew "fzf"
+brew "zoxide"
+brew "atuin"
+brew "tmux"
+
+# Terminal font
+cask "font-jetbrains-mono-nerd-font"
+
+# Core command-line utilities
+brew "bat"
+brew "dust"
+brew "eza"
+brew "fd"
+brew "htop"
+brew "pidof"
+brew "watch"
+brew "rsync"
+brew "ssh-copy-id"
+brew "wget"
+brew "curl"
+brew "jq"
+brew "jless"
 brew "ripgrep"
-brew "xq"
-brew "fd" # find alternative
-brew "broot"
+brew "tealdeer" # installs the `tldr` command
 
-# Ops
-
-## Network & DNS
+# Infrastructure and automation
+brew "ansible"
+brew "ansible-lint"
+brew "opentofu"
 brew "nmap"
 brew "socat"
 brew "websocat"
 brew "dnstracer"
-brew "dnsx"
 brew "sslscan"
 
-## Cloud CLI
-brew "awscli"
-brew "eksctl"
-brew "azure-cli"
-brew "hcloud"
-
-## Containers
-brew "docker-compose"
-brew "lima"
+# Cloud native tools
+brew "kubernetes-cli" # provides kubectl
+brew "k9s"
+brew "kubectx"
+brew "stern"
+brew "helm"
 brew "colima"
-brew "podman"
 brew "kind"
 brew "minikube"
-brew "crane"
-brew "krew"
-brew "dive"
 
-## IaC
-brew "ansible"
-brew "ansible-lint"
-brew "jsonnet"
-brew "jsonnet-bundler"
-brew "opentofu"
-brew "tfenv"
-brew "tetra"
+# Development tools
+brew "git-delta"
+brew "neovim"
+brew "openssl"
+brew "p7zip"
+brew "xz"
+brew "hugo"
 
-# Images, Audio, Video
+# Languages
+# Use mise where possible
+# Java
+brew "openjdk@21"
+brew "gradle"
+# C++
+brew "cppcheck"
+brew "cmake"
+brew "boost"
+brew "ninja"
+brew "llvm"
+# SQL
+brew "sqlite"
+# COBOL
+brew "gnucobol"
+
+# Image handling
 brew "imagemagick"
 brew "gifsicle"
 brew "gifify"
 brew "ffmpeg"
 
-# Dev
-
-## Archive & Git
-brew "xz"
-brew "p7zip"
-brew "git"
-brew "git-lfs"
-brew "git-filter-repo"
-brew "tig"
-brew "hub"
-brew "gh"
-
-# GitLab CLI + GitLab Duo CLI in one
-brew "glab"
-
-# Extract rpm file content with rpm2cpio *.rpm | cpio -ivd
-brew "rpm2cpio"
-
-## JSON
-brew "jq"
-brew "jo"
-brew "jless"
-
-## Languages
-# Note: Ruby/NodeJS are often managed locally with mise.
-brew "mise"
-
-brew "yarn"
-brew "ruby"
-#brew "rbenv"
-brew "python"
-brew "pyenv"
-brew "go"
-brew "llvm"
-brew "gradle"
-brew "scala"
-brew "sbt"
-brew "dotnet"
-brew "lua"
-brew "sqlite"
-brew "gnucobol"
-
-# Use rustup instead of Homebrew's rust formula
-brew "rustup"
-
-# Explicitely 21
-brew "openjdk@21"
-
-brew "cppcheck"
-brew "cmake"
-brew "boost"
-brew "ninja"
-
-# Use cases
-
-## AI
-brew "kiro-cli"
-brew "codex"
-
-## Embedded
-
-brew "arduino-cli"
-brew "arm-none-eabi-binutils"
-brew "arm-none-eabi-gcc"
-brew "tree-sitter"
-
-## git-sim
-brew "py3cairo"
-brew "pango"
-brew "scipy"
-
-## GitLab Pages
-brew "hugo"
-brew "lychee"
-brew "mkdocs"
-
-
+# Apps (class)
+cask "vlc"
+cask "discord"
+cask "obs"
+cask "handbrake-app"

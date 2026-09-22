@@ -1,0 +1,50 @@
+{
+    // Follow the macOS appearance setting automatically.
+    "window.autoDetectColorScheme": true,
+    "workbench.preferredDarkColorTheme": "Dark Modern",
+    "workbench.preferredLightColorTheme": "Light Modern",
+
+    // Keep the editor focused and predictable.
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.startupEditor": "none",
+    "editor.wordWrap": "on",
+    "editor.trimAutoWhitespace": true,
+    "files.autoSave": "afterDelay",
+    "files.trimTrailingWhitespace": true,
+    "window.zoomLevel": 1,
+
+    // Use the same shell and Nerd Font as Ghostty.
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font Mono",
+    "terminal.integrated.fontSize": 14,
+
+    // Reduce confirmation prompts for routine file operations.
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+
+    // Keep Git operations convenient while retaining the personal identity.
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+
+    // GitLab
+    "gitlab.debug": true,
+    "gitlab.duoAgentPlatform.defaultNamespace": "gitlab-da",
+    "gitlab.duoCodeSuggestions.additionalLanguages": [
+        "powershell",
+        "yaml",
+        "ansible",
+        "cobol",
+        "dockerfile",
+        "markdown",
+        "json"
+    ],
+
+    // Keep VS Code's optional AI surfaces out of this setup.
+    "telemetry.feedback.enabled": false,
+    "chat.commandCenter.enabled": false,
+    "chat.mcp.access": "none",
+    "chat.agent.enabled": false,
+    "chat.edits2.enabled": false,
+    "chat.extensionTools.enabled": false,
+    "chat.disableAIFeatures": true
+}
