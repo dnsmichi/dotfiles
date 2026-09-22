@@ -111,7 +111,9 @@ main() {
     .config/nvim
     .config/starship.toml
     .config/zsh/aliases.zsh
+    .config/zsh/completions.zsh
     .config/zsh/functions.zsh
+    .config/zsh/history.zsh
   )
 
   for relative_path in "${managed_paths[@]}"; do

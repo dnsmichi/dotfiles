@@ -161,11 +161,27 @@ full XCode installation.
 
 #### ZSH history with Atuin
 
+Press `Ctrl-R` to search history with Atuin. Up and Down keep Zsh's native
+history navigation. [Native history settings](.config/zsh/history.zsh) save
+commands incrementally to `~/.zsh_history`, without importing commands from
+other active terminal sessions into the current shell.
+
 Import existing history with
 
 ```shell
 atuin import auto
 ```
+
+#### ZSH completion and editor
+
+[Completion settings](.config/zsh/completions.zsh) load Homebrew completions
+and initialize Zsh's completion system. Tab offers case-insensitive matching,
+then partial and substring matching, with selectable, grouped results.
+The completion cache lives under `${XDG_CACHE_HOME:-$HOME/.cache}/zsh`.
+
+`.zshrc` loads history, completion, aliases, and functions explicitly, followed
+by tool integrations. Syntax highlighting loads last. `EDITOR` and `VISUAL`
+are both set to `nvim` for commands that open an external editor.
 
 #### Sudo
 
