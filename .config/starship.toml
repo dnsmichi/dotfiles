@@ -76,7 +76,7 @@ Pop = ""
 [directory]
 style = "fg:color_fg0 bg:color_yellow"
 format = "[ $path ]($style)"
-truncation_length = 5
+truncation_length = 3
 truncate_to_repo = false
 truncation_symbol = "…/"
 
