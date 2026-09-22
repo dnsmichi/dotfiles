@@ -1,7 +1,7 @@
 [user]
 	name = Michael Friedrich
 	email = mfriedrich@gitlab.com
-	signingkey = /Users/mfriedrich/.ssh/id_ed25519_mfriedrich
+  signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEXsxEvQjNoMwnYjTws+Ownnj5rXCeL+XxnrqacSA+nN"
 
 [alias]
         l  = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --
@@ -12,6 +12,8 @@
 	defaultBranch = main
 [pull]
 	rebase = false
+[fetch]
+	prune = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -23,12 +25,11 @@
 	format = ssh
 [commit]
 	gpgsign = true
+
 [gpg "ssh"]
-	allowedSignersFile = /Users/mfriedrich/.ssh/allowed_signers
+	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
 [safe]
 	directory = /Users/mfriedrich/dev/work/handbook/handbook
 [core]
 #	hooksPath = /Users/mfriedrich/.gitlab-gitleaks/hooks
-
-[includeIf "gitdir:~/dev/private/"]
-    path = ~/.gitconfig-private

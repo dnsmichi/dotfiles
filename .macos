@@ -1,108 +1,58 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
-#print settings with 'defaults read'
+# Apply the small set of personal macOS preferences used by this workstation.
+# Run explicitly with: zsh .macos
 
-# close any system preference windows first
-osascript -e 'tell application "System Preferences" to quit'
+set -euo pipefail
 
-# become root
-sudo -v
+[[ "$(uname -s)" == "Darwin" ]] || exit 0
 
-# stay root
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+echo "Applying macOS preferences..."
 
-####################################
-# System
-
-# Disable the sound effects on boot
-sudo nvram SystemAudioVolume=" "
-
-# Enable Firewall
-sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
-
-
-####################################
-# Trackpad, keyboard
-
-## macOS Ventura
-defaults write "Apple Global Domain" ContextMenuGesture -int 1
-
-# Trackpad: enable tap to click for this user and for the login screen
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -int 1
-## macOS Ventura
-defaults write com.apple.AppleMultitouchTrackpad Clicking -int 1
-
-# Trackpad: map bottom right corner to right-click
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 2
-## macOS Ventura
-defaults write com.apple.AppleMultitouchTrackpad TrackpadCornerSecondaryClick -int 2
-
-# macOS Ventura specific
-# Disable this setting so that the right click with bottom right corner works
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -int 0
-## macOS Ventura
-defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -int 0
-
-
-# use keyboard navigation to move focus between controls (tab-tab for everything)
+# Keyboard: make terminal and editor work feel responsive, and allow Tab to
+# move through every control in dialogs.
+defaults write -g ApplePressAndHoldEnabled -bool false
+defaults write -g InitialKeyRepeat -int 15
+defaults write -g KeyRepeat -int 2
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-# Non-breaking spaces: https://superuser.com/questions/78245/how-to-disable-the-option-space-key-combination-for-non-breaking-spaces
-#mkdir -p ~/Library/KeyBindings
-#cat > ~/Library/KeyBindings/DefaultKeyBinding.dict <<EOF
-#{
-#"~ " = ("insertText:", " ");
-#}
-#EOF
+# Trackpad: tap to click and secondary click. Apply to the built-in and
+# Bluetooth trackpad preference domains when they are present.
+for domain in \
+  com.apple.AppleMultitouchTrackpad \
+  com.apple.driver.AppleBluetoothMultitouch.trackpad; do
+  defaults write "${domain}" Clicking -bool true
+  defaults write "${domain}" TrackpadRightClick -bool true
+done
 
-####################################
-## Sound
-defaults write "Apple Global Domain" com.apple.sound.uiaudio.enabled -int 0
+# Finder: expose useful path context while keeping file names unambiguous.
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+defaults write com.apple.finder ShowPathbar -bool true
+defaults write com.apple.finder ShowStatusBar -bool true
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
-####################################
-## Menu widgets
+# Dock: reclaim vertical space and keep icons compact.
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock tilesize -int 48
 
-## Clock with seconds
-defaults write "Apple Global Domain" com.apple.menuextra.clock.Show24Hour -int 0
-defaults write "Apple Global Domain" com.apple.menuextra.clock.ShowAMPM -int 1
-defaults write "Apple Global Domain" com.apple.menuextra.clock.ShowSeconds -int 1
-
-
-
-####################################
-# Screen
-
-# Require password immediately after sleep or screen saver begins
+# Security: require authentication immediately after sleep or the screen
+# saver, and enable the macOS application firewall.
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
+sudo -v
+sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setglobalstate on
 
-
-####################################
-# Locations
-
-# Screenshot location
-test -d "${HOME}/Pictures/screenshots" || mkdir -p "${HOME}/Pictures/screenshots"
-defaults write com.apple.screencapture location -string "${HOME}/Pictures/screenshots"
-
-# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+# Screenshots: keep them together, use a portable format, and omit window
+# shadows that can produce dark backgrounds in documentation and slides.
+readonly SCREENSHOT_DIR="${HOME}/Pictures/screenshots"
+mkdir -p "${SCREENSHOT_DIR}"
+defaults write com.apple.screencapture location -string "${SCREENSHOT_DIR}"
 defaults write com.apple.screencapture type -string "png"
-
-# macOS 26 creates shadow with black background. Unusable for talk slides, disable it.
 defaults write com.apple.screencapture disable-shadow -bool true
 
-# Show the ~/Library folder
-chflags nohidden ~/Library
+# Disable macOS interface sound effects. Terminal and application audio remain
+# available; this only controls the system UI sounds.
+defaults write -g com.apple.sound.uiaudio.enabled -bool false
 
-# Show the /Volumes folder
-sudo chflags nohidden /Volumes
-
-####################################
-# Iterm2
-
-# Don’t display the annoying prompt when quitting iTerm
-defaults write com.googlecode.iterm2 PromptOnQuit -bool false
-
-# For screenshots, let it restart
-killall SystemUIServer
-
-echo "Applied settings. System reboot required""
+echo "Applied macOS preferences. Log out or relaunch affected apps if needed."

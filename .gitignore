@@ -2,3 +2,5 @@
 Brewfile.lock.json
 
 .DS_Store
+
+.ansible

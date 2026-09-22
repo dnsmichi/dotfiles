@@ -1,344 +1,261 @@
 # Macbook Pro dotfiles and setup at GitLab
 
-Everything to bootstrap my Macbook Pro at work, including automation for
-software packages (Homebrew) and configuration settings.
+**Goal**: Bootstrap my work Macbook with software setup and settings automation.
 
-- Current: Macbook Pro 14 inch, M1 Max, 32 GB RAM, 2021 M1 Silicon architecture.
-- The previous setup for the 16 inch, 2019 model can be found [at this commit](https://gitlab.com/dnsmichi/dotfiles/-/tree/4bd8993aad5e798fff3e67365f81407bb65e5b87). The setup is explained in-depth in [dotfiles - Document and automate your Macbook setup](https://about.gitlab.com/blog/2020/04/17/dotfiles-document-and-automate-your-macbook-setup/).
+Current hardware: Macbook Pro 14 inch, M1 Max, 32 GB RAM, 2021 M1 Silicon architecture.
 
-The current ZSH theme is Powerlevel10k, detailed in [this blog post](https://dnsmichi.at/2022/03/11/new-zsh-theme-on-macos-powerlevel10k/).
+Archive:
 
-Follow the instructions below to fully setup a Macbook Pro.
+- 2026-09: The setup with Powerlevel10k is documented in [this blog post](https://dnsmichi.at/2022/03/11/new-zsh-theme-on-macos-powerlevel10k/) at [this commit](https://gitlab.com/dnsmichi/dotfiles/-/tree/701851b5cb36dc3fc2796e2e0f7fa3038fbd611a)
+- 2023-05: The setup for the previous 16 inch, 2019 model can be found [at this commit](https://gitlab.com/dnsmichi/dotfiles/-/tree/4bd8993aad5e798fff3e67365f81407bb65e5b87). The setup is explained in-depth in [dotfiles - Document and automate your Macbook setup](https://about.gitlab.com/blog/2020/04/17/dotfiles-document-and-automate-your-macbook-setup/).
 
-## Preparations
-
-
-### iterm2
-
-Install iterm2 manually from the [website](https://www.iterm2.com/), drag it into the Applications folder, start it and add it to the deck.
-
-1. Download the Dark and White profiles from this repository
-1. Navigate into `Settings > Profile`.
-1. At the bottom, click on `Other Actions` and select `Import JSON profiles`. Import the downloaded `Dark.json` file.
-1. Mark `dark` profile and select `Other Actions > Set as default`.
-
-Powerlevel10k fonts for Oh-My-ZSH terminal:
-
-1. Download the font files from https://github.com/romkatv/powerlevel10k#manual-font-installation (backup in [fonts/](fonts/)).
-1. Double-click to open them all to follow "Install Font".
-
-#### Security app permissions for iTerm2
-
-Navigate into `Settings > Security and Privacy > App Management` and allow iTerm2 to modify apps. Otherwise you will see this warning on macOS Ventura 13.4.1.
-
-```markdown
-Warning: Your terminal does not have App Management permissions, so Homebrew will delete and reinstall the app.
-This may result in some configurations (like notification settings or location in the Dock/Launchpad) being lost.
-To fix this, go to Settings > Security and Privacy > App Management and turn on the switch for your terminal.
-```
-
-### Git (XCode)
-
-Install it on the command line first, it will ask for permission.
-
-```shell
-xcode-select --install
-```
-
-### Sudo
-
-```shell
-sudo vim /private/etc/sudoers.d/mfriedrich
-
-mfriedrich  ALL=(ALL) NOPASSWD: ALL
-```
-
-### Security
-
-From the [development guidelines](https://docs.gitlab.com/development/secure_coding_guidelines/#handling-credentials): The [Gitleaks Git hook](https://gitlab.com/gitlab-com/gl-security/security-research/gitleaks-endpoint-installer) is recommended for preventing credentials from being committed.
-
-```shell
-git clone https://gitlab.com/gitlab-com/gl-security/security-research/gitleaks-endpoint-installer.git "$HOME/.gitlab-gitleaks"
-cd "$HOME/.gitlab-gitleaks"
-./install_gitleaks.sh
-./setup_hook.sh
-```
-
-### Backup
-
-Use Google drive and Chrome profile sync to migrate backup data.
-
-Copy the following private secret files in your home directory:
-
-* SSH and GPG Keys in `.ssh/` and `.gnupg/`
-* Settings in `.env`, `.zshrc/`, `.oh-my-zsh/`
-
-```shell
-cd backup/
-cp -r .ssh .gnupg .env .zshrc .oh-my-zsh $HOME/
-```
-
-> **Note**:
->
-> The `dotenv` plugin is enabled in OhMyZSH which automatically
-> reads the `.env` settings from the user's home directory.
-
-### Dot files
-
-These steps contain all the remaining setup steps: Homebrew, macOS system settings, applications.
-
-```shell
-git clone https://gitlab.com/dnsmichi/dotfiles.git
-cd dotfiles
-```
-
-Sync the files into the home directory.
-
-```shell
-./bootstrap.sh
-```
-
-Apply macOS settings. Review the [.macos](.macos) file before applying.
-
-```shell
-./.macos
-```
-
-Install Homebrew and OhMyZSH.
-
-```shell
-./brew_once.sh
-```
-
-### Install tools and apps
-
-Install tools and applications with Homebrew bundle.
-
-```shell
-brew bundle
-```
-
-This makes use of the [Brewfile](Brewfile) definitions.
-
-### Disable telemetry
-
-Some tools use telemetry by default and require opt-out instead of opt-in. Run the script to disable.
-
-```shell
-./privacy.sh
-```
-
-## AI
-
-### GitLab Duo Agent Platform
-
-Provisioned access as team member, and Developer Advocate in [gitlab.com/gitlab-da](gitlab.com/gitlab-da).
-
-#### GitLab Duo CLI
-
-Installed via `glab` CLI in the [Brewfile](Brewfile). [ZSH alias](.oh-my-zsh/custom/aliases.zsh) set to `duo=glab duo cli`.
-
-1. [GitLab Duo CLI in the Dev Advocacy Handbook](https://handbook.gitlab.com/handbook/marketing/developer-relations/developer-advocacy/dev-environments/#gitlab-duo-cli)
-1. Add the Agentic Skills from [skills/](skills/), see README for instructions.
-
-### Claude Code
-
-1. Follow the [Developer Advocacy handbook](https://handbook.gitlab.com/handbook/marketing/developer-relations/developer-advocacy/dev-environments/#claude-code)
-1. Add the Agentic Skills from [skills/](skills/), see README for instructions.
-
-### Codex
-
-1. Follow the [Developer Advocacy handbook](https://handbook.gitlab.com/handbook/marketing/developer-relations/developer-advocacy/dev-environments/#codex)
-1. Add the Agentic Skills from [skills/](skills/), see README for instructions.
+[TOC]
 
 ## Essentials
 
-These tools are managed outside of Homebrew, and require additional work and documentation.
+| Type            | Tools |
+|-----------------|-------|
+| Credentials     | [1Password](https://1password.com/product/mac/), [1Password for Safari/Chrome](https://apps.apple.com/us/app/1password-for-safari/id1569813296?) |
+| Backup          | [Google Drive for Desktop](https://support.google.com/a/users/answer/13022292?hl=de#drive_desktop_install) |
+| Agentic AI      | [Agentic AI](#agentic-ai): GitLab Duo Agent Platform, [Claude Code/Desktop](https://handbook.gitlab.com/handbook/tools-and-tips/ai/claude/), [Glean](https://handbook.gitlab.com/handbook/eta/ai/tools/glean/) |
+| Containers      | [Rancher Desktop](https://rancherdesktop.io/)  |
+| Browser         | [Google Chrome](https://www.google.com/chrome/), Safari |
+| DevRel          | [Adobe Creative Cloud](https://www.adobe.com/creativecloud.html) (Premiere Pro, etc.) - enterprise license, [Screen Studio](https://screen.studio/download) (approved license) - [handbook](https://handbook.gitlab.com/handbook/marketing/developer-relations/developer-advocacy/content/#recording-with-screen-studio) |
+| Editor          | JetBrains IDE Toolbox ([license required](https://handbook.gitlab.com/handbook/tools-and-tips/editors-and-ides/jetbrains-ides/licenses/) for IntelliJ IDEA, PyCharm, GoLand, RubyMine, CLion, RustRover, Rider, DataGrip, etc.). |
 
-- [Google Chrome](https://www.google.com/chrome/) - [tips handbook](https://handbook.gitlab.com/handbook/tools-and-tips/#google-chrome)
-- [1Password](https://1password.com/product/mac/)
-- [Zoom](https://zoom.us/download)
-- [Claude Desktop](https://claude.com/download) - [handbook](https://handbook.gitlab.com/handbook/tools-and-tips/ai/claude/#applications-and-cli)
-- [Glean](https://app.glean.com/settings/install) - [handbook](https://handbook.gitlab.com/handbook/business-technology/enterprise-applications/guides/glean-guide/)
-- [Raycast](https://www.raycast.com/) has automated updates enabled.
-- [Adobe Creative Cloud](https://www.adobe.com/creativecloud.html) (Premiere Pro, etc.) - enterprise license
-- [Screen Studio](https://screen.studio/download) (approved license) - [handbook](https://handbook.gitlab.com/handbook/marketing/developer-relations/developer-advocacy/content/#recording-with-screen-studio)
+## Environment
 
-### IDEs
+### Git and compilers
 
-- [VS Code](https://code.visualstudio.com/download) has automated updates enabled (extensions require newer versions).
-- JetBrains IDE Toolbox ([license required](https://handbook.gitlab.com/handbook/tools-and-tips/editors-and-ides/jetbrains-ides/licenses/) for IntelliJ IDEA, PyCharm, GoLand, RubyMine, CLion, RustRover, Rider, DataGrip, etc.).
-- [Tonny](https://thonny.org/): IDE for the Tufty 2040 badge and other microcontroller projects.
-
-#### VS Code
-
-[Download](https://code.visualstudio.com/download) and install VS Code manually, due to fast upgrade cycles in the application and extension marketplace.
-
-Configuration: [vscode/settings.json](vscode/settings.json) (cmd shift p, search for `settings json`).
-
-Initial setup:
+Install Git and compilers/SDK using Xcode install.
 
 ```shell
-cp vscode/settings.json ~/Library/Application\ Support/Code/User/
+sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer
+sudo xcodebuild -license accept
 ```
 
-Notable changes from the default configuration:
+neovim with lazyvim and treesitter requires compiling against
+native SDK.
 
-1. Auto-save enabled: `"files.autoSave": "afterDelay",`
-1. Word-wrap enabled: `"editor.wordWrap": "on",`
-1. Change font family to `meslolgs nf` to [print ZSH icons in the VS Code terminal](https://stackoverflow.com/questions/73528388/vscode-terminal-not-showing-icons-on-terminal-on-zsh): `"terminal.integrated.fontFamily": "meslolgs nf",`
-1. GitLab Workflow extension debug enabled: `"gitlab.debug": true,`
+### Terminal
 
-Sync Light Theme:
+| Type            | Tools |
+|-----------------|-------|
+| Terminal app    | [Ghostty](https://ghostty.org/). [iTerm2](https://iterm2.com/) as backup |
+| Shell           | ZSH and [Starship](https://starship.rs/) |
+| Shell history   | [Atuin](https://atuin.sh/) in addition to ZSH history |
+| Package manager | [Homebrew](https://brew.sh/) for packages, [mise](https://mise.jdx.dev/) for dev envs (NodeJs, Ruby, etc.)
+| Editor          | [neovim](https://neovim.io/) |
+| Agents          | [Claude Code](https://about.gitlab.com/blog/claude-code-and-gitlab/), [GitLab Duo CLI](https://docs.gitlab.com/user/gitlab_duo_cli/) |
 
-1. Switch to the profile `light`
-1. `cmd shift p` > search for `settings json`.
-1. Copy to [vscode/vscode/settings-white-for-talk-demos.json](vscode/settings-white-for-talk-demos.json)
+### Package manager
 
-Sync Dark Theme:
-
-1. Switch to the profile `default (dark)`
-1. `cmd shift p` > search for `settings json`.
-1. Copy to [vscode/vscode/settings.json](vscode/settings.json)
-
-##### VS Code Extensions
-
-Run the following script to install VS Code extensions:
+#### Homebrew
 
 ```shell
-./vscode-extensions-install.sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-You can regenerate the list of extensions using the following command:
+Packages are managed in [Brewfile](Brewfile).
+
+#### Mise
 
 ```shell
-code --list-extensions | xargs -L 1 echo code --install-extension > vscode-extensions-install.sh
+curl https://mise.run | sh
+~/.local/bin/mise --version
 ```
 
-### Tools
-
-Managed as casks in [Brewfile](Brewfile).
-
-- Firefox (in order to reproduce UX bugs)
-- VLC
-- Wireshark
-- etc.
-
-#### mise
-
-[mise](https://github.com/jdx/mise) is installed with [Homebrew](Brewfile) and helps manage different programming languages and environments.
-
-- [GitLab Development Environment](https://gitlab.com/gitlab-org/gitlab-development-kit/-/blob/main/doc/howto/mise.md)
-- GitLab Editor Extensions: [gitlab-lsp](https://gitlab.com/gitlab-org/editor-extensions/gitlab-lsp/-/blob/main/.tool-versions?ref_type=heads)
-- [GitLab handbook - docsy theme](https://gitlab.com/gitlab-com/content-sites/docsy-gitlab/-/blob/main/.tool-versions?ref_type=heads)
-
-Global install:
-
-```shell
-mise use --global node@22 go@1
-```
-
-Local install:
-
-```shell
-mise use node@22
-```
-
-This step creates the `.tool-versions` in the repository which needs to be added to Git.
-
-If `.tool-versions` exists in the Git repo, you can run the following to setup all dependencies:
+Globally installed language frameworks are configured in [.config/mise/config.toml](.config/mise/config.toml).
+To reinstall them, run:
 
 ```shell
 mise install
 ```
 
-Troubleshooting: [GDK guide](https://gitlab.com/gitlab-org/gitlab-development-kit/-/blob/main/doc/troubleshooting/mise.md).
+## Setup
 
-#### Rust
-
-Homebrew's Rust is not the same as `rustup` and can run into problems. [Brewfile](Brewfile) therefore installs `rustup` only, with these steps:
+After cloning this repository, run:
 
 ```shell
-rustup-init -y
-
-source ~/.cargo/env && rustup component add rustfmt clippy
+./setup.sh
 ```
 
-#### Chrome
+The script checks for Xcode Command Line Tools, installs Homebrew when needed,
+and applies the small [Brewfile](Brewfile).
 
-For Macbook refreshments, enable the Profile sync functionality and mirror bookmarks, history, auto-completion, etc. This is essential for efficiency.
+> **Important**: `setup.sh` is safe to rerun: it installs and updates
+Brewfile packages, does not modify macOS defaults, and ensures all symlinks are
+in place.
 
-Extensions:
+Ghostty is installed and updated directly from ghostty.org. Its tracked
+configuration lives in [.config/ghostty](.config/ghostty) and uses matching
+light and dark themes based on the macOS appearance setting.
+The Brewfile installs JetBrainsMono Nerd Font, which provides the optional
+symbols used by Starship.
 
-- [Okta](https://chrome.google.com/webstore/detail/okta-browser-plugin/glnpjglilkicbckjpbgcfkogebgllemb)
-- [Zoom](https://chrome.google.com/webstore/detail/zoom-chrome-extension/kgjfgplpablkjnlkjmjdecgdpfankdle/related?hl=en)
-- [1Password](https://chrome.google.com/webstore/detail/1password-%E2%80%93-password-mana/aeblfdkhhhdcdjpifhhbdiojplfjncoa)
-- [Google Docs Offline](https://chrome.google.com/webstore/detail/google-docs-offline/ghbmnnjooekpmoecnnnilnnbdlolhkhi)
+Optional macOS preferences live in [.macos](.macos). Review the script before
+applying it, then run:
 
-#### Raycast Extensions
+```shell
+zsh .macos
+```
 
-Open the extensions and record keyboard shortcut commands. I use the emoji search very extensively, and have recorded `cmd + 2` as shortcut for faster access.
+It covers keyboard and trackpad behavior, Finder paths and extensions, Dock
+visibility, immediate authentication after sleep, screenshots, muted system
+UI sounds, and the macOS application firewall. It does not change shell
+startup files, power settings, hostnames, hidden system directories, or
+application-specific preferences.
 
-### Virtualization and Containers
+The reviewed GitHub CLI telemetry opt-out is applied directly by `setup.sh`
+and is safe to rerun. Other privacy changes remain narrowly scoped and opt-in;
+macOS preferences still require running `.macos` explicitly.
 
-#### CLI Tools
+[setup.sh](setup.sh) links the tracked configuration to its destination in the HOME
+directory `~`. All paths need to remain the same, e.g. `.config/starship.toml`.
+If that link has been replaced with a regular file, it stops and shows a
+recursive diff instead of overwriting local changes.
+Merge any wanted changes into this repository, remove the local file,
+and rerun the script.
 
-1. [Rancher Desktop](https://rancherdesktop.io/) (provides local Kubernetes, and `docker` compatible CLI) - **manual download**
-1. `docker-compose`, `colima`, `lima`, `podman` via [Brewfile](Brewfile)
+## Tools and Settings
 
-#### Cloud
+### Agentic AI
 
-CLI tools managed with Homebrew in [Brewfile](Brewfile): Google Cloud, AWS, Hetzner Cloud, Civo Cloud, Azure.
+#### GitLab Duo Agent Platform
 
-Kubernetes clusters in the cloud can be managed using the [GitLab Developer Relations Cloud Resources handbook](https://handbook.gitlab.com/handbook/marketing/developer-relations/workflows-tools/cloud-resources/).
+Provisioned access as team member, and Developer Advocate in [gitlab.com/gitlab-da](https://gitlab.com/gitlab-da).
 
-#### Local VMs and containers
+#### GitLab Duo CLI
 
-For local container runtimes, I'm using [Rancher Desktop](https://rancherdesktop.io/), after [evaluating other tools in 2022](https://dnsmichi.at/2022/03/15/docker-desktop-alternatives-macos-podman-nerdctl-rancher-desktop/). More tips can be found in the [GitLab handbook](https://about.gitlab.com/handbook/tools-and-tips/mac/#docker-desktop).
+Installed via `glab` CLI in the [Brewfile](Brewfile). The [ZSH alias](.config/zsh/aliases.zsh) `duo` runs `glab duo cli`.
 
-[Lima](https://lima-vm.io/) and [Colima](https://github.com/abiosoft/colima) are installed for local Linux VM demos and workshops, via [Brewfile](Brewfile).
+1. [GitLab Duo CLI in the Dev Advocacy Handbook](https://handbook.gitlab.com/handbook/marketing/developer-relations/developer-advocacy/dev-environments/#gitlab-duo-cli)
+1. Add the Agentic Skills from [skills/](skills/), see README for instructions.
 
-## Settings
+#### Claude Code
 
-These are manual settings as they require user awareness.
+1. Follow the [Developer Advocacy handbook](https://handbook.gitlab.com/handbook/marketing/developer-relations/developer-advocacy/dev-environments/#claude-code)
+1. Add the Agentic Skills from [skills/](skills/), see README for instructions.
 
-### FileVault
+#### Codex
 
-Enable Encryption ([required for GitLab team members](https://handbook.gitlab.com/handbook/people-group/acceptable-use-policy/#procedure)). See [here](https://support.apple.com/en-us/HT204837) for detailed instructions.
+1. Follow the [Developer Advocacy handbook](https://handbook.gitlab.com/handbook/marketing/developer-relations/developer-advocacy/dev-environments/#codex)
+1. Add the Agentic Skills from [skills/](skills/), see README for instructions.
 
-### 1Password
+### Glean
 
-1Password8 overrides the screenshot shortcut `cmd+shift+4+space` by default. Replace it with something else, or clear it in `Settings > General > Keyboard Shortcuts`.
+Follow the [handbook](https://handbook.gitlab.com/handbook/eta/ai/tools/glean/) for access and setup.
 
-#### AWS CLI auth with 1Password CLI and Touch ID
+### Productivity
 
-Follow https://developer.1password.com/docs/cli/shell-plugins/aws/ to
+#### Neovim with LazyVim
 
-1. Install the 1Password CLI
-2. Connect 1Password CLI with the 1Password app
-3. Run `op signin` and `op plugin init aws`
+Started off a fresh git clone following https://www.lazyvim.org/installation
 
-The required ZSH environment is sourced via [.oh-my-zsh/custom/1password.zsh](.oh-my-zsh/custom/1password.zsh).
+Modified [.config/nvim](.config/nvim) and symlinked into HOME. The editor uses the
+Gruvbox hard-contrast theme and follows the macOS light/dark appearance setting,
+matching the Ghostty themes.
 
-### Keyboard
+Note: lazyvim uses treesitter which requires a compiler/SDK match with
+full XCode installation.
 
-`Settings > Keyboard > Keyboard Shortcuts`:
+#### ZSH history with Atuin
 
-1. Disable all Spotlight options in preparation for enabling Raycast as default shortcut using `cmd + space`.
+Press `Ctrl-R` to search history with Atuin. Up and Down keep Zsh's native
+history navigation. [Native history settings](.config/zsh/history.zsh) save
+commands incrementally to `~/.zsh_history`, without importing commands from
+other active terminal sessions into the current shell.
 
-### Raycast
+Import existing history with
 
-Start Raycast from the Applications folder in Finder, and change the hotkey to `Cmd+Space`.
-Ensure that Spotlight is disabled in the system preferences.
+```shell
+atuin import auto
+```
 
-### Finder
+#### ZSH completion and editor
+
+[Completion settings](.config/zsh/completions.zsh) load Homebrew completions
+and initialize Zsh's completion system. Tab offers case-insensitive matching,
+then partial and substring matching, with selectable, grouped results.
+The completion cache lives under `${XDG_CACHE_HOME:-$HOME/.cache}/zsh`.
+
+`.zshrc` loads history, completion, aliases, and functions explicitly, followed
+by tool integrations. Syntax highlighting loads last. `EDITOR` and `VISUAL`
+are both set to `nvim` for commands that open an external editor.
+
+#### Sudo
+
+```shell
+sudo vim /private/etc/sudoers.d/mfriedrich
+
+mfriedrich ALL=(ALL) NOPASSWD: ALL
+```
+
+#### TinyCast - launcher and emoji picker
+
+[TinyCast](https://tinycast.dev/) is installed through Homebrew in [Brewfile](Brewfile). It provides app
+launcher, search and emoji picker as a Spotlight alternative. The current shortcuts are:
+
+- `Cmd+Space` launches TinyCast.
+- `Cmd+2` opens the emoji picker.
+
+On a fresh macOS setup:
+
+1. Open `Settings > Keyboard > Keyboard Shortcuts`.
+1. Disable the Spotlight shortcuts so `Cmd+Space` can launch TinyCast.
+1. Start TinyCast and confirm its launcher shortcut is `Cmd+Space`.
+1. Open TinyCast, search for **Settings**, and open it.
+1. Select **Emoji & Symbols**.
+1. Enable **Search Emoji & Symbols**, click its shortcut field, and press `Cmd+2`.
+
+#### VS Code
+
+Install VS Code manually so its own updater controls its release cycle. Its user settings are tracked in
+[.config/vscode/settings.json](.config/vscode/settings.json). `setup.sh` links that
+file to VS Code's macOS user-settings location.
+The editor follows macOS light and dark appearance automatically, using the built-in
+Light Modern and Dark Modern themes.
+
+The tracked inventory lives in [vscode/extensions.txt](vscode/extensions.txt). After
+installing VS Code and any extensions manually, discover what is present with:
+
+```shell
+bash ./vscode-extensions-install.sh --discover
+```
+
+Review the result, then update the tracked inventory from the installed set with:
+
+```shell
+bash ./vscode-extensions-install.sh --update-inventory
+```
+
+Run the script without an option to install the tracked inventory on another Mac.
+Review the generated inventory before committing it; manually installed extensions
+can be adopted later without changing the script.
+
+#### Settings
+
+**1Password** overrides the screenshot shortcut `cmd+shift+4+space` by default with `shift+cmd+space`.
+Clear it in `1Password → Settings → General → Global keyboard shortcuts → Show Quick Access`.
+
+#### Ghostty
+
+If Ghostty needs to remove protected application data, such as leftover
+files under `~/Library/`, grant it access in:
+
+`System Settings > Privacy & Security > Full Disk Access`
+
+Enable Ghostty, restart it, and rerun the cleanup command. `sudo` alone cannot
+bypass macOS privacy protection for these directories.
+
+#### Finder
 
 Open Finder and navigate into `Settings > Sidebar` to add
 
 - User home (user name)
 - System root (Macbook name)
 
-### Zoom
+#### Zoom
 
 https://handbook.gitlab.com/handbook/tools-and-tips/zoom/
 
@@ -346,44 +263,9 @@ https://handbook.gitlab.com/handbook/tools-and-tips/zoom/
 `Settings > Audio`: Tick `Mute my mic when joining`.
 `Settings > Keyboard Shortcuts`: Mute/Unmute my audio: `cmd 1`.
 
-## Additional Hints
+## Backup
 
-### DNS troubleshooting
-
-If DNS causes problems on macOS:
-
-```shell
-sudo dscacheutil -flushcache
-sudo killall -HUP mDNSResponder
-sudo killall -9 mDNSResponder
-```
-
-or shorter, use the [flush_dns.sh](flush_dns.sh) script.
-
-### iterm2 settings
-
-Documentation for initial settings:
-
-1. Create a new profile in `Settings > Profile` named `Dark`
-     - `Colors > Color presets > Dark background`
-     - `Session > Status bar enabled` and `Configure Status Bar`. Add `git state`, `CPU utilization`, `Memory utilization`. Click `Auto-Rainbow`.
-1. Mark `dark` profile and select `Other Actions > Set as default`.
-1. Export the Dark profile as JSON and upload into the [iterm2](iterm2/) directory.
-
-#### Font config for ZSH Powerline10k
-
-> **Note**: This is persisted in the iterm2 profile already.
-
-Navigate to **iterm2** `Settings > Profiles > Text > Font` and search for `Meslo` to select the font. Save and restart iTerm2.
-
-
-### Other projects
-
-More insights can be found in these lists, thanks to them for their inspiration :)
-
-- [Setting examples](https://github.com/mathiasbynens/dotfiles/blob/master/.macos)
-- [macos Ventura settings](https://github.com/gretzky/dotfiles/blob/main/macos/.macos)
-- [command overview](https://github.com/herrbischoff/awesome-macos-command-line).
+Use Google Drive for Desktop, Chrome profile sync, and 1Password for credentials/SSH keys.
 
 ## Development
 
@@ -397,7 +279,7 @@ Alternatively, use [GDK-in-a-box](https://docs.gitlab.com/development/contributi
 
 The CI/CD pipelines for GitLab docs use [linting](https://docs.gitlab.com/ee/development/documentation/testing.html#install-linters) which can be installed locally to test problems faster.
 
-```
+```shell
 yarn global add markdownlint-cli2
 yarn global add markdownlint-cli
 
@@ -414,39 +296,51 @@ yarn install
 ./scripts/lint-doc.sh
 ```
 
-## DevSecOps
+## Troubleshooting
 
-Anything that runs in the infrastructure and needs to be automated.
+### Zsh warns about insecure completion directories
 
-### Linux VM Upgrades via Ansible
+When opening Ghostty, Zsh may prompt:
 
-See [ansible/](ansible/) for details.
-
-### Embedded DevSecOps with Ansible
-
-_Note:_ The Embedded DevSecOps environment Ansible playbooks are located in https://gitlab.com/gitlab-da/use-cases/embedded/embedded-devsecops/environments/dnsmichi-embedded-devsecops-environment
-
-
-## Upgrades
-
-
-### Homebrew
-
-```shell
-brew upgrade
+```text
+zsh compinit: insecure directories, run compaudit for list.
+Ignore insecure directories and continue [y] or abort compinit [n]?
 ```
 
-### Oh-my-ZSH and Themes
+Run the following to identify the affected directories:
 
 ```shell
-cd ~/.oh-my-zsh
-git pull
-
-cd ~/.oh-my-zsh/custom/themes/powerlevel10k
-git pull
+autoload -Uz compaudit
+compaudit
 ```
 
-### Troubleshooting
+On this workstation, `/opt/homebrew/share` was owned by the current user but
+group-writable. Check its permissions and remove group write access:
+
+```shell
+ls -ld /opt/homebrew/share
+chmod g-w /opt/homebrew/share
+```
+
+Run `compaudit` again; no output means the check passed. Open a new Ghostty
+tab to confirm completion initializes without prompting. This fix needs no
+`sudo`, recursive permission changes, or completion-cache deletion.
+
+If the audit lists different paths, inspect their ownership and permissions
+before changing them. Keep the normal `compinit` security checks enabled.
+See [Homebrew's Zsh completion guidance](https://docs.brew.sh/Shell-Completion#zsh).
+
+### DNS troubleshooting
+
+If DNS causes problems on macOS:
+
+```shell
+sudo dscacheutil -flushcache
+sudo killall -HUP mDNSResponder
+sudo killall -9 mDNSResponder
+```
+
+### Homebrew binary incompatibilities after macOS upgrades
 
 On major version upgrades, binaries might be incompatible or need a local rebuild.
 You can enforce a reinstall by running the two commands below, the second command
@@ -479,9 +373,7 @@ xcode-select --install
 
 ### Settings do not work after upgrades
 
-The settings in [.macos](.macos) use macOS internal APIs on the command line. Sometimes the configuration settings change, for example with the Trackpad on macOs Ventura.
-
-To debug and capture which settings are in effect, create a new Git repository somewhere, and persist the system settings output.
+The settings in [.macos](.macos) use macOS internal APIs on the command line. Sometimes the configuration settings change, for example with the Trackpad on macOS Ventura. To debug and capture which settings are in effect, create a new Git repository somewhere, and persist the system settings output.
 
 ```shell
 mkdir $HOME/dev/work/system-settings
@@ -502,43 +394,15 @@ defaults read > settings.txt
 git diff
 ```
 
-Example with Trackpad and right-click:
+Example from [June 2023](https://gitlab.com/dnsmichi/dotfiles/-/commit/f16809989ba2d65fc73e1274356b6f2c6cfde1db)
 
-```diff
-     "com.apple.AppleMultitouchTrackpad" =     {
-         ActuateDetents = 1;
--        Clicking = 0;
-+        Clicking = 1;
-         DragLock = 0;
-         Dragging = 0;
-         FirstClickThreshold = 1;
-         ForceSuppressed = 0;
-         SecondClickThreshold = 1;
--        TrackpadCornerSecondaryClick = 0;
-+        TrackpadCornerSecondaryClick = 2;
-         TrackpadFiveFingerPinchGesture = 2;
-         TrackpadFourFingerHorizSwipeGesture = 2;
-         TrackpadFourFingerPinchGesture = 2;
-@@ -463,7 +464,7 @@
-         TrackpadHorizScroll = 1;
-         TrackpadMomentumScroll = 1;
-         TrackpadPinch = 1;
--        TrackpadRightClick = 1;
-+        TrackpadRightClick = 0;
-         TrackpadRotate = 1;
-         TrackpadScroll = 1;
-         TrackpadThreeFingerDrag = 0;
-```
+## Thanks
 
-Requiring the current settings to be changed to https://gitlab.com/dnsmichi/dotfiles/-/commit/f16809989ba2d65fc73e1274356b6f2c6cfde1db in June 2023.
-
-### Touch ID does not work
-
-The magic keyboard with Touch ID may not work after the Macbook went to sleep.
-
-- https://www.reddit.com/r/mac/comments/13hd4aa/magic_keyboard_with_touch_id_no_working_after/
-- https://www.reddit.com/r/macmini/comments/12cw4mf/touch_id_issues_on_mac_mini_m2/
-- https://support.apple.com/en-us/HT212225#:~:text=For%20Magic%20Keyboard%20with%20Touch,Restart%20your%20Mac
+- Starship Gruvbox Rainbow preset https://starship.rs/presets/gruvbox-rainbow
+- [.macos](.macos) inspiration
+  - [Setting examples](https://github.com/mathiasbynens/dotfiles/blob/master/.macos)
+  - [macos Ventura settings](https://github.com/gretzky/dotfiles/blob/main/macos/.macos)
+  - [command overview](https://github.com/herrbischoff/awesome-macos-command-line).
 
 ## Contributing
 
