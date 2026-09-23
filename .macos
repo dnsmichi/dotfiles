@@ -32,9 +32,9 @@ defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
-# Dock: reclaim vertical space and keep icons compact.
-defaults write com.apple.dock autohide -bool true
-defaults write com.apple.dock tilesize -int 48
+# Dock: keep it visible and use the preferred icon size.
+defaults write com.apple.dock autohide -bool false
+defaults write com.apple.dock tilesize -int 65
 
 # Security: require authentication immediately after sleep or the screen
 # saver, and enable the macOS application firewall.
@@ -51,8 +51,11 @@ defaults write com.apple.screencapture location -string "${SCREENSHOT_DIR}"
 defaults write com.apple.screencapture type -string "png"
 defaults write com.apple.screencapture disable-shadow -bool true
 
-# Disable macOS interface sound effects. Terminal and application audio remain
-# available; this only controls the system UI sounds.
-defaults write -g com.apple.sound.uiaudio.enabled -bool false
+# Disable macOS interface sound effects, including the screenshot shutter.
+# This preference belongs to com.apple.systemsound, not the global domain.
+defaults write com.apple.systemsound com.apple.sound.uiaudio.enabled -bool false
+
+# Mute alert volume independently of the main audio output volume.
+defaults write -g com.apple.sound.beep.volume -float 0
 
 echo "Applied macOS preferences. Log out or relaunch affected apps if needed."
