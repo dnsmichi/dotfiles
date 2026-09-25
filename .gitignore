@@ -4,3 +4,10 @@ Brewfile.lock.json
 .DS_Store
 
 .ansible
+
+# Personal AI configuration stays in HOME and private backups.
+/.codex/
+/.claude/
+/.cursor/
+/.claude.json
+/backup/

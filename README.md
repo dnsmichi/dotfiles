@@ -267,6 +267,54 @@ https://handbook.gitlab.com/handbook/tools-and-tips/zoom/
 
 Use Google Drive for Desktop, Chrome profile sync, and 1Password for credentials/SSH keys.
 
+Keep personal `.codex`, `.claude`, and `.cursor` configuration in the home
+directory and private backups. Do not symlink these configurations into this
+public repository. Public, reusable skills can stay in `skills/`.
+
+Close applications that write to these directories before copying. Run this
+from the home directory, adjusting the source list for files that exist on the
+machine. Each backup gets a new directory outside the repository:
+
+```shell
+cd "$HOME"
+umask 077
+backup_dir="$HOME/backup/$(date +%Y%m%d-%H%M%S)"
+mkdir -p "$backup_dir/home"
+cp -RL .ssh .gnupg .env .claude .codex .cursor .agents .config \
+  .zsh_history .claude.json .ansible "$backup_dir/home/"
+```
+
+`cp -RL` copies the files behind symlinks, including linked dotfiles and skills.
+Review any copy errors before continuing; running applications can leave sockets
+that cannot be copied. This is a backup of the selected paths, not the whole home
+directory.
+
+Create a tarball, then encrypt it with `7z` from the Brewfile's `p7zip` package:
+
+```shell
+tar -czf "$backup_dir/home.tar.gz" -C "$backup_dir" home
+7z a -t7z -mhe=on -p "$backup_dir/home.tar.gz.7z" "$backup_dir/home.tar.gz"
+7z t "$backup_dir/home.tar.gz.7z"
+```
+
+Enter a strong password at the prompt and save it in 1Password. Upload only
+`home.tar.gz.7z` to Google Drive after verification succeeds. The copied `home/`
+directory and `home.tar.gz` contain unencrypted private keys, credentials, and
+application data; keep the staging directory outside Google Drive and remove
+those unencrypted copies after checking the backup.
+
+To verify a restore, download the encrypted archive and extract it into a new
+local directory. Replace the archive path below with the downloaded file:
+
+```shell
+restore_dir="$(mktemp -d "$HOME/backup/restore.XXXXXX")"
+7z x /path/to/home.tar.gz.7z -o"$restore_dir"
+tar -xzf "$restore_dir/home.tar.gz" -C "$restore_dir"
+```
+
+Inspect the restored files in `"$restore_dir/home"` before copying anything back
+into the home directory.
+
 ## Development
 
 ### GitLab Development Kit (GDK)
