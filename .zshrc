@@ -17,7 +17,7 @@ eval "$(~/.local/bin/mise activate zsh)"
 eval "$(atuin init zsh --disable-up-arrow)"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="$HOME/.rd/bin:$PATH"
+export PATH="/Users/mfriedrich/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 # Load syntax highlighting after completion and other shell integrations.
