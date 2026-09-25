@@ -4,6 +4,10 @@ The `dnsmichi-voice` skill captures how I actually write, so AI tools can help m
 
 ## Usage
 
+The repository's `setup.sh` installs the skill links for Claude Code, Codex,
+and GitLab Duo together with the workstation dependencies. The commands below
+are an alternative for installing only this skill manually.
+
 ### Glean
 
 _Scope: Write blog posts, CfP abstracts, automate (internal) summaries._
@@ -55,11 +59,11 @@ claude
 cd ~/dev/work
 git clone https://gitlab.com/dnsmichi/dotfiles.git && cd dotfiles
 
-ln -s `pwd`/skills/tone-of-voice ~/.agents/skills/tone-of-voice
-
 mkdir -p ~/.agents/skills/
 
-ls -lah ~/.claude/skills/
+ln -s `pwd`/skills/tone-of-voice ~/.agents/skills/tone-of-voice
+
+ls -lah ~/.agents/skills/
 ```
 
 Then open Codex:
@@ -84,7 +88,7 @@ git clone https://gitlab.com/dnsmichi/dotfiles.git && cd dotfiles
 
 mkdir -p ~/.gitlab/duo/skills/
 
-ln -s `pwd`/skills/tone-of-voice ~/.gitlab/duo/skills/tone-voice
+ln -s `pwd`/skills/tone-of-voice ~/.gitlab/duo/skills/tone-of-voice
 
 ls -lah ~/.gitlab/duo/skills/
 ```

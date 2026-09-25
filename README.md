@@ -87,6 +87,13 @@ and applies the small [Brewfile](Brewfile).
 Brewfile packages, does not modify macOS defaults, and ensures all symlinks are
 in place.
 
+Setup also links each skill under `skills/` into `~/.claude/skills/`,
+`~/.agents/skills/`, and `~/.gitlab/duo/skills/` for Claude Code, Codex, and
+GitLab Duo, using the same skill directory name for each tool.
+Existing matching links are left in place; conflicting files or
+links stop setup for review. These links expose the public skills only; personal
+AI configuration stays in the home directory.
+
 Ghostty is installed and updated directly from ghostty.org. Its tracked
 configuration lives in [.config/ghostty](.config/ghostty) and uses matching
 light and dark themes based on the macOS appearance setting.

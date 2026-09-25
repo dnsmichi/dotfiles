@@ -91,6 +91,20 @@ ensure_managed_link() {
   ln -s "${source_path}" "${destination_path}"
 }
 
+link_skills() {
+  local skill_file skill_name
+  for skill_file in "${REPOSITORY_DIR}"/skills/*/SKILL.md; do
+    [[ -f "${skill_file}" ]] || continue
+    skill_name="${skill_file%/SKILL.md}"
+    skill_name="${skill_name##*/}"
+
+    ensure_managed_link "skills/${skill_name}" "${HOME}/.claude/skills/${skill_name}"
+    ensure_managed_link "skills/${skill_name}" "${HOME}/.agents/skills/${skill_name}"
+
+    ensure_managed_link "skills/${skill_name}" "${HOME}/.gitlab/duo/skills/${skill_name}"
+  done
+}
+
 main() {
   require_macos
   require_command_line_tools
@@ -124,6 +138,8 @@ main() {
   ensure_managed_link \
     .config/vscode/settings.json \
     "${HOME}/Library/Application Support/Code/User/settings.json"
+
+  link_skills
 
   log "Bootstrap complete"
   printf 'Open a new terminal, then run: brew doctor\n'
