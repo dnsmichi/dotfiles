@@ -1,7 +1,0 @@
-roles:
-- name: cloudalchemy.prometheus
-- name: geerlingguy.docker 
-- name: hifis.unattended_upgrades 
-
-collections:
-- name: community.general
