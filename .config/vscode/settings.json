@@ -28,16 +28,6 @@
 
     // GitLab
     "gitlab.debug": true,
-    "gitlab.duoAgentPlatform.defaultNamespace": "gitlab-da",
-    "gitlab.duoCodeSuggestions.additionalLanguages": [
-        "powershell",
-        "yaml",
-        "ansible",
-        "cobol",
-        "dockerfile",
-        "markdown",
-        "json"
-    ],
 
     // Keep VS Code's optional AI surfaces out of this setup.
     "telemetry.feedback.enabled": false,
