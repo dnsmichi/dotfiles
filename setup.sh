@@ -119,6 +119,7 @@ main() {
     .zshrc
     .gitconfig
     .ssh/config
+    .ssh/gitlab_work.pub
     .config/atuin/config.toml
     .config/ghostty/config.ghostty
     .config/mise/config.toml
