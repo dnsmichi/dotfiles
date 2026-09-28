@@ -92,8 +92,9 @@ brew "gifsicle"
 brew "gifify"
 brew "ffmpeg"
 
-# Apps (class)
+# Apps (casks)
 cask "vlc"
 cask "discord"
 cask "obs"
 cask "handbrake-app"
+cask "1password-cli"
