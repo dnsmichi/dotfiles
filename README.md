@@ -351,6 +351,14 @@ and apply these additional settings:
 1. `Settings > Meetings & webinars`: Tick `Keep my microphone muted`.
 1. `Settings > Keyboard Shortcuts`: Mute/Unmute my audio: `option 1`.
 
+##### Rancher Desktop startup
+
+Start Rancher Desktop with macOS login, so containers are ready without opening the app.
+Open `Preferences > Application > Behavior` and set:
+
+1. `Startup`: Tick `Automatically start at login`.
+1. `Background`: Tick `Start in the background`.
+
 #### Bring back shell history and AI settings
 
 Download the latest encrypted backup from Google Drive and follow
