@@ -76,6 +76,25 @@ work at GitLab and is hosted at `dnsmichi/dotfiles`.
 - Start every `##` part and `###` section with a one- or two-sentence intro that
   says what it covers, before any sub-heading, list, or code block.
 
+## Commits
+
+- Write the subject as `Area: Summary`, for example `Zsh: Fix line navigation
+  keys without Oh-My-Zsh` or `Settings: Fix trackpad secondary click`. The area
+  names the part of the workstation that changed, such as `Brew`, `Git`, `Zsh`,
+  `Settings`, `README`, `Repos`, `SSH/Git`, or a script like `Setup.sh`. Nest a
+  second area when it makes the change clearer, as in `Settings: Rancher
+  Desktop: Run at login`.
+- Keep the summary in the imperative mood and under roughly 72 characters, so
+  the log stays readable at a glance.
+- Explain in the body why the change was needed, not what the diff already
+  shows. A preference change should say which System Settings behavior it
+  reproduces, because the key names alone rarely make that obvious.
+- Commits are signed with the SSH key from 1Password. `commit.gpgsign` is
+  enabled, so signing must succeed rather than be bypassed with `--no-gpg-sign`.
+- Commit only the files the current task changed, and leave unrelated working
+  tree changes unstaged.
+- Do not push without being asked.
+
 ## Validation
 
 - For shell-script changes, run `bash -n` on each changed script, for example
