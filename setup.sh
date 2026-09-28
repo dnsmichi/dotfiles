@@ -130,6 +130,7 @@ main() {
     .config/zsh/completions.zsh
     .config/zsh/functions.zsh
     .config/zsh/history.zsh
+    .config/zsh/keybindings.zsh
   )
 
   for relative_path in "${managed_paths[@]}"; do

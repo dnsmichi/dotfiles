@@ -3,6 +3,7 @@ export EDITOR="nvim"
 export VISUAL="$EDITOR"
 
 source "$HOME/.config/zsh/history.zsh"
+source "$HOME/.config/zsh/keybindings.zsh"
 source "$HOME/.config/zsh/completions.zsh"
 source "$HOME/.config/zsh/aliases.zsh"
 source "$HOME/.config/zsh/functions.zsh"

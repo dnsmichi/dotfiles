@@ -450,9 +450,16 @@ and initialize Zsh's completion system. Tab offers case-insensitive matching,
 then partial and substring matching, with selectable, grouped results.
 The completion cache lives under `${XDG_CACHE_HOME:-$HOME/.cache}/zsh`.
 
-`.zshrc` loads history, completion, aliases, and functions explicitly, followed
-by tool integrations. Syntax highlighting loads last. `EDITOR` and `VISUAL`
+`.zshrc` loads history, key bindings, completion, aliases, and functions explicitly,
+followed by tool integrations. Syntax highlighting loads last. `EDITOR` and `VISUAL`
 are both set to `nvim` for commands that open an external editor.
+
+[Key bindings](.config/zsh/keybindings.zsh) select emacs-style line editing.
+Otherwise Zsh switches to vi mode because `EDITOR` is `nvim`, and `Cmd+Left/Right`
+stop working: Ghostty sends them as `Ctrl-A` and `Ctrl-E`. The file also maps
+Home and End (`Fn+Left/Right`) to the line start and end, and forward delete
+(`Fn+Backspace`) to delete the character under the cursor. Plain Zsh does not
+bind these keys.
 
 ### Editors
 
