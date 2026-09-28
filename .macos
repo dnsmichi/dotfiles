@@ -16,14 +16,21 @@ defaults write -g InitialKeyRepeat -int 15
 defaults write -g KeyRepeat -int 2
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-# Trackpad: tap to click and secondary click. Apply to the built-in and
+# Trackpad: tap to click, and secondary click in the bottom right corner
+# rather than with two fingers. The two keys are mutually exclusive in System
+# Settings, so set both to keep the pair consistent. Apply to the built-in and
 # Bluetooth trackpad preference domains when they are present.
 for domain in \
   com.apple.AppleMultitouchTrackpad \
   com.apple.driver.AppleBluetoothMultitouch.trackpad; do
   defaults write "${domain}" Clicking -bool true
-  defaults write "${domain}" TrackpadRightClick -bool true
+  defaults write "${domain}" TrackpadRightClick -bool false
+  defaults write "${domain}" TrackpadCornerSecondaryClick -int 2
 done
+
+# System Settings records the secondary click gesture globally alongside the
+# per-trackpad keys above.
+defaults write -g ContextMenuGesture -int 1
 
 # Finder: expose useful path context while keeping file names unambiguous.
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -52,10 +59,14 @@ defaults write com.apple.screencapture type -string "png"
 defaults write com.apple.screencapture disable-shadow -bool true
 
 # Disable macOS interface sound effects, including the screenshot shutter.
-# This preference belongs to com.apple.systemsound, not the global domain.
+# System Settings writes this to com.apple.systemsound and to the global
+# domain, so set both to match what the UI produces.
 defaults write com.apple.systemsound com.apple.sound.uiaudio.enabled -bool false
+defaults write -g com.apple.sound.uiaudio.enabled -bool false
 
-# Mute alert volume independently of the main audio output volume.
+# Mute alert volume independently of the main audio output volume, and do not
+# substitute a screen flash for the alert sound that was just silenced.
 defaults write -g com.apple.sound.beep.volume -float 0
+defaults write -g com.apple.sound.beep.flash -int 0
 
 echo "Applied macOS preferences. Log out or relaunch affected apps if needed."
