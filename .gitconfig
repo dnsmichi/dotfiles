@@ -1,7 +1,15 @@
 [user]
 	name = Michael Friedrich
 	email = mfriedrich@gitlab.com
-  signingkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEXsxEvQjNoMwnYjTws+Ownnj5rXCeL+XxnrqacSA+nN"
+  signingkey = ~/.ssh/gitlab_work.pub
+
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true
+
+[gpg "ssh"]
+	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 
 [alias]
         l  = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --
@@ -21,13 +29,6 @@
 	required = true
 [push]
 	autoSetupRemote = true
-[gpg]
-	format = ssh
-[commit]
-	gpgsign = true
-
-[gpg "ssh"]
-	program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
 
 [safe]
 	directory = /Users/mfriedrich/dev/work/handbook/handbook
