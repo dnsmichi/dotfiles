@@ -6,6 +6,8 @@ work at GitLab and is hosted at `dnsmichi/dotfiles`.
 ## Project navigation
 
 - `README.md` describes the current workstation and the step-by-step setup of a new Macbook.
+  Its images live in `docs/images/`; keep screenshots public-safe, without
+  private repositories, shell history, or internal documents on screen.
 - `Brewfile` is the source of truth for Homebrew-managed command-line tools.
 - `setup.sh` installs missing Brewfile dependencies and maintains links on macOS.
 - `.config/vscode/settings.json` contains the tracked VS Code user settings; `vscode/extensions.txt`

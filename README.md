@@ -10,6 +10,8 @@ Razer soundbar, and more, described in the [all-remote workspace setup](https://
 
 This is an opinionated setup, optimized for efficiency and productivity. Fork it and modify it for your own needs.
 
+![Ghostty with Neovim and LazyVim editing repo-sync.sh on the left, and the Starship prompt with git log and eza output on the right](docs/images/ghostty-starship-neovim.png)
+
 <details><summary>Archive:</summary>
 
 - 2026-09: The setup with Oh-My-ZSH and Powerlevel10k on the previous M1 model is documented in [this blog post](https://dnsmichi.at/2022/03/11/new-zsh-theme-on-macos-powerlevel10k/) at [this commit](https://gitlab.com/dnsmichi/dotfiles/-/tree/701851b5cb36dc3fc2796e2e0f7fa3038fbd611a)
