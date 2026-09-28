@@ -17,10 +17,14 @@ eval "$(~/.local/bin/mise activate zsh)"
 eval "$(atuin init zsh --disable-up-arrow)"
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/mfriedrich/.rd/bin:$PATH"
+export PATH="/Users/michael/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 # Load syntax highlighting after completion and other shell integrations.
 if [[ -r "${HOMEBREW_PREFIX:-/opt/homebrew}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]]; then
   source "${HOMEBREW_PREFIX:-/opt/homebrew}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
+
+# TODO - workaround for lazyvim treesitter plugins using the wrong SDK
+# Remove when macOS 27 upgrade is here.
+export SDKROOT=/Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk
