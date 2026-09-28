@@ -11,3 +11,6 @@ Brewfile.lock.json
 /.cursor/
 /.claude.json
 /backup/
+
+# Private GitLab groups and projects for repo-sync.sh.
+/repos/*.local.txt

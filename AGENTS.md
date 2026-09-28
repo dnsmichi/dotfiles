@@ -10,6 +10,11 @@ work at GitLab and is hosted at `dnsmichi/dotfiles`.
 - `setup.sh` installs missing Brewfile dependencies and maintains links on macOS.
 - `.config/vscode/settings.json` contains the tracked VS Code user settings; `vscode/extensions.txt`
   and `vscode-extensions-install.sh` maintain the manually reviewable extension inventory.
+- `repos/groups.txt` (recursive) and `repos/projects.txt` (selected) list the
+  GitLab repositories that `repo-sync.sh` clones and updates under `~/dev/work/`.
+  Private projects whose paths are already publicly known, such as
+  `gitlab-com/content-sites/internal-handbook`, may be tracked. Other private
+  paths go in the untracked `repos/*.local.txt` files; ask before tracking them.
 
 ## Working rules
 
@@ -36,16 +41,23 @@ work at GitLab and is hosted at `dnsmichi/dotfiles`.
 
 ## Validation
 
-- For shell-script changes, run `bash -n setup.sh`.
+- For shell-script changes, run `bash -n` on each changed script, for example
+  `bash -n setup.sh repo-sync.sh`.
 - For `.macos` changes, run `zsh -n .macos` without applying the preferences.
 - Run `git diff --check` after edits.
 - Do not run `./setup.sh` as a validation step: it changes the machine by
   installing packages. Run it only when explicitly requested.
+- Do not run `./repo-sync.sh` with the tracked inventory as a validation step:
+  it clones many gigabytes into `~/dev/work/`. Test it from a copy with a small
+  `repos/` inventory and `REPOSITORIES_DIR` set to a temporary directory.
 
 ## Local conventions
 
 - The checkout lives at `~/dev/work/dotfiles`.
-- Keep work repositories under `~/dev/work/`.
+- Keep work repositories under `~/dev/work/`. `repo-sync.sh` mirrors the GitLab
+  namespace, for example `~/dev/work/gitlab-org/cli`, and links `~/dev/da` to
+  `~/dev/work/gitlab-da` for fast access. This checkout stays at
+  `~/dev/work/dotfiles`, so do not add `dnsmichi/dotfiles` to the inventory.
 - Track public-safe work identity settings, including the Git author name,
   work email address, and public signing key. Keep credentials, private keys,
   and confidential work configuration local and untracked.

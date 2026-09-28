@@ -126,6 +126,45 @@ and rerun the script.
 
 ## Tools and Settings
 
+### GitLab CLI
+
+Installed via `glab` CLI in the [Brewfile](Brewfile).
+
+Authenticate against GitLab.com:
+
+```shell
+glab auth login --hostname gitlab.com --git-protocol ssh
+```
+
+Select `Web` and follow the OAuth browser popup to approve.
+
+#### Clone GitLab groups and projects
+
+[repo-sync.sh](repo-sync.sh) clones repositories into
+`~/dev/work/<group>/<subgroup>/<project>`, based on two inventories:
+
+- [repos/groups.txt](repos/groups.txt): groups cloned recursively,
+  including subgroups. Archived projects and projects shared from other groups are skipped.
+- [repos/projects.txt](repos/projects.txt): individually selected projects.
+
+For fast typing, the script also links `~/dev/da` to `~/dev/work/gitlab-da`
+for Developer Advocacy work. Shortcuts are listed in `SHORTCUTS` at the top
+of the script; existing folders or other links at that path are reported, never replaced.
+
+Requires the `glab` login above.
+
+```shell
+./repo-sync.sh
+```
+
+The script is safe to rerun. Existing clones are fetched and fast-forwarded when
+their working tree is clean; repositories with local changes or diverged branches
+are reported and left alone. Set `REPOSITORIES_DIR` to clone somewhere else.
+
+Private projects whose paths are already publicly known can stay in the tracked
+lists. Keep other private or confidential paths in `repos/groups.local.txt` and
+`repos/projects.local.txt`, which use the same format and are not tracked.
+
 ### Agentic AI
 
 #### GitLab Duo Agent Platform

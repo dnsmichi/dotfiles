@@ -1,0 +1,10 @@
+# GitLab.com groups to clone recursively, one full group path per line.
+# Private or confidential groups belong in groups.local.txt, which is not tracked.
+#
+# Chosen from GitLab activity: most projects in each group had recent pushes.
+
+# Demo environment: active in 21 of 22 projects.
+gitlab-da/demo-environments/tanuki-iot-platform
+
+# Handbook, internal handbook, Docsy theme and handbook tooling (9 projects).
+gitlab-com/content-sites

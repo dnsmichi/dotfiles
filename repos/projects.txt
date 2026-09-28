@@ -1,0 +1,44 @@
+# GitLab.com projects to clone individually, one full project path per line.
+# Private or confidential projects belong in projects.local.txt, which is not tracked.
+#
+# Chosen from GitLab activity: projects with pushes in the last six months that are
+# not already covered by groups.txt. Occasional projects are commented out.
+
+# Websites
+gitlab-com/www-gitlab-com
+gitlab-com/marketing/digital-experience/about-gitlab-com
+
+# Developer Advocacy
+gitlab-com/marketing/developer-relations/developer-advocacy/developer-advocacy-meta
+gitlab-da/use-cases/ai/gitlab-duo-agent-platform/demo-environments/tanuki-iot-platform
+gitlab-da/use-cases/gitlab-api/gitlab-api-python
+gitlab-learn-labs/sample-projects/dap-swag-shop
+
+# GitLab product
+gitlab-org/gitlab
+gitlab-org/gitlab-runner
+gitlab-org/omnibus-gitlab
+gitlab-org/cli
+
+# Editor extensions
+gitlab-org/gitlab-vscode-extension
+gitlab-org/editor-extensions/gitlab-jetbrains-plugin
+gitlab-org/editor-extensions/gitlab-visual-studio-extension
+gitlab-org/editor-extensions/gitlab-lsp
+gitlab-org/editor-extensions/gitlab.vim
+
+# AI
+gitlab-org/modelops/applied-ml/code-suggestions/ai-assist
+gitlab-org/orbit/knowledge-graph
+
+# Personal
+dnsmichi/automated-michi.fyi-dnsmichi-com
+dnsmichi/ci-cd-playground
+dnsmichi/dnsmichi
+
+# Occasional contributions: uncomment when needed.
+# gitlab-org/build/CNG
+# gitlab-org/rust/gitlab-code-parser
+# gitlab-org/rust/knowledge-graph
+# gitlab-da/use-cases/embedded/embedded-devsecops/tutorials/ansible-automation/ansible-gitlab-gitlab-runner-raspberry-pi
+# gitlab-da/use-cases/learn-with-agentic-ai/learn-rust-with-agentic-ai/rust-edge-gateway
