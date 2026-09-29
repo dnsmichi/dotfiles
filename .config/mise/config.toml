@@ -4,6 +4,10 @@ auto_update = true
 [tools]
 dotnet = "latest"
 go = "latest"
+# Java toolchain: mise also sets JAVA_HOME, which Maven and Gradle need.
+java = "temurin-21"
+maven = "latest"
+gradle = "latest"
 node = "lts"
 python = "latest"
 ruby = "latest"

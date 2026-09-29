@@ -46,7 +46,7 @@ A quick overview to pick what is interesting for your own setup. Each area links
   linked into each tool, and [AGENTS.md](AGENTS.md) documents this repository's rules
   for coding agents.
 - **Languages and tools**: [mise](#install-languages-with-mise) for Node.js, Python,
-  Ruby, Go, and Rust, and Homebrew for everything else in the [Brewfile](Brewfile).
+  Ruby, Go, Rust, and Java with Maven, and Homebrew for everything else in the [Brewfile](Brewfile).
 - **macOS**: [opt-in preferences](#macos-preferences-for-efficiency) for keyboard,
   trackpad, Finder, and screenshots.
 

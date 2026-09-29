@@ -72,9 +72,6 @@ brew "hugo"
 
 # Languages
 # Use mise where possible
-# Java
-brew "openjdk@21"
-brew "gradle"
 # C++
 brew "cppcheck"
 brew "cmake"
