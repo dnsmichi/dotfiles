@@ -403,14 +403,16 @@ Open `Preferences > Application > Behavior` and set:
 Install [Elgato Control Center](https://www.elgato.com/ww/en/s/downloads) for the
 Key Lights, and Elgato Camera Hub for the Facecam and Prompter, from the Elgato downloads page.
 
-Key Lights connect over Wi-Fi, not Bluetooth, and Control Center finds them on the
-local network:
+Open Elgato Control Center from the menu bar and let it search for lights. Lights on
+the same network are found automatically and flash when they are found.
 
-1. Open `System Settings > Privacy & Security > Local Network` and enable Elgato Control Center.
-1. Keep the Mac on the same network as the lights. Key Lights only support 2.4 GHz Wi-Fi.
-1. If the lights still do not show up, reset them: hold the button on the back for
-   about 10 seconds until the light flashes. Then add them again in Control Center
-   and enter the Wi-Fi credentials.
+If a light is not found:
+
+1. Keep the Mac on the same router as the lights, not a guest network.
+1. Pair new or reset lights from the macOS Wi-Fi menu under `New Accessory`.
+   Key Light MK.I only supports 2.4 GHz Wi-Fi.
+1. Reset a light as a last resort: hold the power button for 10 seconds until it
+   blinks 3 times, then pair it again.
 
 The Prompter is not a native macOS display. It needs the DisplayLink software, which
 Camera Hub points to during setup. Grant it the permissions it asks for, such as
