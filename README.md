@@ -21,6 +21,35 @@ This is an opinionated setup, optimized for efficiency and productivity. Fork it
 
 ---
 
+## What's inside
+
+A quick overview to pick what is interesting for your own setup. Each area links to its details.
+
+- **One switch for light and dark**: Ghostty, Starship, Neovim, and VS Code all follow
+  the macOS appearance setting with matching themes. Switching macOS between light
+  and dark mode switches every tool at once, which keeps maintenance simple and
+  makes demos and screenshots easy to control.
+- **One setup script**: [setup.sh](#run-setupsh) installs Homebrew and the Brewfile
+  packages, and links the tracked configuration into your home folder, so edits
+  land in this repository. Rerun it any time to update packages and restore links;
+  it never overwrites local changes, and shows a diff instead.
+- **Terminal**: [Ghostty](#terminal-and-shell) with tmux, and plain Zsh with a few
+  small configuration files instead of a framework. The Starship prompt, Atuin shell
+  history, and zoxide keep it keyboard-driven and fast.
+- **Editors**: [Neovim with LazyVim](#neovim-with-lazyvim) for the terminal, and
+  [VS Code](#vs-code) with a tracked extension list.
+- **Credentials**: [1Password](#1password-ssh-agent-and-cli) for SSH keys, commit
+  signing, and API keys, so no secrets live on disk.
+- **GitLab workflow**: the GitLab CLI and [repo-sync.sh](#gitlab-cli-and-repositories),
+  which clones your groups and projects in one go.
+- **Agentic AI**: [GitLab Duo, Claude, and Glean](#agentic-ai). Shared agent skills are
+  linked into each tool, and [AGENTS.md](AGENTS.md) documents this repository's rules
+  for coding agents.
+- **Languages and tools**: [mise](#install-languages-with-mise) for Node.js, Python,
+  Ruby, Go, and Rust, and Homebrew for everything else in the [Brewfile](Brewfile).
+- **macOS**: [opt-in preferences](#macos-preferences-for-efficiency) for keyboard,
+  trackpad, Finder, and screenshots.
+
 ## Setup checklist
 
 Follow the steps top down on a new Macbook. Each step builds on the previous one.
@@ -426,11 +455,11 @@ The terminal, shell, and prompt tools used every day, and their tracked configur
 | Type            | Tools |
 |-----------------|-------|
 | Terminal app    | [Ghostty](https://ghostty.org/) |
+| Multiplexer     | [tmux](https://github.com/tmux/tmux) |
 | Shell           | ZSH and [Starship](https://starship.rs/) |
 | Shell history   | [Atuin](https://atuin.sh/) (`Ctrl-R`) in addition to ZSH history (`cursor up/down`) |
-| Package manager | [Homebrew](https://brew.sh/) for packages, [mise](https://mise.jdx.dev/) for dev envs (Node.js, Ruby, etc.) |
-| Editor          | [neovim](https://neovim.io/) aliased to `vim` |
-| Agents          | [Claude Code](https://about.gitlab.com/blog/claude-code-and-gitlab/), [GitLab Duo CLI](https://docs.gitlab.com/user/gitlab_duo_cli/), Codex |
+| Navigation      | [zoxide](https://github.com/ajeetdsouza/zoxide) (`z <dir>`) and [fzf](https://github.com/junegunn/fzf) |
+| Editor          | [Neovim](https://neovim.io/) aliased to `vim` |
 
 The [Brewfile](Brewfile) installs `JetBrainsMono Nerd Font`, which provides the optional
 symbols used by Starship and Ghostty.

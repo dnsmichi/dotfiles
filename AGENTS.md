@@ -43,9 +43,10 @@ work at GitLab and is hosted at `dnsmichi/dotfiles`.
 
 ## README structure
 
-- Keep the top-level parts in this order: Setup checklist, Setup, Contributing
-  to GitLab, Reference, Maintenance, Troubleshooting. "Contributing to GitLab"
-  covers optional tools for GitLab itself (GDK, docs linting), not this repository.
+- Keep the top-level parts in this order: What's inside, Setup checklist,
+  Setup, Contributing to GitLab, Reference, Maintenance, Troubleshooting.
+  "Contributing to GitLab" covers optional tools for GitLab itself (GDK, docs
+  linting), not this repository.
 - Setup steps follow the order a new Macbook needs them. A step may only depend
   on earlier steps; move a step up rather than referencing a later one.
 - The README has no `[TOC]`. The Setup checklist is the navigation for the
@@ -63,6 +64,14 @@ work at GitLab and is hosted at `dnsmichi/dotfiles`.
   because relative anchors do not resolve in issues.
 - Keep both lists in sync with the Setup headings. The README list equals the
   first two levels of the template, with the same items, order, and nesting.
+- Issues created from the template keep a copy of its checklist, so renamed
+  or removed Setup headings leave stale links there. After changing Setup
+  headings, find those issues with
+  `glab issue list --repo dnsmichi/dotfiles --search "New Macbook setup" --all`
+  and update their descriptions to match the template: fix link texts and
+  anchors, and add or remove items. Preserve every ticked `[x]` checkbox and any
+  text the user added, such as the Notes section. Show the planned changes and
+  ask before editing an issue, because it changes a remote resource.
 - Do not put numbers in headings, and do not refer to steps by number such as
   "step 7". Link to the section by its heading name instead, so renaming or
   inserting a step does not break references.
@@ -73,6 +82,11 @@ work at GitLab and is hosted at `dnsmichi/dotfiles`.
   for example "Restore an encrypted backup" instead of a second "Backup".
 - Setup explains what to do; Reference explains what is configured and where it
   lives; Maintenance covers recurring tasks such as backups and inventory updates.
+- "What's inside" is a short overview for new readers: one bullet per area,
+  saying what it offers and linking to its details. Name only the key tools;
+  `Brewfile` and `.config/mise/config.toml` stay the complete lists. Update it
+  when an area's main tool changes. Keep Codex and other integration-guide
+  tools out of it.
 - Mention automated behavior once, in the step that triggers it, for example the
   skills and configuration links created by `setup.sh`.
 - Start every `##` part and `###` section with a one- or two-sentence intro that
