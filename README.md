@@ -398,6 +398,24 @@ Open `Preferences > Application > Behavior` and set:
 1. `Startup`: Tick `Automatically start at login`.
 1. `Background`: Tick `Start in the background`.
 
+##### Elgato Key Lights, Facecam, and Prompter
+
+Install [Elgato Control Center](https://www.elgato.com/ww/en/s/downloads) for the
+Key Lights, and Elgato Camera Hub for the Facecam and Prompter, from the Elgato downloads page.
+
+Key Lights connect over Wi-Fi, not Bluetooth, and Control Center finds them on the
+local network:
+
+1. Open `System Settings > Privacy & Security > Local Network` and enable Elgato Control Center.
+1. Keep the Mac on the same network as the lights. Key Lights only support 2.4 GHz Wi-Fi.
+1. If the lights still do not show up, reset them: hold the button on the back for
+   about 10 seconds until the light flashes. Then add them again in Control Center
+   and enter the Wi-Fi credentials.
+
+The Prompter is not a native macOS display. It needs the DisplayLink software, which
+Camera Hub points to during setup. Grant it the permissions it asks for, such as
+screen recording, so the Prompter shows up as a second display.
+
 #### Bring back shell history and AI settings
 
 Download the latest encrypted backup from Google Drive and follow

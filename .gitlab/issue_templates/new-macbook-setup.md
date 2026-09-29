@@ -30,6 +30,7 @@ and tick each step when it is done.
       1. [ ] [Finder sidebar](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#finder-sidebar)
       1. [ ] [Zoom settings and permissions](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#zoom-settings-and-permissions)
       1. [ ] [Rancher Desktop startup](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#rancher-desktop-startup)
+      1. [ ] [Elgato Key Lights, Facecam, and Prompter](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#elgato-key-lights-facecam-and-prompter)
    1. [ ] [Bring back shell history and AI settings](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#bring-back-shell-history-and-ai-settings)
 
 ## Notes
