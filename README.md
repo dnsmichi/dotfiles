@@ -344,7 +344,7 @@ Open Finder and navigate into `Settings > Sidebar` to add
 - User home (user name)
 - System root (Macbook name)
 
-##### Zoom settings (unmute shortcut)
+##### Zoom settings and permissions
 
 Follow the [tools and tips handbook for Zoom](https://handbook.gitlab.com/handbook/tools-and-tips/zoom/),
 and apply these additional settings:
@@ -352,6 +352,14 @@ and apply these additional settings:
 1. `Settings > Meetings & webinars`: Untick `Ask me to confirm when leaving`.
 1. `Settings > Meetings & webinars`: Tick `Keep my microphone muted`.
 1. `Settings > Keyboard Shortcuts`: Mute/Unmute my audio: `option 1`.
+
+Grant the macOS permissions from inside Zoom, so macOS prompts for each one when it is needed:
+
+1. Start Zoom and open a new meeting.
+1. Allow microphone input and audio output when asked.
+1. Share your screen. Zoom asks for screen recording access; click through to
+   `System Settings > Privacy & Security > Screen & System Audio Recording`,
+   enable Zoom, and restart Zoom when asked.
 
 ##### Rancher Desktop startup
 

@@ -28,7 +28,7 @@ and tick each step when it is done.
       1. [ ] [VS Code extensions](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#vs-code-extensions)
       1. [ ] [1Password keyboard collision](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#1password-keyboard-collision)
       1. [ ] [Finder sidebar](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#finder-sidebar)
-      1. [ ] [Zoom settings (unmute shortcut)](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#zoom-settings-unmute-shortcut)
+      1. [ ] [Zoom settings and permissions](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#zoom-settings-and-permissions)
       1. [ ] [Rancher Desktop startup](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#rancher-desktop-startup)
    1. [ ] [Bring back shell history and AI settings](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#bring-back-shell-history-and-ai-settings)
 
