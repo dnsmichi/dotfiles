@@ -101,7 +101,7 @@ Install the remaining apps manually. Their configuration is linked by `setup.sh`
 | Backup          | [Google Drive for Desktop](https://support.google.com/a/users/answer/13022292#drive_desktop_install) |
 | Containers      | [Rancher Desktop](https://rancherdesktop.io/) |
 | Browser         | [Google Chrome](https://www.google.com/chrome/), Safari |
-| DevRel          | [Adobe Creative Cloud](https://www.adobe.com/apps/all/all-platforms/pdp/creative-cloud?source=apps) (Premiere Pro, etc.) - enterprise license, [Screen Studio](https://screen.studio/download) (approved license) - [handbook](https://handbook.gitlab.com/handbook/marketing/developer-relations/developer-advocacy/content/#recording-with-screen-studio) |
+| DevRel          | [Adobe Creative Cloud](https://www.adobe.com/apps/all/all-platforms/pdp/creative-cloud?source=apps) (Premiere Pro, etc.) - enterprise license, [Screen Studio](https://screen.studio/download) (approved license) - [handbook](https://handbook.gitlab.com/handbook/marketing/product-and-technical-marketing/developer-advocacy/content/#recording-with-screen-studio) |
 
 Agentic AI tools are set up in [Agentic AI](#agentic-ai).
 
@@ -261,11 +261,11 @@ See the [GitLab Duo Agent Platform docs](https://docs.gitlab.com/user/duo_agent_
 #### GitLab Duo CLI
 
 Included in `glab`. The [ZSH alias](.config/zsh/aliases.zsh) `duo` runs `glab duo cli`.
-See [GitLab Duo CLI in the Dev Advocacy Handbook](https://handbook.gitlab.com/handbook/marketing/developer-relations/developer-advocacy/dev-environments/#gitlab-duo-cli).
+See [GitLab Duo CLI in the Dev Advocacy Handbook](https://handbook.gitlab.com/handbook/marketing/product-and-technical-marketing/developer-advocacy/dev-environments/#gitlab-duo-cli).
 
 #### Claude
 
-Follow the [Developer Advocacy handbook](https://handbook.gitlab.com/handbook/marketing/developer-relations/developer-advocacy/dev-environments/#claude-code),
+Follow the [Developer Advocacy handbook](https://handbook.gitlab.com/handbook/marketing/product-and-technical-marketing/developer-advocacy/dev-environments/#claude-code),
 and the [Claude handbook page](https://handbook.gitlab.com/handbook/tools-and-tips/ai/claude/) for Claude Desktop.
 
 ```shell
@@ -288,7 +288,7 @@ for the same reasons.
 
 #### Other agentic AI tools for integration guides
 
-Follow the [Developer Advocacy handbook](https://handbook.gitlab.com/handbook/marketing/developer-relations/developer-advocacy/dev-environments/#codex).
+Follow the [Developer Advocacy handbook](https://handbook.gitlab.com/handbook/marketing/product-and-technical-marketing/developer-advocacy/dev-environments/#codex).
 Codex is installed with the Node.js version managed by mise, so reinstall it after
 Node.js upgrades.
 
