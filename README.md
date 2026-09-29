@@ -715,6 +715,22 @@ files under `~/Library/`, grant it access in:
 Enable Ghostty, restart it, and rerun the cleanup command. `sudo` alone cannot
 bypass macOS privacy protection for these directories.
 
+### Microphone stops working in Zoom
+
+A USB audio device can stop sending input after another app restarts or reconnects
+devices, for example Elgato Camera Hub. The setup here uses a Shure SM7B with a
+Cloudlifter CL-1 and a PreSonus Studio 24c USB audio interface. Zoom still shows the
+microphone, but the input level in `System Settings > Sound > Input` stays flat.
+
+Restart the macOS audio service. macOS starts it again immediately:
+
+```shell
+sudo killall coreaudiod
+```
+
+Then rejoin the Zoom meeting, and check that the microphone is still selected
+next to the **Mute** button.
+
 ### DNS troubleshooting
 
 If DNS causes problems on macOS:
