@@ -218,10 +218,14 @@ Remove the empty test commit with `git reset --soft HEAD~1` when it is not neede
 The GitLab CLI `glab` is installed by the [Brewfile](Brewfile). Authenticate against GitLab.com:
 
 ```shell
-glab auth login --hostname gitlab.com --git-protocol ssh
+glab auth login --hostname gitlab.com --git-protocol https
 ```
 
 Select `Web` and follow the OAuth browser popup to approve.
+
+Git uses this login for HTTPS remotes on gitlab.com: [.gitconfig](.gitconfig) sets
+`glab auth git-credential` as the credential helper, so no token is stored separately.
+HTTPS also works for coding agents in a sandbox that cannot reach the 1Password SSH agent.
 
 Then clone the GitLab groups and projects:
 

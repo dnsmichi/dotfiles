@@ -29,7 +29,7 @@ require_command() {
 require_glab_auth() {
   glab auth status --hostname gitlab.com >/dev/null 2>&1 || {
     printf 'Error: glab is not authenticated. Run:\n' >&2
-    printf '  glab auth login --hostname gitlab.com --git-protocol ssh\n' >&2
+    printf '  glab auth login --hostname gitlab.com --git-protocol https\n' >&2
     exit 1
   }
 }
@@ -44,13 +44,13 @@ read_inventory() {
   done
 }
 
-# Prints "<path_with_namespace> <ssh_url>" for each active project in the group
+# Prints "<path_with_namespace> <https_url>" for each active project in the group
 # and its subgroups. Projects shared from other groups are excluded.
 list_group_projects() {
   local group="$1"
   glab api --paginate --output ndjson \
     "groups/${group//\//%2F}/projects?include_subgroups=true&archived=false&with_shared=false&per_page=100" |
-    jq -r '"\(.path_with_namespace) \(.ssh_url_to_repo)"'
+    jq -r '"\(.path_with_namespace) \(.http_url_to_repo)"'
 }
 
 relative_path() {
@@ -64,9 +64,21 @@ clone_project() {
   git clone --quiet "${url}" "${destination}" </dev/null
 }
 
+# Switches an SSH origin on gitlab.com to HTTPS. Git authenticates HTTPS through
+# glab (see the gitlab.com credential helper in .gitconfig), which works inside
+# sandboxed coding agents that cannot reach the SSH agent.
+use_https_origin() {
+  local destination="$1" origin
+  origin="$(git -C "${destination}" remote get-url origin 2>/dev/null)" || return 0
+  [[ "${origin}" == git@gitlab.com:* ]] || return 0
+  printf 'Switching %s to HTTPS\n' "$(relative_path "${destination}")"
+  git -C "${destination}" remote set-url origin "https://gitlab.com/${origin#git@gitlab.com:}"
+}
+
 update_project() {
   local destination="$1"
 
+  use_https_origin "${destination}" || return
   git -C "${destination}" fetch --quiet --prune </dev/null
 
   if [[ -n "$(git -C "${destination}" status --porcelain)" ]]; then
@@ -151,7 +163,7 @@ main() {
 
   printf '\n==> Selected projects\n'
   while IFS= read -r path; do
-    sync_project "${path}" "git@gitlab.com:${path}.git"
+    sync_project "${path}" "https://gitlab.com/${path}.git"
   done < <(read_inventory projects)
 
   local shortcut
