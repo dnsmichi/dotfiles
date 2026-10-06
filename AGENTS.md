@@ -28,7 +28,12 @@ work at GitLab and is hosted at `dnsmichi/dotfiles`.
 - Keep the setup small. Add a dependency, configuration layer, or automation
   only for a demonstrated need, and document why it exists.
 - Preserve the current learning sequence: Ghostty and tmux, then Starship,
-  then Neovim. Do not add cmux unless explicitly requested.
+  then Neovim. cmux builds on Ghostty and belongs to the Agentic AI phase, as a
+  workspace for coding agents rather than a replacement for Ghostty or tmux.
+- cmux is installed from its DMG and updates itself with Sparkle; do not add it
+  to `Brewfile` unless the user changes that decision. It reads the Ghostty
+  configuration, so track only cmux-specific settings that differ from the
+  defaults in `.config/cmux/cmux.json`.
 - Ghostty is installed and updated directly from ghostty.org; do not add it to
   `Brewfile` unless the user changes that decision. Track its configuration in
   `.config/ghostty/` to mirror its target location under the home directory.

@@ -122,6 +122,7 @@ main() {
     .ssh/allowed_signers
     .ssh/gitlab_work.pub
     .config/atuin/config.toml
+    .config/cmux/cmux.json
     .config/ghostty/config.ghostty
     .config/mise/config.toml
     .config/nvim

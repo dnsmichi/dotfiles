@@ -34,7 +34,8 @@ A quick overview to pick what is interesting for your own setup. Each area links
   land in this repository. Rerun it any time to update packages and restore links;
   it never overwrites local changes, and shows a diff instead.
 - **Terminal**: [Ghostty](#terminal-and-shell) with tmux, and plain Zsh with a few
-  small configuration files instead of a framework. The Starship prompt, Atuin shell
+  small configuration files instead of a framework. [cmux](#install-cmux) builds on
+  Ghostty to run coding agents side by side. The Starship prompt, Atuin shell
   history, and zoxide keep it keyboard-driven and fast.
 - **Editors**: [Neovim with LazyVim](#neovim-with-lazyvim) for the terminal, and
   [VS Code](#vs-code) with a tracked extension list.
@@ -70,6 +71,7 @@ which lists every step and sub-section as a tickable checklist.
    1. [GitLab Duo Agent Platform](#gitlab-duo-agent-platform)
    1. [GitLab Duo CLI](#gitlab-duo-cli)
    1. [Claude](#claude)
+   1. [Install cmux](#install-cmux)
    1. [Glean](#glean)
    1. [Other agentic AI tools for integration guides](#other-agentic-ai-tools-for-integration-guides)
 1. [Personal settings](#personal-settings)
@@ -281,6 +283,15 @@ Run `claude` and set the following:
 1. Theme / text style: `Auto` to follow Ghostty and Starship defaults.
 1. Login method: Account with subscription. Follow the OAuth login popup.
 
+#### Install cmux
+
+[cmux](https://cmux.com/) is a Ghostty-based terminal with vertical tabs and
+notifications for coding agents running in parallel.
+
+Download the DMG from the [latest release](https://github.com/manaflow-ai/cmux/releases/latest),
+drag cmux to `Applications`, and enable automatic updates when asked. cmux reads
+the Ghostty configuration, so open it and check that it uses the same theme and font as Ghostty.
+
 #### Glean
 
 Follow the [handbook](https://handbook.gitlab.com/handbook/eta/ai/tools/glean/) for access and setup.
@@ -480,6 +491,7 @@ The terminal, shell, and prompt tools used every day, and their tracked configur
 |-----------------|-------|
 | Terminal app    | [Ghostty](https://ghostty.org/) |
 | Multiplexer     | [tmux](https://github.com/tmux/tmux) |
+| Agent terminal  | [cmux](https://cmux.com/) |
 | Shell           | ZSH and [Starship](https://starship.rs/) |
 | Shell history   | [Atuin](https://atuin.sh/) (`Ctrl-R`) in addition to ZSH history (`cursor up/down`) |
 | Navigation      | [zoxide](https://github.com/ajeetdsouza/zoxide) (`z <dir>`) and [fzf](https://github.com/junegunn/fzf) |
@@ -492,6 +504,14 @@ symbols used by Starship and Ghostty.
 
 Ghostty's tracked configuration lives in [.config/ghostty](.config/ghostty)
 and uses matching light and dark themes based on the macOS appearance setting.
+
+#### cmux
+
+cmux uses the [Ghostty](#ghostty) configuration for theme, font, and keybindings.
+Its own settings live in [.config/cmux/cmux.json](.config/cmux/cmux.json), which
+tracks only the changes from the defaults: Neovim as the editor, no usage analytics,
+text box actions that keep the agents' permission prompts, and no integrations
+for unused agents. Run `cmux reload-config` after editing either file.
 
 #### Starship
 

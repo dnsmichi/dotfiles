@@ -18,6 +18,7 @@ and tick each step when it is done.
    1. [ ] [GitLab Duo Agent Platform](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#gitlab-duo-agent-platform)
    1. [ ] [GitLab Duo CLI](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#gitlab-duo-cli)
    1. [ ] [Claude](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#claude)
+   1. [ ] [Install cmux](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#install-cmux)
    1. [ ] [Glean](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#glean)
    1. [ ] [Other agentic AI tools for integration guides](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#other-agentic-ai-tools-for-integration-guides)
 1. [ ] [Personal settings](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#personal-settings)

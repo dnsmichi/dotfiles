@@ -1,6 +1,7 @@
 # Personal workstation command-line tools.
 # Add a package only after a concrete project or workflow needs it.
 # Ghostty is installed and updated directly from ghostty.org.
+# cmux is installed from its DMG and updates itself with Sparkle.
 
 # Launcher
 tap "abue-ammar/tinycast", trusted: true

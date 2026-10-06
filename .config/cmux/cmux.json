@@ -1,0 +1,46 @@
+{
+  "$schema": "https://raw.githubusercontent.com/manaflow-ai/cmux/main/web/data/cmux.schema.json",
+  "schemaVersion": 1,
+
+  // Only settings that differ from the cmux defaults. Theme, font, and
+  // keybindings come from the Ghostty configuration.
+
+  "app": {
+    // Open files in the terminal editor.
+    "preferredEditor": "nvim",
+    // Opt out of cmux's PostHog usage analytics.
+    "sendAnonymousTelemetry": false
+  },
+
+  "terminal": {
+    // The defaults run Claude with --dangerously-skip-permissions and Codex
+    // with --yolo. Keep the agents' permission prompts instead.
+    "textBoxSubmitActions": [
+      {
+        "id": "claude",
+        "kind": "commandTemplate",
+        "title": "Claude",
+        "commandTemplate": "claude -- {{prompt}}",
+        "assetName": "AgentIcons/Claude",
+        "systemImage": "sparkle",
+        "backgroundColorHex": "#F6D5C8"
+      },
+      {
+        "id": "codex",
+        "kind": "commandTemplate",
+        "title": "Codex",
+        "commandTemplate": "codex -- {{prompt}}",
+        "assetName": "AgentIcons/Codex",
+        "systemImage": "sparkles",
+        "backgroundColorHex": "#8FDBFF"
+      }
+    ]
+  },
+
+  "automation": {
+    // Keep the Claude Code and Cursor integrations; skip agents not in use.
+    "ampIntegration": false,
+    "geminiIntegration": false,
+    "kiroIntegration": false
+  }
+}
