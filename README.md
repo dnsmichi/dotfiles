@@ -122,8 +122,8 @@ account login, which the GitLab-managed profile does not use.
 
 #### Clone this repository
 
-Clone this repository over HTTPS. SSH works only after the 1Password SSH agent is
-set up in [1Password SSH agent and CLI](#1password-ssh-agent-and-cli).
+Clone this repository over HTTPS, which needs no credentials because the repository
+is public.
 
 ```shell
 mkdir -p ~/dev/work
@@ -202,13 +202,12 @@ Open 1Password `Settings > Developer`:
 
 To retrieve other secrets on the terminal, see [Retrieve secrets with 1Password CLI](#retrieve-secrets-with-1password-cli).
 
-##### Switch this repository to SSH
+##### Test the SSH key and commit signing
 
-Switch the remote from HTTPS to SSH, then test the SSH key and commit signing:
+This repository keeps its HTTPS remote. The SSH key from 1Password still signs
+commits and serves SSH connections to gitlab.com, so test both:
 
 ```shell
-git remote set-url origin git@gitlab.com:dnsmichi/dotfiles.git
-
 ssh -T git@gitlab.com
 git commit --allow-empty -m "Test commit signing" && git log --show-signature -1
 ```

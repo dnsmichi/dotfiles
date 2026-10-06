@@ -12,7 +12,7 @@ and tick each step when it is done.
    1. [ ] [Install languages with mise](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#install-languages-with-mise)
 1. [ ] [Credentials and GitLab](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#credentials-and-gitlab)
    1. [ ] [1Password SSH agent and CLI](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#1password-ssh-agent-and-cli)
-      1. [ ] [Switch this repository to SSH](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#switch-this-repository-to-ssh)
+      1. [ ] [Test the SSH key and commit signing](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#test-the-ssh-key-and-commit-signing)
    1. [ ] [GitLab CLI and repositories](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#gitlab-cli-and-repositories)
 1. [ ] [Agentic AI](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#agentic-ai)
    1. [ ] [GitLab Duo Agent Platform](https://gitlab.com/dnsmichi/dotfiles/-/blob/main/README.md#gitlab-duo-agent-platform)
