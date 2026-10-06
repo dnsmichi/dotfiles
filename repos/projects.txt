@@ -32,13 +32,15 @@ gitlab-org/modelops/applied-ml/code-suggestions/ai-assist
 gitlab-org/orbit/knowledge-graph
 
 # Personal
-dnsmichi/automated-michi.fyi-dnsmichi-com
 dnsmichi/ci-cd-playground
 dnsmichi/dnsmichi
 
+# People ops
+gitlab-com/people-group/peopleops-eng/connectors-gem
+gitlab-com/people-group/peopleops-eng/employment-automation
+
+
 # Occasional contributions: uncomment when needed.
 # gitlab-org/build/CNG
-# gitlab-org/rust/gitlab-code-parser
-# gitlab-org/rust/knowledge-graph
 # gitlab-da/use-cases/embedded/embedded-devsecops/tutorials/ansible-automation/ansible-gitlab-gitlab-runner-raspberry-pi
 # gitlab-da/use-cases/learn-with-agentic-ai/learn-rust-with-agentic-ai/rust-edge-gateway
