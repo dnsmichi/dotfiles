@@ -62,6 +62,8 @@ brew "helm"
 brew "colima"
 brew "kind"
 brew "minikube"
+brew "podman"
+brew "skopeo"
 
 # Development tools
 brew "git-delta"
