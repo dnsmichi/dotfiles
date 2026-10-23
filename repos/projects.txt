@@ -10,6 +10,8 @@ gitlab-com/marketing/digital-experience/about-gitlab-com
 
 # Developer Advocacy
 gitlab-com/marketing/developer-relations/developer-advocacy/developer-advocacy-meta
+gitlab-com/marketing/developer-relations/developer-advocacy/code/gitlab-community-app
+gitlab-com/marketing/developer-relations/developer-advocacy/code/gogitlab-router
 gitlab-da/use-cases/ai/gitlab-duo-agent-platform/demo-environments/tanuki-iot-platform
 gitlab-da/use-cases/gitlab-api/gitlab-api-python
 gitlab-learn-labs/sample-projects/dap-swag-shop
@@ -30,6 +32,7 @@ gitlab-org/editor-extensions/gitlab.vim
 # AI
 gitlab-org/modelops/applied-ml/code-suggestions/ai-assist
 gitlab-org/orbit/knowledge-graph
+gitlab-org/ai/skills
 
 # Personal
 dnsmichi/ci-cd-playground
@@ -38,6 +41,7 @@ dnsmichi/dnsmichi
 # People ops
 gitlab-com/people-group/peopleops-eng/connectors-gem
 gitlab-com/people-group/peopleops-eng/employment-automation
+gitlab-com/team-member-epics/access-requests
 
 
 # Occasional contributions: uncomment when needed.
