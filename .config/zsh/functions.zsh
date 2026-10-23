@@ -32,3 +32,13 @@ tmpd() {
   dir=$(mktemp -d "${TMPDIR:-/tmp}/zsh.XXXXXX") || return
   cd -- "$dir"
 }
+
+# gcloud compute ssh calls /usr/bin/ssh directly, bypassing Ghostty's ssh-env
+# integration, so remote hosts get an unknown TERM=xterm-ghostty.
+gcloud() {
+  if [[ $1 == compute && $2 == ssh ]]; then
+    TERM=xterm-256color command gcloud "$@"
+  else
+    command gcloud "$@"
+  fi
+}
