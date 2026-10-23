@@ -14,3 +14,6 @@ Brewfile.lock.json
 
 # Private GitLab groups and projects for repo-sync.sh.
 /repos/*.local.txt
+
+# Local SSH config
+.ssh/config.local

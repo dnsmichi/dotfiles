@@ -119,6 +119,7 @@ main() {
     .zshrc
     .gitconfig
     .ssh/config
+    .ssh/config.local
     .ssh/allowed_signers
     .ssh/gitlab_work.pub
     .config/atuin/config.toml
