@@ -10,6 +10,7 @@ gitlab-com/marketing/digital-experience/about-gitlab-com
 
 # Developer Advocacy
 gitlab-com/marketing/developer-relations/developer-advocacy/developer-advocacy-meta
+gitlab-com/marketing/developer-relations/developer-advocacy/ai/skills
 gitlab-com/marketing/developer-relations/developer-advocacy/code/gitlab-community-app
 gitlab-com/marketing/developer-relations/developer-advocacy/code/gogitlab-router
 gitlab-da/use-cases/ai/gitlab-duo-agent-platform/demo-environments/tanuki-iot-platform
