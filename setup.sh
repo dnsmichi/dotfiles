@@ -125,6 +125,9 @@ main() {
     .config/atuin/config.toml
     .config/cmux/cmux.json
     .config/ghostty/config.ghostty
+    .config/herdr-app/settings.json
+    .config/herdr-app/themes/gruvbox-dark-hard.json
+    .config/herdr-app/themes/gruvbox-light-hard.json
     .config/mise/config.toml
     .config/nvim
     .config/starship.toml

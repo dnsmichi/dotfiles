@@ -1,0 +1,14 @@
+{
+  "zoom": 1.2,
+  "sounds": {
+    "enabled": true
+  },
+  "font": "JetBrainsMono Nerd Font Mono",
+  "font_size": 13.0,
+  "telemetry": false,
+  "minimum_contrast": 1.0,
+  "theme": {
+    "light": "gruvbox-light-hard",
+    "dark": "gruvbox-dark-hard"
+  }
+}
