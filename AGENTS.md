@@ -28,8 +28,21 @@ work at GitLab and is hosted at `dnsmichi/dotfiles`.
 - Keep the setup small. Add a dependency, configuration layer, or automation
   only for a demonstrated need, and document why it exists.
 - Preserve the current learning sequence: Ghostty and tmux, then Starship,
-  then Neovim. cmux builds on Ghostty and belongs to the Agentic AI phase, as a
-  workspace for coding agents rather than a replacement for Ghostty or tmux.
+  then Neovim. Herdr and cmux belong to the Agentic AI phase, as workspaces for
+  coding agents rather than replacements for Ghostty or tmux. Herdr comes first
+  as the agent workspace to learn; cmux stays as an additional tool.
+- Herdr is installed from its DMG and updates itself and herdr-core; do not add
+  it to `Brewfile` unless the user changes that decision. It does not read the
+  Ghostty configuration. `~/.config/herdr-app/` mixes user files with files the
+  app writes or replaces on every start, so link individual user-owned files
+  such as `.config/herdr-app/settings.json` and the Gruvbox files in
+  `.config/herdr-app/themes/`, never a whole directory. Keep the themes'
+  colors in sync with the Ghostty themes.
+- When changing Herdr settings, edit the tracked file in place: keep the app's
+  format, key order, and filled-in defaults, and insert or change only the keys
+  the task needs, because Herdr rewrites `settings.json` through the link.
+  Afterwards, check `~/.config/herdr-app/` for `*.error` files, ask the user to
+  verify the change in the app, then check the file and its symlink again.
 - cmux is installed from its DMG and updates itself with Sparkle; do not add it
   to `Brewfile` unless the user changes that decision. It reads the Ghostty
   configuration, so track only cmux-specific settings that differ from the

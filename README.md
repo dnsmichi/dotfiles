@@ -34,8 +34,8 @@ A quick overview to pick what is interesting for your own setup. Each area links
   land in this repository. Rerun it any time to update packages and restore links;
   it never overwrites local changes, and shows a diff instead.
 - **Terminal**: [Ghostty](#terminal-and-shell) with tmux, and plain Zsh with a few
-  small configuration files instead of a framework. [cmux](#install-cmux) builds on
-  Ghostty to run coding agents side by side. The Starship prompt, Atuin shell
+  small configuration files instead of a framework. [Herdr](#install-herdr) and
+  [cmux](#install-cmux) run coding agents side by side. The Starship prompt, Atuin shell
   history, and zoxide keep it keyboard-driven and fast.
 - **Editors**: [Neovim with LazyVim](#neovim-with-lazyvim) for the terminal, and
   [VS Code](#vs-code) with a tracked extension list.
@@ -71,6 +71,7 @@ which lists every step and sub-section as a tickable checklist.
    1. [GitLab Duo Agent Platform](#gitlab-duo-agent-platform)
    1. [GitLab Duo CLI](#gitlab-duo-cli)
    1. [Claude](#claude)
+   1. [Install Herdr](#install-herdr)
    1. [Install cmux](#install-cmux)
    1. [Glean](#glean)
    1. [Other agentic AI tools for integration guides](#other-agentic-ai-tools-for-integration-guides)
@@ -282,6 +283,25 @@ Run `claude` and set the following:
 1. Theme / text style: `Auto` to follow Ghostty and Starship defaults.
 1. Login method: Account with subscription. Follow the OAuth login popup.
 
+#### Install Herdr
+
+[Herdr](https://herdr.dev/) is a desktop app for coding agents, with spaces,
+tabs, and an agents list that shows which agent is waiting for you. Start with
+Herdr when learning to run agents in parallel; cmux below is an additional option.
+
+Download the DMG from [herdr.dev/download](https://herdr.dev/download/) and drag
+Herdr to `Applications`. Open it once: it installs herdr-core (`hc`), links
+`herdr-app` and `hc` into `~/.local/bin`, and creates `~/.config/herdr-app`.
+It updates itself and herdr-core automatically.
+
+Herdr creates its own `settings.json`, so move it aside and rerun `setup.sh` to
+link the tracked one:
+
+```shell
+mv ~/.config/herdr-app/settings.json ~/.config/herdr-app/settings.json.orig
+./setup.sh
+```
+
 #### Install cmux
 
 [cmux](https://cmux.com/) is a Ghostty-based terminal with vertical tabs and
@@ -490,6 +510,7 @@ The terminal, shell, and prompt tools used every day, and their tracked configur
 |-----------------|-------|
 | Terminal app    | [Ghostty](https://ghostty.org/) |
 | Multiplexer     | [tmux](https://github.com/tmux/tmux) |
+| Agent workspace | [Herdr](https://herdr.dev/) |
 | Agent terminal  | [cmux](https://cmux.com/) |
 | Shell           | ZSH and [Starship](https://starship.rs/) |
 | Shell history   | [Atuin](https://atuin.sh/) (`Ctrl-R`) in addition to ZSH history (`cursor up/down`) |
@@ -503,6 +524,19 @@ symbols used by Starship and Ghostty.
 
 Ghostty's tracked configuration lives in [.config/ghostty](.config/ghostty)
 and uses matching light and dark themes based on the macOS appearance setting.
+
+#### Herdr
+
+Herdr does not read the Ghostty configuration. Its tracked settings live in
+[.config/herdr-app/settings.json](.config/herdr-app/settings.json): no usage
+analytics, the JetBrains Mono Nerd Font at the Ghostty size, and a larger zoom.
+The Gruvbox Hard themes in [.config/herdr-app/themes](.config/herdr-app/themes)
+are converted from Ghostty's, and follow the macOS appearance setting like Ghostty.
+One color differs: Herdr cannot change the text color of a selection, so the light
+theme highlights selections in light beige (`#d5c4a1`) instead of Ghostty's dark
+highlight, which would hide the dark text. Changes apply live.
+The other files in `~/.config/herdr-app` are written by Herdr and stay untracked.
+`herdr-app --skill` and `hc --skill` print manuals for coding agents.
 
 #### cmux
 
