@@ -74,6 +74,11 @@ work at GitLab and is hosted at `dnsmichi/dotfiles`.
   Credentials and GitLab, Agentic AI, Personal settings) as top-level items, and
   `####` steps nested with three spaces. `#####` sub-sections are not listed.
   Add new steps to the phase whose earlier steps they depend on.
+- `.gitlab/issue_templates/new-tool.md` and
+  `.gitlab/merge_request_templates/new-tool.md` plan and review adding a tool
+  that needs more than a `Brewfile` line, such as tracked configuration, a
+  Setup step, or a README Reference section. Keep internal discussions and
+  links out of issues and merge requests, because the project is public.
 - `.gitlab/issue_templates/new-macbook-setup.md` is the tickable checklist for
   tracking a setup in an issue. It lists all heading levels under Setup,
   including `#####` sub-sections, indented by three spaces per level. It adds

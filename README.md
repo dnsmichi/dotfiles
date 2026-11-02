@@ -867,3 +867,6 @@ Example from [June 2023](https://gitlab.com/dnsmichi/dotfiles/-/commit/f16809989
 ## Contributing to these dotfiles
 
 The main repository is hosted on GitLab.com, mirrored to GitHub.com: https://gitlab.com/dnsmichi/dotfiles
+
+To add a tool that needs more than a `Brewfile` line, [create an issue from the `new-tool` template](https://gitlab.com/dnsmichi/dotfiles/-/issues/new?issuable_template=new-tool),
+and use the `new-tool` merge request template for the changes.
