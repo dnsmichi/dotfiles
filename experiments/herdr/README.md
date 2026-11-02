@@ -20,3 +20,28 @@ Open points before using it:
    confidential ones. Tab titles stay local, but they show up in screen shares
    and screenshots, so confidential items need a title that does not reveal
    their content.
+
+## GitLab Duo CLI agent status
+
+Herdr lists a terminal as an agent only when its program reports
+[OSC 7501](https://www.superlogical.com/rex/docs/build/program-status), for
+example `ESC ]7501;state=blocked:kind=permission:app=gitlab-duo:msg=<base64> ESC \`.
+Findings so far:
+
+1. herdr-core answers the probe `OSC 7501 ; ?` with
+   `?:states=idle,working,done,blocked,error:kinds=permission,question,auth`, and
+   also accepts reports sent without the probe.
+1. A test terminal printing `state=blocked:kind=question` showed up in `hc get`,
+   and the parent agent received a "blocked (question)" notification.
+1. Duo CLI 10.0.0 does not report status yet, and its hooks offer only
+   `SessionStart`, so a hook cannot report `working` or `blocked`.
+1. [gitlab-lsp#3431](https://gitlab.com/gitlab-org/editor-extensions/gitlab-lsp/-/work_items/3431)
+   and [gitlab-lsp!4587](https://gitlab.com/gitlab-org/editor-extensions/gitlab-lsp/-/merge_requests/4587)
+   add it with `app=gitlab-duo` and a base64-encoded `msg`, written to `/dev/tty`.
+   [gitlab-lsp#3496](https://gitlab.com/gitlab-org/editor-extensions/gitlab-lsp/-/work_items/3496)
+   follows up on `blocked` for headless runs.
+1. The `gitlab-duo` entry in [programs.json](../../.config/herdr-app/programs.json)
+   gives the reported agent a name and icon, and starts it from the `+` menu.
+
+Not tested yet: a build of !4587 running inside Herdr. That needs the
+gitlab-lsp toolchain (Bun 1.4.4 through mise) and a worktree of its `osc-7501` branch.

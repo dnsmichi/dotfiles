@@ -538,7 +538,15 @@ are converted from Ghostty's, and follow the macOS appearance setting like Ghost
 One color differs: Herdr cannot change the text color of a selection, so the light
 theme highlights selections in light beige (`#d5c4a1`) instead of Ghostty's dark
 highlight, which would hide the dark text. Changes apply live.
-The other files in `~/.config/herdr-app` are written by Herdr and stay untracked.
+[.config/herdr-app/programs.json](.config/herdr-app/programs.json) adds GitLab Duo
+CLI to the `+` menu as `glab duo cli`, because the launcher does not expand the
+`duo` alias. The other files in `~/.config/herdr-app` are written by Herdr and stay untracked.
+
+Agents appear in the agents list when they report their status with
+[OSC 7501, the Program Status Protocol](https://www.superlogical.com/rex/docs/build/program-status);
+Herdr does not guess it from the screen. Claude Code reports it natively. GitLab Duo
+CLI reports it as `gitlab-duo` once [gitlab-lsp!4587](https://gitlab.com/gitlab-org/editor-extensions/gitlab-lsp/-/merge_requests/4587)
+ships. To check what a terminal reports, run `hc ls` and `hc get <terminal>`.
 `herdr-app --skill` and `hc --skill` print manuals for coding agents.
 
 #### cmux
