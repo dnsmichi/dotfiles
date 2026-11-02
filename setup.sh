@@ -91,6 +91,30 @@ ensure_managed_link() {
   ln -s "${source_path}" "${destination_path}"
 }
 
+# For apps that ignore symlinks, such as Herdr for icons.
+ensure_managed_copy() {
+  local relative_path="$1"
+  local source_path="${REPOSITORY_DIR}/${relative_path}"
+  local destination_path="${HOME}/${relative_path}"
+
+  [[ -f "${source_path}" ]] || fail "Managed copy source not found: ${source_path}"
+
+  if [[ -e "${destination_path}" || -L "${destination_path}" ]]; then
+    if [[ ! -L "${destination_path}" ]] && cmp -s -- "${source_path}" "${destination_path}"; then
+      return
+    fi
+
+    printf 'Managed copy differs from the repository: %s\n' "${destination_path}" >&2
+    printf 'Review the differences below, merge the changes into the repository if needed, then remove the local file and rerun setup.\n\n' >&2
+    diff -u -- "${source_path}" "${destination_path}" >&2 || true
+    fail "Refusing to replace ${destination_path}"
+  fi
+
+  log "Copying ${destination_path}"
+  mkdir -p "$(dirname "${destination_path}")"
+  cp -- "${source_path}" "${destination_path}"
+}
+
 link_skills() {
   local skill_file skill_name
   for skill_file in "${REPOSITORY_DIR}"/skills/*/SKILL.md; do
@@ -141,6 +165,13 @@ main() {
 
   for relative_path in "${managed_paths[@]}"; do
     ensure_managed_link "${relative_path}"
+  done
+
+  # Herdr does not load icons through symlinks, so copy them.
+  local icon_file
+  for icon_file in "${REPOSITORY_DIR}"/.config/herdr-app/my-icons/*.svg; do
+    [[ -f "${icon_file}" ]] || continue
+    ensure_managed_copy "${icon_file#"${REPOSITORY_DIR}"/}"
   done
 
   # VS Code stores user settings in macOS's Application Support directory.

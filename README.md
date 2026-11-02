@@ -540,7 +540,21 @@ theme highlights selections in light beige (`#d5c4a1`) instead of Ghostty's dark
 highlight, which would hide the dark text. Changes apply live.
 [.config/herdr-app/programs.json](.config/herdr-app/programs.json) adds GitLab Duo
 CLI to the `+` menu as `glab duo cli`, because the launcher does not expand the
-`duo` alias. The other files in `~/.config/herdr-app` are written by Herdr and stay untracked.
+`duo` alias. Its icon is the `tanuki-ai` icon from GitLab's Pajamas icon set,
+unchanged, in [.config/herdr-app/my-icons](.config/herdr-app/my-icons), because
+Herdr rewrites its own `icons/` folder. To pick another GitLab icon, see the
+[Pajamas iconography guide](https://design.gitlab.com/product-foundations/iconography)
+and fetch the SVG from [`packages/gitlab-svgs/sprite_icons/` in design.gitlab.com](https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/-/tree/main/packages/gitlab-svgs/sprite_icons),
+for example:
+
+```shell
+glab api "projects/gitlab-org%2Fgitlab-services%2Fdesign.gitlab.com/repository/files/packages%2Fgitlab-svgs%2Fsprite_icons%2Ftanuki-ai.svg/raw?ref=main" \
+  > .config/herdr-app/my-icons/gitlab-tanuki-ai.svg
+```
+
+Pajamas icons are one-colour glyphs, so use `"tint": true` with a `tile` in
+`programs.json`. Herdr does not load icons through symlinks, so `setup.sh`
+copies them instead of linking. The other files in `~/.config/herdr-app` are written by Herdr and stay untracked.
 
 Agents appear in the agents list when they report their status with
 [OSC 7501, the Program Status Protocol](https://www.superlogical.com/rex/docs/build/program-status);

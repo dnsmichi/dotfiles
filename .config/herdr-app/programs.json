@@ -2,7 +2,7 @@
   "programs": {
     "gitlab-duo": {
       "name": "GitLab Duo",
-      "icon": "icons/glab.svg",
+      "icon": "my-icons/gitlab-tanuki-ai.svg",
       "tint": true,
       "tile": "#fc6d26",
       "color": "#ffffff",
