@@ -12,6 +12,8 @@ work at GitLab and is hosted at `dnsmichi/dotfiles`.
 - `setup.sh` installs missing Brewfile dependencies and maintains links on macOS.
 - `.config/vscode/settings.json` contains the tracked VS Code user settings; `vscode/extensions.txt`
   and `vscode-extensions-install.sh` maintain the manually reviewable extension inventory.
+- `experiments/` holds untested ideas, such as Claude Code hooks for Herdr.
+  Nothing there is linked by `setup.sh` until the user promotes it.
 - `repos/groups.txt` (recursive) and `repos/projects.txt` (selected) list the
   GitLab repositories that `repo-sync.sh` clones and updates under `~/dev/work/`.
   Private projects whose paths are already publicly known, such as
