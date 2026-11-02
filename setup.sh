@@ -125,6 +125,7 @@ main() {
     .config/atuin/config.toml
     .config/cmux/cmux.json
     .config/ghostty/config.ghostty
+    .config/herdr-app/my-icons/gitlab-logomark.svg
     .config/herdr-app/programs.json
     .config/herdr-app/settings.json
     .config/herdr-app/themes/gruvbox-dark-hard.json

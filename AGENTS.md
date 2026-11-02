@@ -39,7 +39,9 @@ work at GitLab and is hosted at `dnsmichi/dotfiles`.
   app writes or replaces on every start, so link individual user-owned files
   such as `.config/herdr-app/settings.json` and the Gruvbox files in
   `.config/herdr-app/themes/`, never a whole directory. Keep the themes'
-  colors in sync with the Ghostty themes.
+  colors in sync with the Ghostty themes. Keep custom icons in
+  `.config/herdr-app/my-icons/`; for GitLab, use the official press kit files
+  unchanged, never a third-party icon set.
 - When changing Herdr settings, edit the tracked file in place: keep the app's
   format, key order, and filled-in defaults, and insert or change only the keys
   the task needs, because Herdr rewrites `settings.json` through the link.
