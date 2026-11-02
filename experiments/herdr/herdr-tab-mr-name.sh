@@ -1,4 +1,7 @@
 #!/bin/bash
+# Source: https://gitlab.com/jessieay/jessieay/-/snippets/6073662
+# Credit: Jessie Young (https://gitlab.com/jessieay), copied unchanged below.
+#
 # UserPromptSubmit hook: rename the current herdr tab to "Review <iid>" or
 # "MR <iid>" when the prompt references a GitLab MR.
 

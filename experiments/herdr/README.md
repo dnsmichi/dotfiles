@@ -5,9 +5,9 @@ Untested ideas for [Herdr](../../README.md#herdr). Nothing here is linked by
 
 ## Rename tabs after the merge request
 
-[herdr-tab-mr-name.sh](herdr-tab-mr-name.sh) is a verbatim copy of the public
-snippet [herdr auto rename hook](https://gitlab.com/jessieay/jessieay/-/snippets/6073662)
-by Jessie Young. As a Claude Code `UserPromptSubmit` hook, it renames a Herdr tab
+[herdr-tab-mr-name.sh](herdr-tab-mr-name.sh) is a copy of the public snippet
+[herdr auto rename hook](https://gitlab.com/jessieay/jessieay/-/snippets/6073662)
+by Jessie Young, unchanged apart from a header with the source and credit. As a Claude Code `UserPromptSubmit` hook, it renames a Herdr tab
 that still has its default number to `Review <iid>` or `MR <iid>` when the prompt
 references a GitLab merge request.
 

@@ -866,6 +866,7 @@ Example from [June 2023](https://gitlab.com/dnsmichi/dotfiles/-/commit/f16809989
   - [Setting examples](https://github.com/mathiasbynens/dotfiles/blob/master/.macos)
   - [macos Ventura settings](https://github.com/gretzky/dotfiles/blob/main/macos/.macos)
   - [command overview](https://github.com/herrbischoff/awesome-macos-command-line).
+- [Jessie Young](https://gitlab.com/jessieay) for the Herdr tab rename hook in [experiments/herdr](experiments/herdr/README.md)
 
 ## Contributing to these dotfiles
 
