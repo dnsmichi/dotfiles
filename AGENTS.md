@@ -41,7 +41,9 @@ work at GitLab and is hosted at `dnsmichi/dotfiles`.
   `.config/herdr-app/themes/`, never a whole directory. Keep the themes'
   colors in sync with the Ghostty themes. Keep custom icons in
   `.config/herdr-app/my-icons/`; for GitLab, use the official press kit files
-  unchanged, never a third-party icon set.
+  unchanged, never a third-party icon set. Link a new icon into
+  `~/.config/herdr-app/` before `programs.json` references it: Herdr caches a
+  missing icon for that path until it restarts.
 - When changing Herdr settings, edit the tracked file in place: keep the app's
   format, key order, and filled-in defaults, and insert or change only the keys
   the task needs, because Herdr rewrites `settings.json` through the link.

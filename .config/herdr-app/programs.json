@@ -2,7 +2,7 @@
   "programs": {
     "gitlab-duo": {
       "name": "GitLab Duo",
-      "icon": "my-icons/gitlab-logomark.svg",
+      "icon": "my-icons/gitlab-logo-500-rgb.svg",
       "tint": false,
       "run": ["glab", "duo", "cli"]
     }
