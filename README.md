@@ -527,6 +527,8 @@ and uses matching light and dark themes based on the macOS appearance setting.
 
 #### Herdr
 
+![Herdr with the Gruvbox light theme: spaces and the agents list on the left, and Claude Code running in the dotfiles space](docs/images/herdr-agents-claude-code.png)
+
 Herdr does not read the Ghostty configuration. Its tracked settings live in
 [.config/herdr-app/settings.json](.config/herdr-app/settings.json): no usage
 analytics, and a larger zoom for the panels, with the JetBrains Mono Nerd Font at a
