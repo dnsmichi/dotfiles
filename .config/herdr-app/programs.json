@@ -1,0 +1,12 @@
+{
+  "programs": {
+    "gitlab-duo": {
+      "name": "GitLab Duo",
+      "icon": "icons/glab.svg",
+      "tint": true,
+      "tile": "#fc6d26",
+      "color": "#ffffff",
+      "run": ["glab", "duo", "cli"]
+    }
+  }
+}
