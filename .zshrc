@@ -26,6 +26,3 @@ if [[ -r "${HOMEBREW_PREFIX:-/opt/homebrew}/share/zsh-syntax-highlighting/zsh-sy
   source "${HOMEBREW_PREFIX:-/opt/homebrew}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
 
-# TODO - workaround for lazyvim treesitter plugins using the wrong SDK
-# Remove when macOS 27 upgrade is here.
-export SDKROOT=/Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk
