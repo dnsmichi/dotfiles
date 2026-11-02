@@ -40,10 +40,16 @@ work at GitLab and is hosted at `dnsmichi/dotfiles`.
   such as `.config/herdr-app/settings.json` and the Gruvbox files in
   `.config/herdr-app/themes/`, never a whole directory. Keep the themes'
   colors in sync with the Ghostty themes. Keep custom icons in
-  `.config/herdr-app/my-icons/`; for GitLab, use the official press kit files
-  unchanged, never a third-party icon set. Link a new icon into
-  `~/.config/herdr-app/` before `programs.json` references it: Herdr caches a
-  missing icon for that path until it restarts.
+  `.config/herdr-app/my-icons/`; for GitLab, use the official Pajamas icons
+  unchanged, never a third-party icon set. Pick them from the
+  [Pajamas iconography guide](https://design.gitlab.com/product-foundations/iconography)
+  and fetch them from
+  [`sprite_icons/` in gitlab-svgs](https://gitlab.com/gitlab-org/gitlab-svgs/-/tree/main/sprite_icons),
+  as the README Herdr section shows. Herdr does
+  not load icons through symlinks, so `setup.sh` copies them. Put a new icon in
+  place before `programs.json` references it: Herdr caches a missing icon for
+  that path until it restarts. Herdr also fails to draw SVGs that style paths
+  with a `<style>` block, such as the press kit logos.
 - When changing Herdr settings, edit the tracked file in place: keep the app's
   format, key order, and filled-in defaults, and insert or change only the keys
   the task needs, because Herdr rewrites `settings.json` through the link.
