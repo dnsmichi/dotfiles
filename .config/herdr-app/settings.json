@@ -4,7 +4,7 @@
     "enabled": true
   },
   "font": "JetBrainsMono Nerd Font Mono",
-  "font_size": 16.0,
+  "font_size": 13.0,
   "telemetry": false,
   "minimum_contrast": 1.0,
   "theme": {

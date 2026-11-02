@@ -529,7 +529,8 @@ and uses matching light and dark themes based on the macOS appearance setting.
 
 Herdr does not read the Ghostty configuration. Its tracked settings live in
 [.config/herdr-app/settings.json](.config/herdr-app/settings.json): no usage
-analytics, the JetBrains Mono Nerd Font at the Ghostty size, and a larger zoom.
+analytics, and a larger zoom for the panels, with the JetBrains Mono Nerd Font at a
+smaller size so the terminal text matches Ghostty.
 The Gruvbox Hard themes in [.config/herdr-app/themes](.config/herdr-app/themes)
 are converted from Ghostty's, and follow the macOS appearance setting like Ghostty.
 One color differs: Herdr cannot change the text color of a selection, so the light
