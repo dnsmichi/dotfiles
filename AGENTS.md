@@ -44,7 +44,8 @@ work at GitLab and is hosted at `dnsmichi/dotfiles`.
   unchanged, never a third-party icon set. Pick them from the
   [Pajamas iconography guide](https://design.gitlab.com/product-foundations/iconography)
   and fetch them from
-  [`sprite_icons/` in gitlab-svgs](https://gitlab.com/gitlab-org/gitlab-svgs/-/tree/main/sprite_icons),
+  [`packages/gitlab-svgs/sprite_icons/` in design.gitlab.com](https://gitlab.com/gitlab-org/gitlab-services/design.gitlab.com/-/tree/main/packages/gitlab-svgs/sprite_icons)
+  (the old `gitlab-org/gitlab-svgs` project is archived),
   as the README Herdr section shows. Herdr does
   not load icons through symlinks, so `setup.sh` copies them. Put a new icon in
   place before `programs.json` references it: Herdr caches a missing icon for
