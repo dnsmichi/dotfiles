@@ -1,0 +1,7 @@
+# GitHub.com projects to clone individually, one owner/repository path per line.
+# Private projects belong in github.local.txt, which is not tracked.
+
+# Agentic AI
+herdrdev/herdr
+herdrdev/herdr-app
+herdrdev/herdr-core

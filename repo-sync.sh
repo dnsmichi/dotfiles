@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Clone and update the GitLab repository inventory: whole groups including
-# subgroups, and individually selected projects.
+# subgroups, and individually selected projects. Selected GitHub projects are
+# cloned into their own directory.
 # Safe to rerun: existing clones are fetched and fast-forwarded only when their
 # working tree is clean; local changes and diverged branches are left alone.
 
@@ -9,6 +10,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 INVENTORY_DIR="${SCRIPT_DIR}/repos"
 REPOSITORIES_DIR="${REPOSITORIES_DIR:-${HOME}/dev/work}"
+GITHUB_REPOSITORIES_DIR="${GITHUB_REPOSITORIES_DIR:-${HOME}/dev/github}"
 SHORTCUTS_DIR="${SHORTCUTS_DIR:-${HOME}/dev}"
 
 # Namespaces linked into SHORTCUTS_DIR for fast typing, as "<namespace>:<link name>",
@@ -54,7 +56,8 @@ list_group_projects() {
 }
 
 relative_path() {
-  printf '%s' "${1#"${REPOSITORIES_DIR}/"}"
+  local path="${1#"${REPOSITORIES_DIR}/"}"
+  printf '%s' "${path#"${GITHUB_REPOSITORIES_DIR}/"}"
 }
 
 clone_project() {
@@ -96,8 +99,8 @@ update_project() {
 }
 
 sync_project() {
-  local path="$1" url="$2"
-  local destination="${REPOSITORIES_DIR}/${path}"
+  local path="$1" url="$2" base_dir="${3:-${REPOSITORIES_DIR}}"
+  local destination="${base_dir}/${path}"
 
   if [[ -d "${destination}/.git" ]]; then
     update_project "${destination}" || failures+=("${path}: update failed")
@@ -148,7 +151,8 @@ main() {
     printf 'Clones or updates every group in repos/groups{,.local}.txt and every\n'
     printf 'project in repos/projects{,.local}.txt into REPOSITORIES_DIR\n'
     printf '(default: ~/dev/work), and links shortcuts such as ~/dev/da -> gitlab-da\n'
-    printf 'into SHORTCUTS_DIR (default: ~/dev).\n'
+    printf 'into SHORTCUTS_DIR (default: ~/dev). GitHub projects in\n'
+    printf 'repos/github{,.local}.txt go into GITHUB_REPOSITORIES_DIR (default: ~/dev/github).\n'
     return
   fi
 
@@ -166,6 +170,11 @@ main() {
     sync_project "${path}" "https://gitlab.com/${path}.git"
   done < <(read_inventory projects)
 
+  printf '\n==> GitHub projects\n'
+  while IFS= read -r path; do
+    sync_project "${path}" "https://github.com/${path}.git" "${GITHUB_REPOSITORIES_DIR}"
+  done < <(read_inventory github)
+
   local shortcut
   for shortcut in "${SHORTCUTS[@]}"; do
     ensure_shortcut "${shortcut}"
@@ -177,7 +186,8 @@ main() {
     exit 1
   fi
 
-  printf '\nAll repositories are up to date in %s\n' "${REPOSITORIES_DIR}"
+  printf '\nAll repositories are up to date in %s and %s\n' \
+    "${REPOSITORIES_DIR}" "${GITHUB_REPOSITORIES_DIR}"
 }
 
 main "$@"
