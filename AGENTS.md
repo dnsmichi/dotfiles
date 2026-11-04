@@ -19,6 +19,8 @@ work at GitLab and is hosted at `dnsmichi/dotfiles`.
   Private projects whose paths are already publicly known, such as
   `gitlab-com/content-sites/internal-handbook`, may be tracked. Other private
   paths go in the untracked `repos/*.local.txt` files; ask before tracking them.
+  `repos/github.txt` lists selected GitHub projects, cloned under
+  `~/dev/github/<owner>/<repository>`.
 
 ## Working rules
 
@@ -165,7 +167,8 @@ work at GitLab and is hosted at `dnsmichi/dotfiles`.
   installing packages. Run it only when explicitly requested.
 - Do not run `./repo-sync.sh` with the tracked inventory as a validation step:
   it clones many gigabytes into `~/dev/work/`. Test it from a copy with a small
-  `repos/` inventory and `REPOSITORIES_DIR` set to a temporary directory.
+  `repos/` inventory, and `REPOSITORIES_DIR` and `GITHUB_REPOSITORIES_DIR` set
+  to temporary directories.
 
 ## Local conventions
 

@@ -242,6 +242,10 @@ Then clone the GitLab groups and projects:
   including subgroups. Archived projects and projects shared from other groups are skipped.
 - [repos/projects.txt](repos/projects.txt): individually selected projects.
 
+Selected GitHub projects in [repos/github.txt](repos/github.txt), such as Herdr,
+go into `~/dev/github/<owner>/<repository>` over HTTPS. Set
+`GITHUB_REPOSITORIES_DIR` to clone them somewhere else.
+
 For fast typing, the script also links `~/dev/da` to `~/dev/work/gitlab-da`
 for Developer Advocacy work. Shortcuts are listed in `SHORTCUTS` at the top
 of the script; existing folders or other links at that path are reported, never replaced.
@@ -251,8 +255,9 @@ their working tree is clean; repositories with local changes or diverged branche
 are reported and left alone. Set `REPOSITORIES_DIR` to clone somewhere else.
 
 Private projects whose paths are already publicly known can stay in the tracked
-lists. Keep other private or confidential paths in `repos/groups.local.txt` and
-`repos/projects.local.txt`, which use the same format and are not tracked.
+lists. Keep other private or confidential paths in `repos/groups.local.txt`,
+`repos/projects.local.txt`, and `repos/github.local.txt`, which use the same
+format and are not tracked.
 
 ### Agentic AI
 
