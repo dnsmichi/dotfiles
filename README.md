@@ -43,7 +43,7 @@ A quick overview to pick what is interesting for your own setup. Each area links
   signing, and API keys, so no secrets live on disk.
 - **GitLab workflow**: the GitLab CLI and [repo-sync.sh](#gitlab-cli-and-repositories),
   which clones your groups and projects in one go.
-- **Agentic AI**: [GitLab Duo, Claude, and Glean](#agentic-ai). Shared agent skills and
+- **Agentic AI**: [GitLab Duo, Claude, and Glean](#agentic-ai). Shared [agent skills](#agent-skills) and
   [global agent instructions](#global-agent-instructions) are linked into each tool,
   and [AGENTS.md](AGENTS.md) documents this repository's rules
   for coding agents.
@@ -650,6 +650,17 @@ Edit the file in this repository, not through a link; every tool picks up the
 change in its next session. Keep it public-safe and general: project rules
 belong in each project's `AGENTS.md`, like [AGENTS.md](AGENTS.md) for this
 repository.
+
+### Agent skills
+
+[skills/](skills/) holds public, reusable agent skills. `setup.sh` links each one
+for Claude Code, Codex, and GitLab Duo.
+
+| Skill | Purpose |
+|-------|---------|
+| [correctness-guard](skills/correctness-guard/SKILL.md) | Fact-first, uncertainty-aware answers for evidence-sensitive tasks |
+| [screenshot-redaction](skills/screenshot-redaction/SKILL.md) | Cover personal data in screenshots with solid ImageMagick boxes before sharing |
+| [tone-of-voice](skills/tone-of-voice/SKILL.md) | Michael's writing voice for posts, talks, and documentation |
 
 ### Retrieve secrets with 1Password CLI
 
