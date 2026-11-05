@@ -163,8 +163,8 @@ The script:
    `~/.agents/skills/`, and `~/.gitlab/duo/skills/` for Claude Code, Codex, and
    GitLab Duo.
 1. Links the [global agent instructions](#global-agent-instructions) in
-   [.agents/AGENTS.md](.agents/AGENTS.md) into `~/.agents/AGENTS.md` and
-   `~/.claude/CLAUDE.md`.
+   [.agents/AGENTS.md](.agents/AGENTS.md) into `~/.agents/AGENTS.md`,
+   `~/.claude/CLAUDE.md`, `~/.codex/AGENTS.md`, and `~/.gitlab/duo/AGENTS.md`.
 
 `setup.sh` is safe to rerun. It does not modify macOS defaults. If a link has
 been replaced with a regular file, the script stops and shows a recursive diff
@@ -638,7 +638,14 @@ Light Modern and Dark Modern themes.
 coding agent follows in every project, such as asking before remote mutations.
 
 The file is linked to `~/.agents/AGENTS.md`, the shared location that
-already holds the linked skills, and to `~/.claude/CLAUDE.md` for Claude Code.
+already holds the linked skills, and to each tool's global instructions file:
+
+| Tool | Global instructions |
+|------|---------------------|
+| Claude Code | `~/.claude/CLAUDE.md` |
+| Codex | [`~/.codex/AGENTS.md`](https://learn.chatgpt.com/docs/agent-configuration/agents-md), unless `CODEX_HOME` is set; `AGENTS.override.md` takes precedence |
+| GitLab Duo CLI | [`~/.gitlab/duo/AGENTS.md`](https://docs.gitlab.com/user/duo_agent_platform/customize/agents_md/), unless `GLAB_CONFIG_DIR` or `XDG_CONFIG_HOME` is set |
+
 Edit the file in this repository, not through a link; every tool picks up the
 change in its next session. Keep it public-safe and general: project rules
 belong in each project's `AGENTS.md`, like [AGENTS.md](AGENTS.md) for this

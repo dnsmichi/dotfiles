@@ -175,8 +175,10 @@ main() {
     ensure_managed_copy "${icon_file#"${REPOSITORY_DIR}"/}"
   done
 
-  # Claude Code reads its global instructions from its own directory.
+  # Claude Code, Codex, and GitLab Duo read global instructions from their own directories.
   ensure_managed_link .agents/AGENTS.md "${HOME}/.claude/CLAUDE.md"
+  ensure_managed_link .agents/AGENTS.md "${HOME}/.codex/AGENTS.md"
+  ensure_managed_link .agents/AGENTS.md "${HOME}/.gitlab/duo/AGENTS.md"
 
   # VS Code stores user settings in macOS's Application Support directory.
   ensure_managed_link \

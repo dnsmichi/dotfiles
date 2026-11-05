@@ -13,9 +13,9 @@ work at GitLab and is hosted at `dnsmichi/dotfiles`.
 - `.config/vscode/settings.json` contains the tracked VS Code user settings; `vscode/extensions.txt`
   and `vscode-extensions-install.sh` maintain the manually reviewable extension inventory.
 - `.agents/AGENTS.md` holds the global instructions for coding agents on this
-  workstation. `setup.sh` links it to `~/.agents/AGENTS.md` and
-  `~/.claude/CLAUDE.md`. It is not this repository's instructions; those are
-  in this file.
+  workstation. `setup.sh` links it to `~/.agents/AGENTS.md`,
+  `~/.claude/CLAUDE.md`, `~/.codex/AGENTS.md`, and `~/.gitlab/duo/AGENTS.md`.
+  It is not this repository's instructions; those are in this file.
 - `experiments/` holds untested ideas, such as Claude Code hooks for Herdr.
   Nothing there is linked by `setup.sh` until the user promotes it.
 - `repos/groups.txt` (recursive) and `repos/projects.txt` (selected) list the
