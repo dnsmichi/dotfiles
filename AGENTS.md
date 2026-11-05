@@ -12,6 +12,10 @@ work at GitLab and is hosted at `dnsmichi/dotfiles`.
 - `setup.sh` installs missing Brewfile dependencies and maintains links on macOS.
 - `.config/vscode/settings.json` contains the tracked VS Code user settings; `vscode/extensions.txt`
   and `vscode-extensions-install.sh` maintain the manually reviewable extension inventory.
+- `.agents/AGENTS.md` holds the global instructions for coding agents on this
+  workstation. `setup.sh` links it to `~/.agents/AGENTS.md`,
+  `~/.claude/CLAUDE.md`, `~/.codex/AGENTS.md`, and `~/.gitlab/duo/AGENTS.md`.
+  It is not this repository's instructions; those are in this file.
 - `experiments/` holds untested ideas, such as Claude Code hooks for Herdr.
   Nothing there is linked by `setup.sh` until the user promotes it.
 - `repos/groups.txt` (recursive) and `repos/projects.txt` (selected) list the
@@ -29,6 +33,11 @@ work at GitLab and is hosted at `dnsmichi/dotfiles`.
   not intended for public sharing.
 - Use local, untracked configuration for machine-specific or confidential
   values. Commit sanitized examples only when they are useful.
+- Keep `.agents/AGENTS.md` to public-safe, general working preferences that
+  apply to every project. Project rules belong in that project's `AGENTS.md`.
+  Keep it plain Markdown without tool-specific syntax, because every agent
+  reads it. Change it only when the user asks, edit the repository file rather
+  than the link, and show the diff.
 - Keep the setup small. Add a dependency, configuration layer, or automation
   only for a demonstrated need, and document why it exists.
 - Preserve the current learning sequence: Ghostty and tmux, then Starship,
