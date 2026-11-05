@@ -12,3 +12,7 @@
 - Do not commit or push unless explicitly requested.
 - Always print full clickable URLs for merge requests, issues, and work items in replies, not only short references like `!362`.
 - Use numbered lists instead of bullets for findings, options, and open items in replies, so they can be referenced by number.
+
+## Working across projects
+
+- For linting, formatting, and tests, use the commands the project documents. When the project defines containers for them, such as services in `compose.yml` or a Makefile target that runs them, prefer those over installing tools on the host, so versions match CI. Do not start other containers or mount paths outside the project.
