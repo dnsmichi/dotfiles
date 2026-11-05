@@ -139,6 +139,7 @@ main() {
   # Managed symlinks. Each path is relative to both the repository and HOME.
   local relative_path
   local managed_paths=(
+    .agents/AGENTS.md
     .zprofile
     .zshrc
     .gitconfig
@@ -173,6 +174,9 @@ main() {
     [[ -f "${icon_file}" ]] || continue
     ensure_managed_copy "${icon_file#"${REPOSITORY_DIR}"/}"
   done
+
+  # Claude Code reads its global instructions from its own directory.
+  ensure_managed_link .agents/AGENTS.md "${HOME}/.claude/CLAUDE.md"
 
   # VS Code stores user settings in macOS's Application Support directory.
   ensure_managed_link \

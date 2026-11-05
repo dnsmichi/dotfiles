@@ -43,8 +43,9 @@ A quick overview to pick what is interesting for your own setup. Each area links
   signing, and API keys, so no secrets live on disk.
 - **GitLab workflow**: the GitLab CLI and [repo-sync.sh](#gitlab-cli-and-repositories),
   which clones your groups and projects in one go.
-- **Agentic AI**: [GitLab Duo, Claude, and Glean](#agentic-ai). Shared agent skills are
-  linked into each tool, and [AGENTS.md](AGENTS.md) documents this repository's rules
+- **Agentic AI**: [GitLab Duo, Claude, and Glean](#agentic-ai). Shared agent skills and
+  [global agent instructions](#global-agent-instructions) are linked into each tool,
+  and [AGENTS.md](AGENTS.md) documents this repository's rules
   for coding agents.
 - **Languages and tools**: [mise](#install-languages-with-mise) for Node.js, Python,
   Ruby, Go, Rust, and Java with Maven, and Homebrew for everything else in the [Brewfile](Brewfile).
@@ -161,6 +162,9 @@ The script:
 1. Links each agentic skill under [skills/](skills/) into `~/.claude/skills/`,
    `~/.agents/skills/`, and `~/.gitlab/duo/skills/` for Claude Code, Codex, and
    GitLab Duo.
+1. Links the [global agent instructions](#global-agent-instructions) in
+   [.agents/AGENTS.md](.agents/AGENTS.md) into `~/.agents/AGENTS.md` and
+   `~/.claude/CLAUDE.md`.
 
 `setup.sh` is safe to rerun. It does not modify macOS defaults. If a link has
 been replaced with a regular file, the script stops and shows a recursive diff
@@ -628,6 +632,18 @@ VS Code user settings are tracked in [.config/vscode/settings.json](.config/vsco
 The editor follows macOS light and dark appearance automatically, using the built-in
 Light Modern and Dark Modern themes.
 
+### Global agent instructions
+
+[.agents/AGENTS.md](.agents/AGENTS.md) holds the working preferences that every
+coding agent follows in every project, such as asking before remote mutations.
+
+The file is linked to `~/.agents/AGENTS.md`, the shared location that
+already holds the linked skills, and to `~/.claude/CLAUDE.md` for Claude Code.
+Edit the file in this repository, not through a link; every tool picks up the
+change in its next session. Keep it public-safe and general: project rules
+belong in each project's `AGENTS.md`, like [AGENTS.md](AGENTS.md) for this
+repository.
+
 ### Retrieve secrets with 1Password CLI
 
 Secrets are addressed with references in the format `op://<vault>/<item>/<field>`.
@@ -680,7 +696,8 @@ and [1Password for credentials/SSH keys](https://www.1password.dev/ssh/manage-ke
 
 Keep personal `.codex`, `.claude`, etc. agentic AI tools configuration in the home
 directory and private backups. Do not symlink these configurations into this
-public repository. Public, reusable skills can be linked from `skills/`.
+public repository. Public, reusable skills can be linked from `skills/`, and the
+public-safe [global agent instructions](#global-agent-instructions) from `.agents/AGENTS.md`.
 
 Close applications that write to these directories before copying. Run this
 from the home directory, adjusting the source list for files that exist on the
