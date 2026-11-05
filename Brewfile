@@ -4,8 +4,7 @@
 # cmux is installed from its DMG and updates itself with Sparkle.
 
 # Launcher
-tap "abue-ammar/tinycast", trusted: true
-cask "abue-ammar/tinycast/tinycast", trusted: true
+cask "tinycast"
 
 # Version control and GitLab
 brew "git"
