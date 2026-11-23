@@ -8,6 +8,19 @@ set -euo pipefail
 readonly REPOSITORY_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 readonly BREWFILE="${REPOSITORY_DIR}/Brewfile"
 readonly BREW_INSTALL_PREFIX="/opt/homebrew"
+# Same path as repo-sync.sh, which keeps the clone up to date.
+readonly GITLAB_AI_SKILLS_DIR="${HOME}/dev/work/gitlab-org/ai/skills"
+readonly GITLAB_AI_SKILLS_URL="https://gitlab.com/gitlab-org/ai/skills.git"
+
+# Skills linked from the gitlab-org/ai/skills clone, unchanged.
+readonly GITLAB_AI_SKILLS=(
+  glab
+  gitlab-pipeline-watch
+  gitlab-babysit-mr
+  handoff
+  gitlab-docs-change
+  gitlab-docs-review
+)
 
 log() {
   printf '\n==> %s\n' "$*"
@@ -60,8 +73,11 @@ apply_privacy_defaults() {
 
 ensure_managed_link() {
   local relative_path="$1"
-  local source_path="${REPOSITORY_DIR}/${relative_path}"
-  local destination_path="${2:-${HOME}/${relative_path}}"
+  ensure_link "${REPOSITORY_DIR}/${relative_path}" "${2:-${HOME}/${relative_path}}"
+}
+
+ensure_link() {
+  local source_path="$1" destination_path="$2"
 
   [[ -e "${source_path}" ]] || fail "Managed config source not found: ${source_path}"
 
@@ -129,6 +145,30 @@ link_skills() {
   done
 }
 
+# Clones gitlab-org/ai/skills when missing. The project is public, so this works
+# before glab is authenticated; repo-sync.sh updates it later.
+ensure_gitlab_ai_skills() {
+  if [[ -d "${GITLAB_AI_SKILLS_DIR}/.git" ]]; then
+    return
+  fi
+  [[ -e "${GITLAB_AI_SKILLS_DIR}" ]] &&
+    fail "${GITLAB_AI_SKILLS_DIR} exists but is not a Git repository"
+
+  log "Cloning gitlab-org/ai/skills into ${GITLAB_AI_SKILLS_DIR}"
+  mkdir -p "$(dirname "${GITLAB_AI_SKILLS_DIR}")"
+  git clone --quiet "${GITLAB_AI_SKILLS_URL}" "${GITLAB_AI_SKILLS_DIR}"
+}
+
+link_gitlab_ai_skills() {
+  local skill_name source_path
+  for skill_name in "${GITLAB_AI_SKILLS[@]}"; do
+    source_path="${GITLAB_AI_SKILLS_DIR}/skills/${skill_name}"
+    ensure_link "${source_path}" "${HOME}/.claude/skills/${skill_name}"
+    ensure_link "${source_path}" "${HOME}/.agents/skills/${skill_name}"
+    ensure_link "${source_path}" "${HOME}/.gitlab/duo/skills/${skill_name}"
+  done
+}
+
 main() {
   require_macos
   require_command_line_tools
@@ -186,6 +226,8 @@ main() {
     "${HOME}/Library/Application Support/Code/User/settings.json"
 
   link_skills
+  ensure_gitlab_ai_skills
+  link_gitlab_ai_skills
 
   log "Bootstrap complete"
   printf 'Open a new terminal, then run: brew doctor\n'

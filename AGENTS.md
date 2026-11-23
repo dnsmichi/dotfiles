@@ -16,6 +16,9 @@ work at GitLab and is hosted at `dnsmichi/dotfiles`.
   workstation. `setup.sh` links it to `~/.agents/AGENTS.md`,
   `~/.claude/CLAUDE.md`, `~/.codex/AGENTS.md`, and `~/.gitlab/duo/AGENTS.md`.
   It is not this repository's instructions; those are in this file.
+- `skills/` holds this repository's agent skills. `setup.sh` also clones the
+  public `gitlab-org/ai/skills` and links the skills in `GITLAB_AI_SKILLS`
+  unchanged; adapt one by copying it into `skills/` instead of editing the clone.
 - `experiments/` holds untested ideas, such as Claude Code hooks for Herdr.
   Nothing there is linked by `setup.sh` until the user promotes it.
 - `repos/groups.txt` (recursive) and `repos/projects.txt` (selected) list the

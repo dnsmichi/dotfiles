@@ -162,6 +162,9 @@ The script:
 1. Links each agentic skill under [skills/](skills/) into `~/.claude/skills/`,
    `~/.agents/skills/`, and `~/.gitlab/duo/skills/` for Claude Code, Codex, and
    GitLab Duo.
+1. Clones the public [gitlab-org/ai/skills](https://gitlab.com/gitlab-org/ai/skills)
+   into `~/dev/work/gitlab-org/ai/skills` when it is missing, and links the
+   [selected upstream skills](#agent-skills) into the same three directories.
 1. Links the [global agent instructions](#global-agent-instructions) in
    [.agents/AGENTS.md](.agents/AGENTS.md) into `~/.agents/AGENTS.md`,
    `~/.claude/CLAUDE.md`, `~/.codex/AGENTS.md`, and `~/.gitlab/duo/AGENTS.md`.
@@ -661,6 +664,23 @@ for Claude Code, Codex, and GitLab Duo.
 | [correctness-guard](skills/correctness-guard/SKILL.md) | Fact-first, uncertainty-aware answers for evidence-sensitive tasks |
 | [screenshot-redaction](skills/screenshot-redaction/SKILL.md) | Cover personal data in screenshots with solid ImageMagick boxes before sharing |
 | [tone-of-voice](skills/tone-of-voice/SKILL.md) | Michael's writing voice for posts, talks, and documentation |
+
+`setup.sh` also links these skills unchanged from the
+[gitlab-org/ai/skills](https://gitlab.com/gitlab-org/ai/skills) clone, listed in
+`GITLAB_AI_SKILLS` at the top of the script. [repo-sync.sh](#gitlab-cli-and-repositories)
+keeps the clone up to date, so the skills update with it:
+
+| Skill | Purpose |
+|-------|---------|
+| [glab](https://gitlab.com/gitlab-org/ai/skills/-/tree/main/skills/glab) | GitLab CLI workflows for merge requests, issues, pipelines, and the API |
+| [gitlab-pipeline-watch](https://gitlab.com/gitlab-org/ai/skills/-/tree/main/skills/gitlab-pipeline-watch) | Watch merge request pipelines and react to state changes |
+| [gitlab-babysit-mr](https://gitlab.com/gitlab-org/ai/skills/-/tree/main/skills/gitlab-babysit-mr) | Keep a merge request pipeline green: classify failures, retry, and light fixes |
+| [handoff](https://gitlab.com/gitlab-org/ai/skills/-/tree/main/skills/handoff) | Compact a session into a handoff document for a fresh agent |
+| [gitlab-docs-change](https://gitlab.com/gitlab-org/ai/skills/-/tree/main/skills/gitlab-docs-change) | Plan, write, and open a GitLab documentation change |
+| [gitlab-docs-review](https://gitlab.com/gitlab-org/ai/skills/-/tree/main/skills/gitlab-docs-review) | Review a GitLab documentation change like a technical writer |
+
+To adapt an upstream skill, copy it into [skills/](skills/), remove it from
+`GITLAB_AI_SKILLS`, delete its three old links, and rerun `setup.sh`.
 
 ### Retrieve secrets with 1Password CLI
 
