@@ -8,6 +8,7 @@
 - Prefer `rg` and `rg --files` for searching.
 - Prefer `cut`/`rg` over `awk` for plain field extraction; use `awk` only when you need a condition or a computed field.
 - Ask before destructive actions, dependency installation, publishing, or remote mutations.
+- Never copy content from confidential issues, epics, or internal documents into public places, such as public repositories, MR descriptions, commits, or comments on public issues. Linking a confidential URL is fine; paraphrasing or quoting what it says is not. Ask if unsure whether something is public.
 - Verify changes with the smallest relevant build, test, lint, or type-check command.
 - Do not commit or push unless explicitly requested.
 - Always print full clickable URLs for merge requests, issues, and work items in replies, not only short references like `!362`.
